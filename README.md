@@ -26,7 +26,7 @@ Sistem Informasi Penyuluhan Kesehatan Masyarakat Berbasis Web untuk Meningkatkan
   - Download template excel
 
 ## Mockup
-[![png](<https://github.com/winklesen/depok-sehat/mockup/v1.png?raw=true>)](png)
+[![png](<https://raw.githubusercontent.com/winklesen/depok-sehat/master/mockup/v1.png>)]
 
 
 
