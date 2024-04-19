@@ -1,5 +1,6 @@
 <?php
 
+// TODO : masih blm diapa apain ini
 class Autentifikasi extends CI_Controller
 {
     public function index()
