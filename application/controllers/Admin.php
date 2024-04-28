@@ -14,7 +14,15 @@ class Admin extends CI_Controller
 	{
 		$data['judul'] = 'Dashboard';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-
+		
+		// Ubah role dari angka 2 menjadi 'admin'
+		if ($data['user']['role_id'] == 2) {
+			$data['user']['role_id'] = 'Admin';
+		} else {
+			$data ['user']['role_id'] = 'Petugas';
+		}
+				
+		
 
 		// ============================================
 		// KODINGAN CONTEKAN (SABEB RUBAH AJA)
