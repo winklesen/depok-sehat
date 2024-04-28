@@ -12,11 +12,7 @@ class ModelPasien extends CI_Model
     }
     public function simpanPasien($data = null)
     {
-        $this->db->insert('pasien', $data);
-    }
-    public function updatePasien($data = null, $where = null)
-    {
-        $this->db->update('pasien', $data, $where);
+        return $this->db->insert('pasien', $data);
     }
     public function hapusPasien($where = null)
     {
@@ -34,7 +30,31 @@ class ModelPasien extends CI_Model
 
     public function getPasienLimit()
     {
-        $this->db->limit(15);
-        return $this->db->get('pasien');
-    }   
+        $this->db->select('pasien.*, kecamatan.nama_kecamatan');
+        $this->db->from('pasien');
+        $this->db->join('kecamatan', 'pasien.id_kecamatan = kecamatan.id_kecamatan');
+        $this->db->limit(15); // Batasan 15 entri
+        return $this->db->get()->result_array();
+    }
+
+    // Mendapatkan data pasien berdasarkan ID pasien beserta informasi nama kecamatan
+    public function getPasienById($id_pasien)
+    {
+        $this->db->select('pasien.*, kecamatan.nama_kecamatan');
+        $this->db->from('pasien');
+        $this->db->join('kecamatan', 'pasien.id_kecamatan = kecamatan.id_kecamatan');
+        $this->db->where('pasien.id_pasien', $id_pasien);
+        return $this->db->get()->row_array();
+    }
+
+    public function getAllKecamatan()
+    {
+        return $this->db->get('kecamatan')->result_array();
+    }
+
+    public function updatePasien($id_pasien, $data)
+    {
+        $this->db->where('id_pasien', $id_pasien);
+        return $this->db->update('pasien', $data);
+    }
 }
