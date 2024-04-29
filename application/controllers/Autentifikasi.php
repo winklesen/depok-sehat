@@ -8,17 +8,18 @@ class Autentifikasi extends CI_Controller
         //jika statusnya sudah login, maka tidak bisa mengakses
         //halaman login alias dikembalikan ke tampilan user
         if ($this->session->userdata('email')) {
-            redirect('user');
+            redirect('admin');
         }
 
 
         // Set method Validation untuk form
-        $this->form_validation->set_rules('email', 'Alamat Email',
+        $this->form_validation->set_rules('user_email', 'email',
             'required|trim|valid_email', [
-            'required' => 'Email Harus diisi!!',
-            'valid_email' => 'Email Tidak Benar!!'
+            'required' => 'Anda Belum Memasukkan Alamat Email!',
+            'valid_email' => 'Email yang Anda Masukkan Salah atau Belum Terdaftar'
         ]);
-        $this->form_validation->set_rules('password', 'Password',
+
+        $this->form_validation->set_rules('user_password', 'Password',
             'required|trim', [
             'required' => 'Password Harus diisi'
         ]);
@@ -30,9 +31,9 @@ class Autentifikasi extends CI_Controller
 
             //kata 'login' merupakan nilai dari variabel judul dalam
             //array $data dikirimkan ke view aute_header
-            $this->load->view('templates/aute_header', $data);
+            $this->load->view('templates/auth/auth_header', $data);
             $this->load->view('autentifikasi/login');
-            $this->load->view('templates/aute_footer');
+            $this->load->view('templates/auth/auth_footer');
         }
         else {
             $this->_login();
@@ -41,14 +42,15 @@ class Autentifikasi extends CI_Controller
 
     private function _login()
     {
-        $email = htmlspecialchars($this->input->post('email', true));
-        $password = $this->input->post('password', true);
+        $email = htmlspecialchars($this->input->post('user_email', true));
+        $password = $this->input->post('user_password', true);
         $user = $this->ModelUser->cekData(['email' => $email])->row_array();
 
         //jika usernya ada (exist)
         if ($user) {
             //jika user sudah aktif
-            if ($user['is_active'] == 1) {
+            // if ($user['is_active'] == 1) 
+            // {
 
                 //cek password
                 if (password_verify($password, $user['password'])) {
@@ -58,15 +60,15 @@ class Autentifikasi extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
 
-                    if ($user['role_id'] == 1)
+                    if ($user['role_id'] == 1 || $user['role_id'] == 2)  {
                         redirect('admin');
-                    else {
+                    } else {
                         if ($user['image'] == 'default.jpg') {
                             $this->session->set_flashdata('pesan',
                                 '<div class="alert alert-info alert-message" role="alert">Silahkan Ubah Profile Anda untuk Ubah Photo Profil</div>');
                         }
 
-                        redirect('user');
+                        redirect('admin');
                     }
                 }
                 else {
@@ -74,11 +76,11 @@ class Autentifikasi extends CI_Controller
                     redirect('autentifikasi');
                 }
 
-            }
-            else {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">User belum diaktifasi!!</div>');
-                redirect('autentifikasi');
-            }
+            // }
+            // else {
+            //     $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">User belum diaktifasi!!</div>');
+            //     redirect('autentifikasi');
+            // }
         }
         else {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Email tidak terdaftar!!</div>');
@@ -106,7 +108,7 @@ class Autentifikasi extends CI_Controller
         //dengan membuat pesan error dengan
         //bahasa sendiri yaitu 'Nama Belum diisi'
         $this->form_validation->set_rules(
-            'nama',
+            'user_nama',
             'Nama Lengkap',
             'required', [
             'required' => 'Nama Belum diisi!!'
@@ -121,7 +123,7 @@ class Autentifikasi extends CI_Controller
         //yang diinput sudah dipakai user lain,
         //maka pesannya 'Email Sudah dipakai'
         $this->form_validation->set_rules(
-            'email',
+            'user_email',
             'Alamat Email',
             'required|trim|valid_email|is_unique[user.email]', [
             'valid_email' => 'Email Tidak Benar!!',
@@ -138,17 +140,17 @@ class Autentifikasi extends CI_Controller
         //digit, maka pesannya adalah
         //'Password Terlalu Pendek'.
         $this->form_validation->set_rules(
-            'password1',
+            'user_password1',
             'Password',
-            'required|trim|min_length[3]|matches[password2]', [
+            'required|trim|min_length[3]|matches[user_password2]', [
             'matches' => 'Password Tidak Sama!!',
             'required' => 'Password Harus diisi',
             'min_length' => 'Password Terlalu Pendek'
         ]);
         $this->form_validation->set_rules(
-            'password2',
+            'user_password2',
             'RepeatPassword',
-            'required|trim|matches[password1]', [
+            'required|trim|matches[user_password1]', [
             'matches' => 'Password Tidak Sama!!',
             'required' => 'Password Harus diisi',
             'min_length' => 'Password Terlalu Pendek'
@@ -156,25 +158,25 @@ class Autentifikasi extends CI_Controller
         );
         //jika jida disubmit kemudian validasi form diatas tidak
         //berjalan, maka akan tetap berada di
-        //tampilan registrasi. tapi jika disubmit kemudian validasi
+        //tampilan registrasi. tapi jika disubmit kemudian val   about_contentidasi
         //form diatas berjalan, maka data yang
         //diinput akan disimpan ke dalam tabel user
         if ($this->form_validation->run() == false) {
             $data['judul'] = 'Registrasi Member';
-            $this->load->view('templates/aute_header', $data);
+            $this->load->view('templates/auth/auth_header', $data);
             $this->load->view('autentifikasi/registrasi');
-            $this->load->view('templates/aute_footer');
+            $this->load->view('templates/auth/auth_footer');
         }
         else {
-            $email = $this->input->post('email', true);
+            $email = $this->input->post('user_email', true);
             $data = [
-                'nama' => htmlspecialchars($this->input->post('nama', true)),
+                'nama' => htmlspecialchars($this->input->post('user_nama', true)),
                 'email' => htmlspecialchars($email),
-                'image' => 'default.jpg',
-                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                // 'image' => 'default.jpg',
+                'password' => password_hash($this->input->post('user_password1'), PASSWORD_DEFAULT),
                 'role_id' => 2,
-                'is_active' => 1,
-                'tanggal_input' => time()
+                // 'is_active' => 1,
+                'created_at' => date('Y-m-d H:i:s')
             ];
             $this->ModelUser->simpanData($data); //menggunakan model
 
