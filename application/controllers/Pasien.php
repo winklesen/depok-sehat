@@ -33,7 +33,8 @@ class Pasien extends CI_Controller
 	}
 
 	public function tambahPasien() {
-		$data['judul'] = 'Pasien';
+		$data['judul'] = 'Tambah Pasien';
+		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['list_kecamatan'] = $this->ModelPasien->getAllKecamatan();
 
 		$this->load->view('templates/admin/header', $data);
@@ -68,9 +69,11 @@ class Pasien extends CI_Controller
 	}
 
 	public function editpasien($id) {
-		$data['judul'] = 'Pasien';
+		$data['judul'] = 'Edit Pasien';
+		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['pasien'] = $this->ModelPasien->getPasienById($id);
 		$data['list_kecamatan'] = $this->ModelPasien->getAllKecamatan();
+
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
