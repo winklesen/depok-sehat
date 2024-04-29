@@ -13,6 +13,9 @@ class Home extends CI_Controller
         // TODO di Akhir (Hard)
 		// - Desain sesuai mockup
 		// - Tampil data sesuai mockup		
-		$this->load->view('home/index');		
+        $this->load->view('templates/user/header');
+		$this->load->view('home/index');	
+        $this->load->view('templates/user/footer');
+        
     }
 }

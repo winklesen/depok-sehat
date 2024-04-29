@@ -1,39 +1,4 @@
-<!-- 
 
-BLM RAPIH, blm templating
- -->
-
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8">
-
-    <!--====== Title ======-->
-    <title>Depok Sehat</title>
-
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="<?= base_url('assets/template_landing'); ?>/images/favicon.png" type="image/png">
-
-    <!--====== Slick CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/animate.css">
-
-    <!--====== LineIcons CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/lineicons.css">
-
-    <!--====== Bootstrap CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/bootstrap.min.css">
-
-    <!--====== Default CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/default.css">
-
-    <!--====== Style CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/style.css">
-
-</head>
 
 <body>
     <!--[if IE]>
@@ -391,9 +356,9 @@ BLM RAPIH, blm templating
 
     <!--====== CALL TO ACTION PART ENDS ======-->
 
-    <!--====== FOOTER PART START ======-->
+    <!-- ====== FOOTER PART START ======-->
 
-    <footer id="footer" class="footer_area gray-bg pt-115 pb-120">
+    <!-- <footer id="footer" class="footer_area gray-bg pt-115 pb-120">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -419,9 +384,9 @@ BLM RAPIH, blm templating
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
-    </footer>
+    </footer> -->
 
-    <!--====== FOOTER PART ENDS ======-->
+    <!--====== FOOTER PART ENDS ====== -->
 
     <!--====== PART START ======-->
 
