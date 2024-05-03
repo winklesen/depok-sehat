@@ -51,7 +51,7 @@
                                 <?php } ?>
                             </tbody> -->
                             <tbody>
-                                <?= $this->session->flashdata('datanotfound'); ?>
+                                <p></p>
                                 <?php if (isset($search_pasien)) {
                                     foreach ($search_pasien as $key => $s) { ?>
                                         <tr>
@@ -63,7 +63,7 @@
                                             <td><?= $s['info_kontak'] ?></td>
                                             <td><?= $s['nama_kecamatan'] ?></td>
                                             <td>
-                                                <a href="<?= base_url('pasien/editpasien/' . $p['id_pasien']) ?>"
+                                                <a href="<?= base_url('pasien/editpasien/' . $s['id_pasien']) ?>"
                                                     class="btn btn-primary">Edit</a>
                                             </td>
                                         </tr>

@@ -113,7 +113,6 @@ public function searchPasien() {
         
 	// Ahmad Search
 	// Mengambil kata kunci pencarian dari form
-	cek_login(1);
 	$data['judul'] = 'Data Pasien';
 
 	$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
@@ -127,8 +126,6 @@ public function searchPasien() {
 	if (empty($data['search_pasien'])) {
 	// Jika kosong, atur pesan yang akan ditampilkan
 		$data['search_message'] = 'Data tidak ditemukan.';
-		$this->session->set_flashdata('datanotfound', '<div class="alert alert-danger alert-message" role="alert">Data tidak ditemukan</div>');
-                    redirect('pasien/index');
 	}
 
 	// Bila route diakses dengan TIDAK membawa parameter        

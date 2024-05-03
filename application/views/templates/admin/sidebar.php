@@ -26,6 +26,12 @@
     </a>
   </li>
   <li class="nav-item">
+    <a class="nav-link collapsed" href="<?= base_url('kecamatan'); ?>">
+      <i class="bi bi-grid"></i>
+      <span>Kecamatan</span>
+    </a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link collapsed" href="<?= base_url('user/master'); ?>">
       <i class="bi bi-grid"></i>
       <span>Pengguna</span>
