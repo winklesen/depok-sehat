@@ -103,12 +103,12 @@ class Kecamatan extends CI_Controller
 		}
 	}
 
-    public function hapusKecamatan()
-    {
-        $where = ['id_kecamatan' => $this->uri->segment(3)];
-        $this->ModelKecamatan->hapusKecamatan($where);
-        redirect('kecamatan');
-    }
+    // public function hapusKecamatan()
+    // {
+    //     $where = ['id_kecamatan' => $this->uri->segment(3)];
+    //     $this->ModelKecamatan->hapusKecamatan($where);
+    //     redirect('kecamatan');
+    // }
 
 	public function searchKecamatan() {
 			
