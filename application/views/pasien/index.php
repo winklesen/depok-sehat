@@ -13,7 +13,7 @@
                         <div class=" justify-content-between mt-3 mb-3 d-flex">
                             <a href="<?= base_url('pasien/tambahPasien') ?>" class="btn btn-success mb-2">Tambah Pasien</a>
                             <form class="d-flex" method="post" action="<?= base_url('pasien/searchpasien'); ?>">
-                                <input class="form-control mb-2" type="text" placeholder="Cari Pesanan" name="keyword">
+                                <input class="form-control mb-2" type="text" placeholder="Cari Pasien" name="keyword">
                                 <button type="submit" class="btn btn-success mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
                               
                             </form>
