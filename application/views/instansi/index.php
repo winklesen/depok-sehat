@@ -22,77 +22,72 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Position</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Start Date</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">ID Instansi/th>
+                                <th scope="col">Nama Instansi</th>
+                                <th scope="col">Tipe</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">Kontak</th>
+                                <th scope="col">Kecamatan</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Brandon Jacob</td>
-                                <td>Designer</td>
-                                <td>28</td>
-                                <td>2016-05-25</td>
-                                <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                    <a href="google.com" class="btn btn-success">Success</a>
-                                    <a href="google.com" class="btn btn-danger">Danger</a>
-                                    <a href="google.com" class="btn btn-warning">Warning</button></a>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Bridie Kessler</td>
-                                <td>Developer</td>
-                                <td>35</td>
-                                <td>2014-12-05</td>
-                                <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                    <a href="google.com" class="btn btn-success">Success</a>
-                                    <a href="google.com" class="btn btn-danger">Danger</a>
-                                    <a href="google.com" class="btn btn-warning">Warning</button></a>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Ashleigh Langosh</td>
-                                <td>Finance</td>
-                                <td>45</td>
-                                <td>2011-08-12</td>
-                                <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                    <a href="google.com" class="btn btn-success">Success</a>
-                                    <a href="google.com" class="btn btn-danger">Danger</a>
-                                    <a href="google.com" class="btn btn-warning">Warning</button></a>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Angus Grady</td>
-                                <td>HR</td>
-                                <td>34</td>
-                                <td>2012-06-11</td>
-                                <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                    <a href="google.com" class="btn btn-success">Success</a>
-                                    <a href="google.com" class="btn btn-danger">Danger</a>
-                                    <a href="google.com" class="btn btn-warning">Warning</button></a>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Raheem Lehner</td>
-                                <td>Dynamic Division Officer</td>
-                                <td>47</td>
-                                <td>2011-04-19</td>
-                                <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                    <a href="google.com" class="btn btn-success">Success</a>
-                                    <a href="google.com" class="btn btn-danger">Danger</a>
-                                    <a href="google.com" class="btn btn-warning">Warning</button></a>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- End Table with hoverable rows -->
+                        <?php foreach ($instansi as $key => $i) { ?>
+                                    <tr>
+                                        <th scope="row"><?= $key + 1 ?></th>
+                                        <td><?= $p['id_instansi'] ?></td>
+                                        <td><?= $p['nama_instansi'] ?></td>
+                                        <td><?= $p['tipe'] ?></td>
+                                        <td><?= $p['alamat'] ?></td>
+                                        <td><?= $p['kontak'] ?></td>
+                                        <td>
+                                            <a href="<?= base_url('instansi/editInstansi/' . $p['id_instansi']) ?>"
+                                                class="btn btn-primary">Edit</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                        <!-- End Table with hoverable rows -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Data Instansi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form untuk mengedit data instansi -->
+                    <form id="editForm" action="<?= base_url('instansi/update') ?>" method="post">
+                        <!-- Isi formulir dengan data instansi -->
+                        <input type="hidden" name="id_instansi" id="editid_instansi">
+                        <div class="form-group">
+                            <label for="editnama_instansi">Nama Instansi:</label>
+                            <input type="text" class="form-control" id="editnama_instansi" name="nama_instansi">
+                        </div>
+                        <div class="form-group">
+                            <label for="edittipe">Tipe:</label>
+                            <input type="text" class="form-control" id="edittipe" name="tipe">
+                        </div>
+                        <div class="form-group">
+                            <label for="editalamat">Alamat:</label>
+                            <input type="text" class="form-control" id="editalamat" name="alamat">
+                        </div>
+                        <!-- Tambahkan field lainnya sesuai dengan kebutuhan -->
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
 </main><!-- End #main -->
