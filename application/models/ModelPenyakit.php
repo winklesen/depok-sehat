@@ -10,13 +10,14 @@ class ModelPenyakit extends CI_Model
     {
         return $this->db->get_where('penyakit', $where);
     }
-    public function simpanPenyakit($data = null)
+    public function simpanPenyakit($data)
     {
         $this->db->insert('penyakit', $data);
     }
-    public function updatePenyakit($data = null, $where = null)
+    public function updatePenyakit($id_penyakit, $data)
     {
-        $this->db->update('penyakit', $data, $where);
+        $this->db->where('id_penyakit', $id_penyakit);
+        return $this->db->update('penyakit', $data);
     }
     public function hapusPenyakit($where = null)
     {
@@ -37,4 +38,9 @@ class ModelPenyakit extends CI_Model
         $this->db->limit(15);
         return $this->db->get('penyakit');
     }   
+    //buat function getPenyakitById
+    public function getPenyakitById($id)
+    {
+        return $this->db->get_where('penyakit', ['id_penyakit' => $id])->row_array();
+    }
 }
