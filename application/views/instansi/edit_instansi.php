@@ -21,15 +21,17 @@
                             </div>
 
                             <div class="form-group mb-2">
-                                <select name="tipe" id="tipe">Tipe:</select>
-                                <option>Rumah Sakit</option>
-                                <option>Puskesmas</option>
-                                <option>Klinik</option>
-                                value="<?= $tipe['tipe'] ?>">
+                                <label for="tipe" class="mr-2">Tipe Instansi:</label>
+                                <select name="tipe" id="tipe">
+                                    <option value="Rumah Sakit">Rumah Sakit</option>
+                                    <option value="Puskesmas">Puskesmas</option>
+                                    <option value="Klinik">Klinik</option>
+                                </select>
                             </div>
 
+
                             <div class="form-group mb-2">
-                                <label for="alamat class="mr-2">Alamat:</label>
+                                <label for="alamat class=" mr-2">Alamat:</label>
                                 <input type="text" class="form-control" id="alamat" name="alamat"
                                     value="<?= $alamat[''] ?>">
                             </div>
@@ -43,10 +45,10 @@
                                 <label for="id_kecamatan" class="mr-2">Kecamatan:</label>
                                 <select class="form-control" id="id_kecamatan" name="id_kecamatan">
                                     <?php foreach ($list_kecamatan as $kecamatan) { ?>
-                                        <option value="<?= $kecamatan['id_kecamatan'] ?>" <?php if ($kecamatan['id_kecamatan'] == $pasien['id_kecamatan'])
+                                    <option value="<?= $kecamatan['id_kecamatan'] ?>" <?php if ($kecamatan['id_kecamatan'] == $pasien['id_kecamatan'])
                                               echo "selected"; ?>>
-                                            <?= $kecamatan['nama_kecamatan'] ?>
-                                        </option>
+                                        <?= $kecamatan['nama_kecamatan'] ?>
+                                    </option>
                                     <?php } ?>
                                 </select>
                             </div>

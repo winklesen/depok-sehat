@@ -12,11 +12,11 @@ class InstansiKesehatan extends CI_Controller
 
 	public function index()
 	{
-		$data['judul'] = 'instansi';
+		$data['judul'] = 'instansikesehatan';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 
 		// Ubah role dari angka 2 menjadi 'admin'
-		if ($data['user']['role_id'] == 2) {
+		if ($data['user']['role_id'] == 'Admin') {
 			$data['user']['role_id'] = 'Admin';
 		} else {
 			$data ['user']['role_id'] = 'Petugas';
@@ -40,10 +40,32 @@ class InstansiKesehatan extends CI_Controller
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
-		$this->load->view('Instansikesehatan/tambah_InstansiKesehatan', $data);
+		$this->load->view('instansi/tambah_instansikesehatan', $data);
 		$this->load->view('templates/admin/footer');
 	}
-	
+	public function createInstansiKesehatan() {
+		$data = array(
+			'id_instansi' => $this->input->post('id_instansi'),
+			'nama_instansi' => $this->input->post('nama_instansi'),
+			'tipe' => $this->input->post('tipe'),
+			'alamat' => $this->input->post('alamat'),
+			'kontak' => $this->input->post('kontak'),
+			'id_kecamatan' => $this->input->post('id_kecamatan')
+		);
+
+		// Panggil model untuk menyimpan data
+    $result = $this->ModelInstansiKesehatan->simpanInstansiKesehatan($data);
+
+    // Periksa hasil simpan
+    if ($result) {
+			// Simpan berhasil
+			echo "<script>alert('Data instansi berhasil disimpan');</script>";
+			redirect('pasien'); // Redirect ke halaman pasien setelah simpan
+	} else {
+			// Simpan gagal
+			echo "<script>alert('Gagal menyimpan data instansi. Mohon coba lagi');</script>";
+	}
+	}
 	public function editInstansiKesehatan($id) {
 		$data['judul'] = 'Edit Instansi';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
@@ -53,18 +75,18 @@ class InstansiKesehatan extends CI_Controller
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
-		$this->load->view('InstansiKesehatan/edit_Instansikesehatan', $data);
+		$this->load->view('instansi/edit_instansikesehatan', $data);
 		$this->load->view('templates/admin/footer');
 	}
 	
 	public function updateInstansiKesehatan() {
 		// Ambil data dari form
 		$data = array(
-			'nama' => $this->input->post('nama'),
-			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-			'info_kontak' => $this->input->post('info_kontak'),
-			'id_kecamatan' => $this->input->post('id_kecamatan'),
-			'alamat' => $this->input->post('alamat')
+			'nama_instansi' => $this->input->post('nama_instansi'),
+			'tipe' => $this->input->post('tipe'),
+			'alamat' => $this->input->post('alamat'),
+			'kontak' => $this->input->post('kontak'),
+			'nama_kecamatan' => $this->input->post('nama_kecamatan')
 		);
 	
 		// Ambil ID pasien dari form
