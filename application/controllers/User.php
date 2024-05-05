@@ -12,7 +12,7 @@ class User extends CI_Controller
 
     public function master()
     {
-        $data['judul'] = 'User';
+        $data['judul'] = 'Pengguna';
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 
         if ($data['user']['role_id'] == 2) {
@@ -33,7 +33,7 @@ class User extends CI_Controller
 
     public function tambahUser()
     {
-        $data['judul'] = 'Tambah User';
+        $data['judul'] = 'Tambah Pengguna';
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
         // $data['list_kecamatan'] = $this->ModelUser->getAllKecamatan();
 
@@ -72,7 +72,7 @@ class User extends CI_Controller
 
     public function editUser($id_user)
     {
-        $data['judul'] = 'Edit User';
+        $data['judul'] = 'Edit Pengguna';
         $data['user'] = $this->ModelUser->getUserById($id_user);
         $data['id_user'] = $this->ModelUser->getUserById($id_user);
 
