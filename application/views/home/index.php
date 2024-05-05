@@ -1,5 +1,3 @@
-
-
 <body>
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -30,9 +28,9 @@
     <!--====== HEADER PART START ======-->
 
     <section class="header_area">
-    <?php
-$this->load->view('templates/user/navbar');
-?>
+        <?php
+        $this->load->view('templates/user/navbar');
+        ?>
 
         <div id="home" class="header_hero">
             <!-- <ul class="header_social d-none d-lg-block">
@@ -52,7 +50,7 @@ $this->load->view('templates/user/navbar');
                         <div class="container">
                             <div class="col-lg-6">
                                 <div class="header_hero_content mt-45">
-                                    <h5 class="header_sub_title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Hello</h5>
+                                    <h5 class="header_sub_title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Lets fucking go</h5>
                                     <h2 class="header_title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">Slide 1</h2>
                                     <span class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Please, purchase full version to get all elements, features, footer credit removal permission and commercial license</span>
                                     <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.1s">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
@@ -202,7 +200,7 @@ $this->load->view('templates/user/navbar');
                         </div> <!-- about skill -->
                     </div> <!-- about content -->
                 </div>
-                <a href="<?= base_url('home/about')?>">About Us Link</a>
+                <a href="<?= base_url('home/about') ?>">About Us Link</a>
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
@@ -357,9 +355,9 @@ $this->load->view('templates/user/navbar');
                         </ul>
                         <p class="credit pt-45">Template Designed and Developed by <a href="https://uideck.com/" rel="nofollow">UIdeck</a></p>
                     </div> <!-- footer content -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+    </div>
+    </div> <!-- row -->
+    </div> <!-- container -->
     </footer> -->
 
     <!--====== FOOTER PART ENDS ====== -->
