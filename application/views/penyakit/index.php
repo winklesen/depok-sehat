@@ -22,7 +22,7 @@
                             <a href="<?= base_url('penyakit/addPenyakit') ?>" class="btn btn-success">Tambah Data
                                 Penyakit</a>
                         </div>
-                        <table class="table table-hover">
+                        <table class="table table-hover datatable">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>

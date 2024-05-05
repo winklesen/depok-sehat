@@ -32,7 +32,7 @@
 
 
                         <!-- Table with hoverable rows -->
-                        <table class="table table-hover">
+                        <table class="table table-hover ">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
