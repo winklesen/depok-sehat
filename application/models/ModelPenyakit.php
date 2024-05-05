@@ -10,7 +10,7 @@ class ModelPenyakit extends CI_Model
     {
         return $this->db->get_where('penyakit', $where);
     }
-    public function simpanPenyakit($data)
+    public function simpanPenyakit($data = null)
     {
         $this->db->insert('penyakit', $data);
     }
