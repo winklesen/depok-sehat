@@ -57,4 +57,26 @@ class ModelPasien extends CI_Model
         $this->db->where('id_pasien', $id_pasien);
         return $this->db->update('pasien', $data);
     }
+
+    public function searchPasien($keyword)
+    {   
+        // Menentukan kolom yang ingin dicari
+        $this->db->select('pasien.*, kecamatan.nama_kecamatan');
+        $this->db->from('pasien');
+        $this->db->join('kecamatan', 'pasien.id_kecamatan = kecamatan.id_kecamatan');
+        $this->db->group_start(); // Open a parenthesis for grouping OR conditions
+        $this->db->like('pasien.id_pasien', $keyword);
+        
+        $this->db->or_like('pasien.nama', $keyword);
+        $this->db->or_like('pasien.tanggal_lahir', $keyword);
+        $this->db->or_like('pasien.alamat', $keyword);
+        $this->db->or_like('pasien.info_kontak', $keyword);
+        $this->db->or_like('kecamatan.nama_kecamatan', $keyword);
+        $this->db->or_like('pasien.created_at', $keyword);
+        $this->db->group_end(); // Close the parenthesis for grouping OR conditions
+        
+        // Mengambil data dari tabel 'acara'
+        return $this->db->get();
+
+    }
 }

@@ -1,6 +1,7 @@
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
 
+
   <div class="d-flex align-items-center justify-content-between ">
     <a href="<?= base_url('home'); ?>" class="logo d-flex align-items-center">
       <!-- <img src="<?= base_url('assets/'); ?>img/logo.png" alt=""> -->
@@ -10,6 +11,7 @@
   </div><!-- End Logo -->
 
   <!-- <div class="search-bar">
+
   <form class="search-form d-flex align-items-center" method="POST" action="#">
     <input type="text" name="query" placeholder="Search" title="Enter search keyword">
     <button type="submit" title="Search"><i class="bi bi-search"></i></button>

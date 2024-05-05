@@ -108,4 +108,41 @@ class Pasien extends CI_Controller
         echo "<script>alert('Gagal menyimpan data pasien. Mohon coba lagi');</script>";
     }
 }
+
+public function searchPasien() {
+        
+	// Ahmad Search
+	// Mengambil kata kunci pencarian dari form
+	$data['judul'] = 'Data Pasien';
+
+	$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+	$data['pasien'] = $this->ModelPasien->getPasienLimit();
+	$keyword = $this->input->post('keyword');
+
+	// Melakukan pencarian dengan memanggil fungsi searchPasien
+	$data['search_pasien'] = $this->ModelPasien->searchPasien($keyword)->result_array();
+
+	// Memeriksa apakah hasil pencarian kosong
+	if (empty($data['search_pasien'])) {
+	// Jika kosong, atur pesan yang akan ditampilkan
+		$data['search_message'] = 'Data tidak ditemukan.';
+	}
+
+	// Bila route diakses dengan TIDAK membawa parameter        
+		$this->load->view('templates/admin/header', $data);
+		$this->load->view('templates/admin/sidebar', $data);
+		$this->load->view('templates/admin/topbar', $data);
+
+		// Tampilkan view sesuai dengan kondisi
+		if (empty($data['search_message'])) {
+			$this->load->view('pasien/index', $data);
+		} else {
+            redirect('pasien');
+		}
+
+		$this->load->view('templates/admin/footer', $data);
+
+}
+
+
 }

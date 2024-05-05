@@ -6,7 +6,6 @@
 
     <li class="nav-heading">Pages</li>
 
-
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('admin'); ?>">
         <i class="bi bi-grid"></i>
@@ -43,6 +42,7 @@
         <span>Kecamatan</span>
       </a>
     </li>
+
 
   </ul>
 </aside><!-- End Sidebar-->
