@@ -47,7 +47,13 @@ class ModelUser extends CI_Model
         return $this->db->get_where('user', $where);
     }
 
-    public function total($field, $where)
+
+    public function updateUser($data = null, $where = null)
+    {
+        $this->db->update('user', $data, $where);
+    }
+
+    public function getUserWhere($where = null)
     {
         $this->db->select_sum($field);
         if (!empty($where) && count($where) > 0) {
@@ -108,10 +114,7 @@ class ModelUser extends CI_Model
 //     {
 //         $this->db->insert('banner', $data);
 //     }
-//     public function updateBanner($data = null, $where = null)
-//     {
-//         $this->db->update('banner', $data, $where);
-//     }
+
 //     public function hapusBanner($where = null)
 //     {
 //         $this->db->delete('banner', $where);
