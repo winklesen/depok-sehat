@@ -1,8 +1,15 @@
 <main id="main" class="main">
 
-    <div class="pagetitle">
+<div class="pagetitle">
         <h1><?= $judul; ?></h1>
-    </div><!-- End Page Title -->
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="Usershtml">Home</a></li>
+                <li class="breadcrumb-item">Penyakit</li>
+                <li class="breadcrumb-item active">Master</li>
+            </ol>
+        </nav>
+    </div>
 
     <section class="section">
         <div class="row">

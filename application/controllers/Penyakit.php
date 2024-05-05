@@ -43,6 +43,8 @@ class Penyakit extends CI_Controller
 	{
 		$data['judul'] = 'Tambah Penyakit';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+		$data['last_kec_id'] = $this->ModelPenyakit->getLastIdPenyakit();
+
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);

@@ -1,5 +1,5 @@
 <main id="main" class="main">
-<div class="pagetitle">
+    <div class="pagetitle">
         <h1><?= $judul; ?></h1>
         <nav>
             <ol class="breadcrumb">
@@ -20,14 +20,12 @@
 
                             <div class="form-group mb-2">
                                 <label for="id_kecamatan" class="mr-2">ID Kecamatan:</label>
-                                <input type="text" class="form-control" id="id_kecamatan" name="id_kecamatan"
-                                    value="<?= $kecamatan['id_kecamatan'] ?>">
+                                <input type="text" class="form-control" id="id_kecamatan" name="id_kecamatan" value="<?= $kecamatan['id_kecamatan'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="nama_kecamatan" class="mr-2">Nama Kecamatan:</label>
-                                <input type="text" class="form-control" id="nama_kecamatan" name="nama_kecamatan"
-                                    value="<?= $kecamatan['nama_kecamatan'] ?>">
+                                <input type="text" class="form-control" id="nama_kecamatan" name="nama_kecamatan" value="<?= $kecamatan['nama_kecamatan'] ?>">
                             </div>
 
 

@@ -1,4 +1,15 @@
 <main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1><?= $judul; ?></h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="Usershtml">Home</a></li>
+                <li class="breadcrumb-item">Penyakit</li>
+                <li class="breadcrumb-item active">Add</li>
+            </ol>
+        </nav>
+    </div>
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
@@ -10,7 +21,7 @@
 
                             <div class="form-group mb-2">
                                 <label for="id_penyakit" class="mr-2">ID Penyakit:</label>
-                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit">
+                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit" value="<?= $last_kec_id?>">
                             </div>
 
                             <div class="form-group mb-2">
