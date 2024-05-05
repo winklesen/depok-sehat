@@ -4,7 +4,7 @@
         <h1><?= $judul; ?></h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="Usershtml">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?= base_url('admin') ;?>">Home</a></li>
                 <li class="breadcrumb-item">Penyakit</li>
                 <li class="breadcrumb-item active">Master</li>
             </ol>
@@ -15,14 +15,15 @@
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
+                <div class="d-flex justify-content-start mt-2 mb-3">
+                    <a href="<?= base_url('penyakit/addPenyakit') ?>" class="btn btn-success">Tambah Data
+                        Penyakit</a>
+                </div>
                 <div class="card">
                     <div class="card-body">
-                        <!-- <h5 class="card-title"></h5> -->
-                        <div class="d-flex justify-content-start mt-4 mb-3">
-                            <a href="<?= base_url('penyakit/addPenyakit') ?>" class="btn btn-success">Tambah Data
-                                Penyakit</a>
-                        </div>
-                        <table class="table table-hover">
+                    <h5 class="card-title">Master <?= $judul;?></h5>
+                        
+                        <table class="table datatable table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>

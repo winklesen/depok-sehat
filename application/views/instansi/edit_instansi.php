@@ -32,6 +32,7 @@
                             <div class="form-group mb-2">
                                 <label for="tipe" class="mr-2">Tipe:</label>
                                 <select class="form-control" id="tipe" name="tipe_instansi">
+                                    <option value="<?= $instansi['tipe']?>" >~ Pilih ~</option> 
                                     <?php
                                         foreach ($enum_values as $value) {
                                             echo "<option value='$value'>$value</option>";

@@ -176,4 +176,13 @@ class InstansiKesehatan extends CI_Controller
 			echo "<script>alert('Gagal menyimpan data kecamatan. Mohon coba lagi');</script>";
 		}
 	}
+
+	public function deleteInstansi($id)
+	{	
+
+	    $where = ['id_instansi' => $this->uri->segment(3)];
+	    $this->ModelInstansiKesehatan->hapusInstansiKesehatan($where);
+	    redirect('instansikesehatan');
+
+	}
 }
