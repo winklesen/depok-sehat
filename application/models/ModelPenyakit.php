@@ -12,7 +12,7 @@ class ModelPenyakit extends CI_Model
     }
     public function simpanPenyakit($data = null)
     {
-        $this->db->insert('penyakit', $data);
+        return $this->db->insert('penyakit', $data);
     }
     public function updatePenyakit($id_penyakit, $data)
     {
