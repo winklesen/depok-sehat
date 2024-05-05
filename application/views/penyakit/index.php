@@ -17,8 +17,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <div class="d-flex justify-content-start mb-3">
+                        <!-- <h5 class="card-title"></h5> -->
+                        <div class="d-flex justify-content-start mt-4 mb-3">
                             <a href="<?= base_url('penyakit/addPenyakit') ?>" class="btn btn-success">Tambah Data
                                 Penyakit</a>
                         </div>

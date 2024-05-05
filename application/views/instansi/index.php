@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <!-- <h5 class="card-title">Master <?= $judul; ?></h5> -->
                         <div class=" justify-content-between mt-3 mb-3 d-flex">
-                            <a href="<?= base_url('InstansiKesehatan/tambahInstansi') ?>" class="btn btn-success mb-2">Tambah Kecamatan</a>
+                            <a href="<?= base_url('InstansiKesehatan/tambahInstansi') ?>" class="btn btn-success mb-2">Tambah Instansi</a>
                             <form class="d-flex" method="post" action="<?= base_url('InstansiKesehatan/search'); ?>">
                                 <input class="form-control mb-2" type="text" placeholder="Cari Instansi Kesehatan" name="keyword">
                                 <button type="submit" class="btn btn-success mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -68,34 +68,6 @@
         </div>
     </section>
 
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Data Pasien</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form untuk mengedit data pasien -->
-                    <form id="editForm" action="<?= base_url('pasien/update') ?>" method="post">
-                        <!-- Isi formulir dengan data pasien -->
-                        <input type="hidden" name="id_pasien" id="editIdPasien">
-                        <div class="form-group">
-                            <label for="editNama">Nama:</label>
-                            <input type="text" class="form-control" id="editNama" name="nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="editAlamat">Alamat:</label>
-                            <input type="text" class="form-control" id="editAlamat" name="alamat">
-                        </div>
-                        <!-- Tambahkan field lainnya sesuai dengan kebutuhan -->
-                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
 </main><!-- End #main -->
