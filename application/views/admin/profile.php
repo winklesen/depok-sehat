@@ -10,7 +10,7 @@
 				<li class="breadcrumb-item active">Profile</li>
 			</ol>
 		</nav>
-	</div><!-- End Page Title -->
+	</div>
 
 	<?= $this->session->flashdata('pesan'); ?>
 

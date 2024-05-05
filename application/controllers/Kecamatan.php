@@ -19,7 +19,7 @@ class Kecamatan extends CI_Controller
 		if ($data['user']['role_id'] == 2) {
 			$data['user']['role_id'] = 'Admin';
 		} else {
-			$data ['user']['role_id'] = 'Petugas';
+			$data['user']['role_id'] = 'Petugas';
 		}
 
 		// Get Data Kecamatan
@@ -33,9 +33,13 @@ class Kecamatan extends CI_Controller
 		$this->load->view('templates/admin/footer');
 	}
 
-	public function tambahKecamatan() {
+
+
+	public function tambahKecamatan()
+	{
 		$data['judul'] = 'Tambah Kecamatan';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+		$data['last_kec_id'] = $this->ModelKecamatan->getLastIdKecamatan();
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
@@ -44,7 +48,8 @@ class Kecamatan extends CI_Controller
 		$this->load->view('templates/admin/footer');
 	}
 
-	public function createKecamatan() {
+	public function createKecamatan()
+	{
 		$data = array(
 			'id_kecamatan' => $this->input->post('id_kecamatan'),
 			'nama_kecamatan' => $this->input->post('nama_kecamatan'),
@@ -53,20 +58,21 @@ class Kecamatan extends CI_Controller
 		// var_dump($data); exit;
 
 		// Panggil model untuk menyimpan data
-    $result = $this->ModelKecamatan->simpanKecamatan($data);
+		$result = $this->ModelKecamatan->simpanKecamatan($data);
 
-    // Periksa hasil simpan
-    if ($result) {
+		// Periksa hasil simpan
+		if ($result) {
 			// Simpan berhasil
 			echo "<script>alert('Data kecamatan berhasil disimpan');</script>";
 			redirect('kecamatan'); // Redirect ke halaman kecamatan setelah simpan
-	} else {
+		} else {
 			// Simpan gagal
 			echo "<script>alert('Gagal menyimpan data kecamatan. Mohon coba lagi');</script>";
-	}
+		}
 	}
 
-	public function editKecamatan($id) {
+	public function editKecamatan($id)
+	{
 		$data['judul'] = 'Edit Kecamatan';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['kecamatan'] = $this->ModelKecamatan->getKecamatanById($id);
@@ -79,23 +85,24 @@ class Kecamatan extends CI_Controller
 		$this->load->view('templates/admin/footer');
 	}
 
-	public function updateKecamatan() {
+	public function updateKecamatan()
+	{
 		// Ambil data dari form
 		$data = array(
 			'id_kecamatan' => $this->input->post('id_kecamatan'),
 			'nama_kecamatan' => $this->input->post('nama_kecamatan')
 		);
 
-			
+
 		// Ambil ID kecamatan dari form
 		$id_kecamatan = $this->input->post('id_kecamatan');
-			
+
 		// Panggil model untuk melakukan update data
 		$result = $this->ModelKecamatan->updateKecamatan($id_kecamatan, $data);
-			
+
 		if ($result) {
 			// Update berhasil
-					echo "<script>alert('Data kecamatan berhasil di edit');</script>";
+			echo "<script>alert('Data kecamatan berhasil di edit');</script>";
 			redirect('kecamatan'); // Redirect ke halaman kecamatan setelah update
 		} else {
 			// Update gagal
@@ -103,15 +110,16 @@ class Kecamatan extends CI_Controller
 		}
 	}
 
-    // public function hapusKecamatan()
-    // {
-    //     $where = ['id_kecamatan' => $this->uri->segment(3)];
-    //     $this->ModelKecamatan->hapusKecamatan($where);
-    //     redirect('kecamatan');
-    // }
+	// public function hapusKecamatan()
+	// {
+	//     $where = ['id_kecamatan' => $this->uri->segment(3)];
+	//     $this->ModelKecamatan->hapusKecamatan($where);
+	//     redirect('kecamatan');
+	// }
 
-	public function searchKecamatan() {
-			
+	public function searchKecamatan()
+	{
+
 		// Ahmad Search
 		// Mengambil kata kunci pencarian dari form
 		$data['judul'] = 'Data Kecamatan';
@@ -125,25 +133,22 @@ class Kecamatan extends CI_Controller
 
 		// Memeriksa apakah hasil pencarian kosong
 		if (empty($data['search_kecamatan'])) {
-		// Jika kosong, atur pesan yang akan ditampilkan
+			// Jika kosong, atur pesan yang akan ditampilkan
 			$data['search_message'] = 'Data tidak ditemukan.';
 		}
 
 		// Bila route diakses dengan TIDAK membawa parameter        
-			$this->load->view('templates/admin/header', $data);
-			$this->load->view('templates/admin/sidebar', $data);
-			$this->load->view('templates/admin/topbar', $data);
+		$this->load->view('templates/admin/header', $data);
+		$this->load->view('templates/admin/sidebar', $data);
+		$this->load->view('templates/admin/topbar', $data);
 
-			// Tampilkan view sesuai dengan kondisi
-			if (empty($data['search_message'])) {
-				$this->load->view('kecamatan/index', $data);
-			} else {
-				redirect('kecamatan');
-			}
+		// Tampilkan view sesuai dengan kondisi
+		if (empty($data['search_message'])) {
+			$this->load->view('kecamatan/index', $data);
+		} else {
+			redirect('kecamatan');
+		}
 
-			$this->load->view('templates/admin/footer', $data);
-
+		$this->load->view('templates/admin/footer', $data);
 	}
-
-
 }

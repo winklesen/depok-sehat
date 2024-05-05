@@ -2,7 +2,14 @@
 
     <div class="pagetitle">
         <h1><?= $judul; ?></h1>
-    </div><!-- End Page Title -->
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="Usershtml">Home</a></li>
+                <li class="breadcrumb-item">Kecamatan</li>
+                <li class="breadcrumb-item active">Master</li>
+            </ol>
+        </nav>
+    </div>
 
     <section class="section">
         <div class="row">
@@ -15,7 +22,7 @@
                             <form class="d-flex" method="post" action="<?= base_url('kecamatan/searchkecamatan'); ?>">
                                 <input class="form-control mb-2" type="text" placeholder="Cari Kecamatan" name="keyword">
                                 <button type="submit" class="btn btn-success mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
-                              
+
                             </form>
                         </div>
 
@@ -38,26 +45,25 @@
                                             <td><?= $s['id_kecamatan'] ?></td>
                                             <td><?= $s['nama_kecamatan'] ?></td>
                                             <td>
-                                                <a href="<?= base_url('kecamatan/editkecamatan/' . $s['id_kecamatan']) ?>"
-                                                    class="btn btn-primary">Edit</a>
-                                                    <!-- <a href="<?= base_url('kecamatan/hapuskecamatan/').$s['id_kecamatan'];?>" onclick="return confirm('Kamu yakin akan menghapus <?= $s['nama_kecamatan'];?> ?');" class="btn btn-danger"> Hapus</a> -->
+                                                <a href="<?= base_url('kecamatan/editkecamatan/' . $s['id_kecamatan']) ?>" class="btn btn-primary">Edit</a>
+                                                <!-- <a href="<?= base_url('kecamatan/hapuskecamatan/') . $s['id_kecamatan']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $s['nama_kecamatan']; ?> ?');" class="btn btn-danger"> Hapus</a> -->
                                             </td>
                                         </tr>
-                                    <?php } 
-                                    } else {
+                                    <?php }
+                                } else {
                                     // Tampilkan semua data acara jika tidak ada hasil pencarian
                                     foreach ($kecamatan as $key => $p) { ?>
-                                    <tr>
-                                        <th scope="row"><?= $key + 1 ?></th>
-                                        <td><?= $p['id_kecamatan'] ?></td>
-                                        <td><?= $p['nama_kecamatan'] ?></td>
-                                        <td>
-                                            <a href="<?= base_url('kecamatan/editkecamatan/' . $p['id_kecamatan']) ?>"
-                                                class="btn btn-primary">Edit</a>
-                                            <!-- <a href="<?= base_url('kecamatan/hapuskecamatan/').$p['id_kecamatan'];?>" onclick="return confirm('Kamu yakin akan menghapus <?= $p['nama_kecamatan'];?> ?');" class="btn btn-danger"> Hapus</a> -->
-                                        </td>
-                                    </tr>
-                                <?php } }?>
+                                        <tr>
+                                            <th scope="row"><?= $key + 1 ?></th>
+                                            <td><?= $p['id_kecamatan'] ?></td>
+                                            <td><?= $p['nama_kecamatan'] ?></td>
+                                            <td>
+                                                <a href="<?= base_url('kecamatan/editkecamatan/' . $p['id_kecamatan']) ?>" class="btn btn-primary">Edit</a>
+                                                <!-- <a href="<?= base_url('kecamatan/hapuskecamatan/') . $p['id_kecamatan']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $p['nama_kecamatan']; ?> ?');" class="btn btn-danger"> Hapus</a> -->
+                                            </td>
+                                        </tr>
+                                <?php }
+                                } ?>
                             </tbody>
                         </table>
                         <!-- End Table with hoverable rows -->
@@ -67,8 +73,7 @@
         </div>
     </section>
 
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
