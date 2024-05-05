@@ -23,10 +23,10 @@ class ModelKecamatan extends CI_Model
         $this->db->where('id_kecamatan', $id_kecamatan);
         return $this->db->update('kecamatan', $data);
     }
-    public function hapusKecamatan($where = null)
-    {
-        $this->db->delete('kecamatan', $where);
-    }
+    // public function hapusKecamatan($where = null)
+    // {
+    //     $this->db->delete('kecamatan', $where);
+    // }
     public function total($field, $where)
     {
         $this->db->select_sum($field);
