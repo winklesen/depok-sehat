@@ -1,6 +1,6 @@
 <main id="main" class="main">
 
-<div class="pagetitle">
+    <div class="pagetitle">
         <h1><?= $judul; ?></h1>
         <nav>
             <ol class="breadcrumb">
@@ -12,7 +12,7 @@
     </div>
 
     <?= $this->session->flashdata('pesan'); ?>
-    
+
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
@@ -50,7 +50,7 @@
                                     foreach ($User as $key => $p) {
                                         if (is_array($p)) { ?>
                                             <tr>
-                                                <th scope="row"><?= $key ?></th>
+                                                <th scope="row"><?= $key + 1 ?></th>
                                                 <td><?= isset($p['id_user']) ? $p['id_user'] : '' ?></td>
                                                 <td><?= isset($p['nama']) ? $p['nama'] : '' ?></td>
                                                 <td><?= isset($p['email']) ? $p['email'] : '' ?></td>

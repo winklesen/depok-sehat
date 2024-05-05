@@ -43,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($instansi as $key => $p) { ?>
+                                <?php foreach ($instansi as $key => $p) { ?>
                                     <tr>
                                         <th scope="row"><?= $key + 1 ?></th>
                                         <td><?= $p['id_instansi'] ?></td>
@@ -52,10 +52,9 @@
                                         <td><?= $p['alamat'] ?></td>
                                         <td><?= $p['kontak'] ?></td>
                                         <td><?= $p['id_kecamatan'] ?></td>
-                                        <td><?= $p['created_at'] ?></td>                                        
+                                        <td><?= $p['created_at'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('InstansiKesehatan/editInstansi/' . $p['id_instansi']) ?>"
-                                                class="btn btn-primary">Edit</a>
+                                            <a href="<?= base_url('InstansiKesehatan/editInstansi/' . $p['id_instansi']) ?>" class="btn btn-primary">Edit</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

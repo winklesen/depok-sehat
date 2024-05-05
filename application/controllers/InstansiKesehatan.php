@@ -47,8 +47,9 @@ class InstansiKesehatan extends CI_Controller
 	public function editInstansi()
 	{
 		$data['judul'] = 'Edit Instansi Kesehatan';
-
-
+		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+		$data['list_kecamatan'] = $this->ModelPasien->getAllKecamatan();
+		
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
