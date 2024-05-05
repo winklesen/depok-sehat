@@ -1,4 +1,15 @@
 <main id="main" class="main">
+    <div class="pagetitle">
+        <h1><?= $judul; ?></h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="Usershtml">Home</a></li>
+                <li class="breadcrumb-item">Pasien</li>
+                <li class="breadcrumb-item active">Edit</li>
+            </ol>
+        </nav>
+    </div>
+    <?= $this->session->flashdata('pesan'); ?>
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
@@ -10,26 +21,22 @@
 
                             <div class="form-group mb-2">
                                 <label for="nik" class="mr-2">NIK:</label>
-                                <input type="text" class="form-control" id="nik" name="nik"
-                                    value="<?= $pasien['id_pasien'] ?>">
+                                <input type="text" class="form-control" id="nik" name="nik" value="<?= $pasien['id_pasien'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="nama" class="mr-2">Nama:</label>
-                                <input type="text" class="form-control" id="nama" name="nama"
-                                    value="<?= $pasien['nama'] ?>">
+                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $pasien['nama'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="tanggal_lahir" class="mr-2">Tanggal Lahir:</label>
-                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
-                                    value="<?= $pasien['tanggal_lahir'] ?>">
+                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $pasien['tanggal_lahir'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="info_kontak" class="mr-2">Info Kontak:</label>
-                                <input type="text" class="form-control" id="info_kontak" name="info_kontak"
-                                    value="<?= $pasien['info_kontak'] ?>">
+                                <input type="text" class="form-control" id="info_kontak" name="info_kontak" value="<?= $pasien['info_kontak'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
@@ -37,7 +44,7 @@
                                 <select class="form-control" id="id_kecamatan" name="id_kecamatan">
                                     <?php foreach ($list_kecamatan as $kecamatan) { ?>
                                         <option value="<?= $kecamatan['id_kecamatan'] ?>" <?php if ($kecamatan['id_kecamatan'] == $pasien['id_kecamatan'])
-                                              echo "selected"; ?>>
+                                                                                                echo "selected"; ?>>
                                             <?= $kecamatan['nama_kecamatan'] ?>
                                         </option>
                                     <?php } ?>
@@ -46,8 +53,7 @@
 
                             <div class="form-group mb-2">
                                 <label for="alamat" class="mr-2">Alamat:</label>
-                                <input type="text" class="form-control" id="alamat" name="alamat"
-                                    value="<?= $pasien['alamat'] ?>">
+                                <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $pasien['alamat'] ?>">
                             </div>
 
                             <!-- Tambahkan field lainnya sesuai dengan kebutuhan -->

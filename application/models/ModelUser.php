@@ -78,11 +78,11 @@ class ModelUser extends CI_Model
     //     $this->db->update('user', $data, $where);
     // }
 
-    // public function updateUser($id_user, $data)
-    // {
-    //     $this->db->where('id_user', $id_user);
-    //     return $this->db->update('user', $data);
-    // }
+    public function updateUser($id_user, $data)
+    {
+        $this->db->where('id_user', $id_user);
+        return $this->db->update('user', $data);
+    }
 
     public function deleteUser($id_user)
     {
@@ -103,10 +103,10 @@ class ModelUser extends CI_Model
     }
 
 
-    public function updateUser($data = null, $where = null)
-    {
-        $this->db->update('user', $data, $where);
-    }
+    // public function updateUser($data = null, $where = null)
+    // {
+    //     $this->db->update('user', $data, $where);
+    // }
 
     // public function getUserWhere($where = null)
     // {

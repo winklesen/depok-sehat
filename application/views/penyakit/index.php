@@ -11,12 +11,13 @@
         </nav>
     </div>
 
+    <?= $this->session->flashdata('pesan'); ?>
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Master <?= $judul; ?></h5>
+                        <h5 class="card-title"></h5>
                         <div class="d-flex justify-content-start mb-3">
                             <a href="<?= base_url('penyakit/addPenyakit') ?>" class="btn btn-success">Tambah Data
                                 Penyakit</a>

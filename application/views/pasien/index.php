@@ -1,9 +1,17 @@
 <main id="main" class="main">
 
-    <div class="pagetitle">
+<div class="pagetitle">
         <h1><?= $judul; ?></h1>
-    </div><!-- End Page Title -->
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="Usershtml">Home</a></li>
+                <li class="breadcrumb-item">Pasien</li>
+                <li class="breadcrumb-item active">Master</li>
+            </ol>
+        </nav>
+    </div>
 
+    <?= $this->session->flashdata('pesan'); ?>
     <section class="section">
         <div class="row">
             <div class="col-lg-12">

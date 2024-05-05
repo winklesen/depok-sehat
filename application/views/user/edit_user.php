@@ -7,6 +7,11 @@
                         <h5 class="card-title p-0">Edit Data User</h5>
                         <!-- Form untuk mengedit data pasien -->
                         <form id="editForm" action="<?= base_url('user/updateUser') ?>" method="post">
+                        <div class="form-group mb-2">
+                                <label for="id_user" class="mr-2">id_user:</label>
+                                <input type="text" class="form-control" disabled id="id_user" name="id_user"
+                                    value="<?= $user['id_user'] ?>">
+                            </div>
                             <div class="form-group mb-2">
                                 <label for="nama" class="mr-2">Nama:</label>
                                 <input type="text" class="form-control" id="nama" name="nama"

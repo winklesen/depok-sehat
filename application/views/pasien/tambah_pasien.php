@@ -1,4 +1,15 @@
 <main id="main" class="main">
+  <div class="pagetitle">
+    <h1><?= $judul; ?></h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="Usershtml">Home</a></li>
+        <li class="breadcrumb-item">Pasien</li>
+        <li class="breadcrumb-item active">Add</li>
+      </ol>
+    </nav>
+  </div>
+  <?= $this->session->flashdata('pesan'); ?>
   <section class="section">
     <div class="row">
       <div class="col-lg-12">
@@ -10,7 +21,7 @@
 
               <div class="form-group mb-2">
                 <label for="nik" class="mr-2">NIK:</label>
-                <input type="text" class="form-control" id="nik" name="nik">
+                <input type="text" class="form-control" id="nik" name="nik" value="<?= $last_id?>">
               </div>
 
               <div class="form-group mb-2">

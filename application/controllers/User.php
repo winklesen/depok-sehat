@@ -45,8 +45,8 @@ class User extends CI_Controller
     }
 
     public function createUser() {
-        $data = array(
-            'id_user' => $this->input->post('id_user'),
+        
+        $data = array(            
             'nama' => $this->input->post('nama'),
             'email' => $this->input->post('email'),
             'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
@@ -55,7 +55,7 @@ class User extends CI_Controller
         );
     
         // Panggil model untuk menyimpan data
-        $this->ModelUser->simpanUser($data);
+        $this->ModelUser->simpanUserIncrement($data);
     
         // Periksa hasil simpan
         if ($this->db->affected_rows() > 0) {

@@ -19,6 +19,13 @@
       </a>
     </li>
     <li class="nav-item">
+      <a class="nav-link collapsed" href="<?= base_url('RekamMedis'); ?>">
+        <i class="bi bi-grid"></i>
+        <span>Rekam Medis</span>
+      </a>
+    </li>
+    <li
+     class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('penyakit'); ?>">
         <i class="bi bi-grid"></i>
         <span>Penyakit</span>
