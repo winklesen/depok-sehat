@@ -57,4 +57,10 @@ class ModelPasien extends CI_Model
         $this->db->where('id_pasien', $id_pasien);
         return $this->db->update('pasien', $data);
     }
+
+    public function getAllPasien()
+    {
+        $this->db->limit(10);
+        return $this->db->get('pasien')->result_array();
+    }
 }

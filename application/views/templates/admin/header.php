@@ -25,9 +25,12 @@
   <link href="<?= base_url('assets/'); ?>vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="<?= base_url('assets/'); ?>vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?= base_url('assets/'); ?>vendor/simple-datatables/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?= base_url('assets/'); ?>jquery/jquery.css">
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url('assets/'); ?>css/style.css" rel="stylesheet">
+  <script src="<?= base_url('assets/'); ?>jquery/jquery-min.js"></script>
+  <script src="<?= base_url('assets/'); ?>jquery/jquery-ui.js"></script>
 
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0
