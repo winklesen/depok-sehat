@@ -17,6 +17,10 @@
             <h5 class="card-title p-0">Tambah Data User</h5>
             <!-- Form untuk mengedit data user -->
             <form id="editForm" action="<?= base_url('user/createUser') ?>" method="post">
+              <div class="form-group mb-2">
+                <label for="id_user" class="mr-2">ID User:</label>
+                <input type="text" class="form-control" id="id_user" name="id_user" value="<?= $last_id ?>" disabled>
+              </div>
 
               <div class="form-group mb-2">
                 <label for="nama" class="mr-2">Nama:</label>
