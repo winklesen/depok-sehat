@@ -6,6 +6,7 @@
 
     <li class="nav-heading">Pages</li>
 
+
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('admin'); ?>">
         <i class="bi bi-grid"></i>
@@ -18,14 +19,14 @@
         <span>Pasien</span>
       </a>
     </li>
+
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('RekamMedis'); ?>">
         <i class="bi bi-grid"></i>
         <span>Rekam Medis</span>
       </a>
     </li>
-    <li
-     class="nav-item">
+    <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('penyakit'); ?>">
         <i class="bi bi-grid"></i>
         <span>Penyakit</span>
@@ -41,12 +42,6 @@
       <a class="nav-link collapsed" href="<?= base_url('InstansiKesehatan'); ?>">
         <i class="bi bi-grid"></i>
         <span>Instansi Kesehatan</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="<?= base_url('Kecamatan'); ?>">
-        <i class="bi bi-grid"></i>
-        <span>Kecamatan</span>
       </a>
     </li>
 
