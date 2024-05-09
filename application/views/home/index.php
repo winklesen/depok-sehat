@@ -1,5 +1,3 @@
-
-
 <body>
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -30,34 +28,9 @@
     <!--====== HEADER PART START ======-->
 
     <section class="header_area">
-        <div class="header_navbar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="<?= base_url('admin'); ?>">
-                                <span class="d-none d-lg-block title-green">Depok Sehat</span>
-                            </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                <ul id="nav" class="navbar-nav ml-auto">
-                                    <li class="nav-item active">
-                                        <a class="page-scroll" href="#home">Home<span></span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#about">About<span></span></a>
-                                    </li>                                                                        
-                                </ul>
-                            </div> <!-- navbar collapse -->
-                        </nav> <!-- navbar -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- header navbar -->
+        <?php
+        $this->load->view('templates/user/navbar');
+        ?>
 
         <div id="home" class="header_hero">
             <!-- <ul class="header_social d-none d-lg-block">
@@ -77,7 +50,7 @@
                         <div class="container">
                             <div class="col-lg-6">
                                 <div class="header_hero_content mt-45">
-                                    <h5 class="header_sub_title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Hello</h5>
+                                    <h5 class="header_sub_title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Lets fucking go</h5>
                                     <h2 class="header_title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">Slide 1</h2>
                                     <span class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Please, purchase full version to get all elements, features, footer credit removal permission and commercial license</span>
                                     <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.1s">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
@@ -227,6 +200,7 @@
                         </div> <!-- about skill -->
                     </div> <!-- about content -->
                 </div>
+                <a href="<?= base_url('home/about') ?>">About Us Link</a>
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
@@ -381,9 +355,9 @@
                         </ul>
                         <p class="credit pt-45">Template Designed and Developed by <a href="https://uideck.com/" rel="nofollow">UIdeck</a></p>
                     </div> <!-- footer content -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+    </div>
+    </div> <!-- row -->
+    </div> <!-- container -->
     </footer> -->
 
     <!--====== FOOTER PART ENDS ====== -->

@@ -5,23 +5,132 @@ class ModelUser extends CI_Model
 {
     public function getUser()
     {
-        return $this->db->get('user');
+        return $this->db->get('user')->result_array();
     }
 
-    public function simpanData($data = null)
+    public function userWhere($where)
+    {
+        return $this->db->get_where('user', $where);
+    }
+
+    public function getLastIdUser()
+    {
+        // Mendapatkan ID user terakhir dari database
+        $this->db->select('id_user');
+        $this->db->order_by('id_user', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('user');
+
+        // Jika tidak ada data user, kita mulai dengan nomor 1
+        if ($query->num_rows() == 0) {
+            $newIdUser = 'USR001';
+        } else {
+            $lastId = $query->row()->id_user;
+            // Mendapatkan bagian numerik dari ID user terakhir
+            $numericPart = intval(substr($lastId, 3));
+
+            // Menambahkan 1 ke bagian numerik
+            $newNumericPart = $numericPart + 1;
+
+            // Membuat ID user baru
+            $newIdUser = 'USR' . str_pad($newNumericPart, 3, '0', STR_PAD_LEFT);
+        }
+    }
+
+
+    public function simpanUserIncrement($data = null)
+    {
+        // Mendapatkan ID user terakhir dari database
+        $this->db->select('id_user');
+        $this->db->order_by('id_user', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('user');
+
+        // Jika tidak ada data user, kita mulai dengan nomor 1
+        if ($query->num_rows() == 0) {
+            $newIdUser = 'USR001';
+        } else {
+            $lastId = $query->row()->id_user;
+            // Mendapatkan bagian numerik dari ID user terakhir
+            $numericPart = intval(substr($lastId, 3));
+
+            // Menambahkan 1 ke bagian numerik
+            $newNumericPart = $numericPart + 1;
+
+            // Membuat ID user baru
+            $newIdUser = 'USR' . str_pad($newNumericPart, 3, '0', STR_PAD_LEFT);
+        }
+
+        // Menambahkan ID user baru ke dalam data
+        $data['id_user'] = $newIdUser;
+
+        // Memasukkan data ke dalam database
+        return $this->db->insert('user', $data);
+    }
+
+    public function simpanUser($data = null)
     {
         $this->db->insert('user', $data);
     }
+
+    // public function updateUser($data = null, $where = null)
+    // {
+    //     $this->db->update('user', $data, $where);
+    // }
+
+    public function updateUser($id_user, $data)
+    {
+        $this->db->where('id_user', $id_user);
+        return $this->db->update('user', $data);
+    }
+
+    public function deleteUser($id_user)
+    {
+        $this->db->where('id_user', $id_user);
+        return $this->db->delete('user');
+    }
+
+    // public function getLastUserNumber() {
+    //     $this->db->select_max('id_user');
+    //     $result = $this->db->get('user')->row_array();
+    //     return $result['id_user'];
+    // }
+
 
     public function cekData($where = null)
     {
         return $this->db->get_where('user', $where);
     }
 
+
+    // public function updateUser($data = null, $where = null)
+    // {
+    //     $this->db->update('user', $data, $where);
+    // }
+
+    // public function getUserWhere($where = null)
+    // {
+    //     $this->db->select_sum($field);
+    //     if (!empty($where) && count($where) > 0) {
+    //         $this->db->where($where);
+    //     }
+    //     $this->db->from('user');
+    //     return $this->db->get()->row($field);
+    // }
+
     public function getUserWhere($where = null)
     {
         return $this->db->get_where('user', $where);
     }
+
+    public function getUserById($id_user)
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('user.id_user', $id_user);
+        return $this->db->get()->row_array();
+    }
+
 
     public function cekUserAccess($where = null)
     {
@@ -31,13 +140,14 @@ class ModelUser extends CI_Model
         return $this->db->get();
     }
 
-    public function getUserLimit()
-    {
-        $this->db->select('*');
-        $this->db->from('user');
-        $this->db->limit(10, 0);
-        return $this->db->get();
-    }
+    // public function getUserLimit()
+    // {
+    //     $this->db->select('pasien.*, kecamatan.nama_kecamatan');
+    //     $this->db->from('pasien');
+    //     $this->db->join('kecamatan', 'pasien.id_kecamatan = kecamatan.id_kecamatan');
+    //     $this->db->limit(15); // Batasan 15 entri
+    //     return $this->db->get()->result_array();
+    // }
 }
 
 // ============================================
@@ -59,10 +169,7 @@ class ModelUser extends CI_Model
 //     {
 //         $this->db->insert('banner', $data);
 //     }
-//     public function updateBanner($data = null, $where = null)
-//     {
-//         $this->db->update('banner', $data, $where);
-//     }
+
 //     public function hapusBanner($where = null)
 //     {
 //         $this->db->delete('banner', $where);
@@ -94,9 +201,9 @@ class ModelUser extends CI_Model
 // 	public function selectData($table, $where) { return $this->db->get($table, $where); }
 
 // 	public function updateData($data, $where) { $this->db->update('pinjam', $data, $where); }
-	
+
 // 	public function deleteData($tabel, $where) { $this->db->delete($tabel, $where); }
-	
+
 // 	public function joinData() 
 // 	{
 // 		$this->db->select('*');
@@ -105,7 +212,7 @@ class ModelUser extends CI_Model
 
 // 		return $this->db->get()->result_array();
 // 	}
-	
+
 // 	//manip tabel detai pinjam
 // 	public function simpanDetail($idbooking, $nopinjam)
 // 	{
@@ -155,7 +262,7 @@ class ModelUser extends CI_Model
 //         $this->db->from('buku');
 //         return $this->db->get()->row($field);
 //     }
-    
+
 //     //manajemen kategori
 //     public function getKategori()
 //     {

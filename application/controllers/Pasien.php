@@ -19,7 +19,7 @@ class Pasien extends CI_Controller
 		if ($data['user']['role_id'] == 2) {
 			$data['user']['role_id'] = 'Admin';
 		} else {
-			$data ['user']['role_id'] = 'Petugas';
+			$data['user']['role_id'] = 'Petugas';
 		}
 
 		// Get Data Pasien
@@ -32,10 +32,13 @@ class Pasien extends CI_Controller
 		$this->load->view('templates/admin/footer');
 	}
 
-	public function tambahPasien() {
+	public function tambahPasien()
+	{
 		$data['judul'] = 'Tambah Pasien';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['list_kecamatan'] = $this->ModelPasien->getAllKecamatan();
+
+		$data['last_id'] = $this->ModelPasien->getLastIdPasien();
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
@@ -44,7 +47,8 @@ class Pasien extends CI_Controller
 		$this->load->view('templates/admin/footer');
 	}
 
-	public function createPasien() {
+	public function createPasien()
+	{
 		$data = array(
 			'id_pasien' => $this->input->post('nik'),
 			'nama' => $this->input->post('nama'),
@@ -55,20 +59,21 @@ class Pasien extends CI_Controller
 		);
 
 		// Panggil model untuk menyimpan data
-    $result = $this->ModelPasien->simpanPasien($data);
+		$result = $this->ModelPasien->simpanPasien($data);
 
-    // Periksa hasil simpan
-    if ($result) {
+		// Periksa hasil simpan
+		if ($result) {
 			// Simpan berhasil
 			echo "<script>alert('Data pasien berhasil disimpan');</script>";
 			redirect('pasien'); // Redirect ke halaman pasien setelah simpan
-	} else {
+		} else {
 			// Simpan gagal
 			echo "<script>alert('Gagal menyimpan data pasien. Mohon coba lagi');</script>";
-	}
+		}
 	}
 
-	public function editpasien($id) {
+	public function editpasien($id)
+	{
 		$data['judul'] = 'Edit Pasien';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['pasien'] = $this->ModelPasien->getPasienById($id);
@@ -82,30 +87,66 @@ class Pasien extends CI_Controller
 		$this->load->view('templates/admin/footer');
 	}
 
-	public function updatePasien() {
-    // Ambil data dari form
-    $data = array(
-        'nama' => $this->input->post('nama'),
-        'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-        'info_kontak' => $this->input->post('info_kontak'),
-        'id_kecamatan' => $this->input->post('id_kecamatan'),
-        'alamat' => $this->input->post('alamat')
-    );
+	public function updatePasien()
+	{
+		// Ambil data dari form
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+			'info_kontak' => $this->input->post('info_kontak'),
+			'id_kecamatan' => $this->input->post('id_kecamatan'),
+			'alamat' => $this->input->post('alamat')
+		);
 
-		
-    // Ambil ID pasien dari form
-    $id_pasien = $this->input->post('nik');
-		
-    // Panggil model untuk melakukan update data
-    $result = $this->ModelPasien->updatePasien($id_pasien, $data);
-		
-    if ($result) {
-        // Update berhasil
-				echo "<script>alert('Data pasien berhasil di edit');</script>";
-        redirect('pasien'); // Redirect ke halaman pasien setelah update
-    } else {
-        // Update gagal
-        echo "<script>alert('Gagal menyimpan data pasien. Mohon coba lagi');</script>";
-    }
-}
+
+		// Ambil ID pasien dari form
+		$id_pasien = $this->input->post('nik');
+
+		// Panggil model untuk melakukan update data
+		$result = $this->ModelPasien->updatePasien($id_pasien, $data);
+
+		if ($result) {
+			// Update berhasil
+			echo "<script>alert('Data pasien berhasil di edit');</script>";
+			redirect('pasien'); // Redirect ke halaman pasien setelah update
+		} else {
+			// Update gagal
+			echo "<script>alert('Gagal menyimpan data pasien. Mohon coba lagi');</script>";
+		}
+	}
+
+	public function searchPasien()
+	{
+
+		// Ahmad Search
+		// Mengambil kata kunci pencarian dari form
+		$data['judul'] = 'Data Pasien';
+
+		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+		$data['pasien'] = $this->ModelPasien->getPasienLimit();
+		$keyword = $this->input->post('keyword');
+
+		// Melakukan pencarian dengan memanggil fungsi searchPasien
+		$data['search_pasien'] = $this->ModelPasien->searchPasien($keyword)->result_array();
+
+		// Memeriksa apakah hasil pencarian kosong
+		if (empty($data['search_pasien'])) {
+			// Jika kosong, atur pesan yang akan ditampilkan
+			$data['search_message'] = 'Data tidak ditemukan.';
+		}
+
+		// Bila route diakses dengan TIDAK membawa parameter        
+		$this->load->view('templates/admin/header', $data);
+		$this->load->view('templates/admin/sidebar', $data);
+		$this->load->view('templates/admin/topbar', $data);
+
+		// Tampilkan view sesuai dengan kondisi
+		if (empty($data['search_message'])) {
+			$this->load->view('pasien/index', $data);
+		} else {
+			redirect('pasien');
+		}
+
+		$this->load->view('templates/admin/footer', $data);
+	}
 }

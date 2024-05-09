@@ -41,7 +41,8 @@ CREATE TABLE `instansi_kesehatan` (
 -- Dumping data for table `instansi_kesehatan`
 --
 
-INSERT INTO `instansi_kesehatan` (`id_instansi`, `nama_instansi`, `tipe`, `alamat`, `kontak`, `id_kecamatan`, `created_at`) VALUES
+INSERT INTO `instansi_kesehatan` (
+  `id_instansi`, `nama_instansi`, `tipe`, `alamat`, `kontak`, `id_kecamatan`, `created_at`) VALUES
 ('IS0001', 'RS Tugu Ibu Depok', 'Rumah Sakit', 'Jalan Raya Bogor №29, Mekarsari, Kec. Cimanggis, Kota Depok, Jawa Barat 16452', '0218710870', '', '2024-04-17 02:24:40'),
 ('IS0002', 'RS Tugu Bapak Depok', 'Rumah Sakit', 'Jalan Raya Bogor №29, Mekarsari, Kec. Cimanggis, Kota Depok, Jawa Barat 16452', '0218710870', '', '2024-04-17 02:24:55'),
 ('IS0003', 'Puskesmas Beji', 'Puskesmas', 'Jl. Bambon Raya No. 7B RT. 01/01, Beji.', '0217757033', '', '2024-04-17 02:27:30'),

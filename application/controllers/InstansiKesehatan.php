@@ -29,4 +29,127 @@ class InstansiKesehatan extends CI_Controller
 		$this->load->view('instansi/index', $data);
 		$this->load->view('templates/admin/footer');
 	}
+
+	public function tambahInstansi()
+	{
+		$data['judul'] = 'Tambah Instansi Kesehatan';
+		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+		$data['list_kecamatan'] = $this->ModelPasien->getAllKecamatan();
+		$data['last_id'] = $this->ModelInstansiKesehatan->getLastIdInstansiKesehatan();
+
+		$this->load->view('templates/admin/header', $data);
+		$this->load->view('templates/admin/sidebar', $data);
+		$this->load->view('templates/admin/topbar', $data);
+		$this->load->view('instansi/tambah_instansi', $data);
+		$this->load->view('templates/admin/footer');
+	}
+
+	public function editInstansi()
+	{
+		$data['judul'] = 'Edit Instansi Kesehatan';
+		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+		$data['list_kecamatan'] = $this->ModelPasien->getAllKecamatan();
+		
+		$this->load->view('templates/admin/header', $data);
+		$this->load->view('templates/admin/sidebar', $data);
+		$this->load->view('templates/admin/topbar', $data);
+		$this->load->view('instansi/edit_instansi', $data);
+		$this->load->view('templates/admin/footer');
+	}
+
+	public function createInstansi()
+	{
+		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+
+		$this->form_validation->set_rules(
+			'id_instansi',
+			'Id Instansi',
+			'required',
+			[
+				'required' => 'Id Instansi tidak Boleh Kosong'
+			]
+		);
+
+		$this->form_validation->set_rules(
+			'nama_instansi',
+			'Nama Instansi',
+			'required',
+			[
+				'required' => 'Nama Instansi tidak Boleh Kosong'
+			]
+		);
+		$this->form_validation->set_rules(
+			'tipe',
+			'Tipe',
+			'required',
+			[
+				'required' => 'Tipe tidak Boleh Kosong'
+			]
+		);
+		$this->form_validation->set_rules(
+			'alamat',
+			'Alamat',
+			'required',
+			[
+				'required' => 'Alamat tidak Boleh Kosong'
+			]
+		);
+		$this->form_validation->set_rules(
+			'kontak',
+			'Kontak',
+			'required',
+			[
+				'required' => 'Kontak tidak Boleh Kosong'
+			]
+		);
+		$this->form_validation->set_rules(
+			'id_kecamatan',
+			'Id Kecamatan',
+			'required',
+			[
+				'required' => 'Id Kecamatan tidak Boleh Kosong'
+			]
+		);
+
+
+		//Form validasi
+		if ($this->form_validation->run() == false) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Akses ditolak </div>');
+			redirect('InstansiKesehatan');
+		} else {
+			$id_instansi = $this->input->post('id_instansi', true);
+			$nama_instansi = $this->input->post('nama_instansi', true);
+			$tipe = $this->input->post('tipe', true);
+			$alamat = $this->input->post('alamat', true);
+			$kontak = $this->input->post('kontak', true);
+			$id_kecamatan = $this->input->post('id_kecamatan', true);
+
+			$query = array(
+				'id_instansi' => $id_instansi,
+				'nama_instansi' => $nama_instansi,
+				'tipe' => $tipe,
+				'alamat' => $alamat,
+				'kontak' => $kontak,
+				'id_kecamatan' => $id_kecamatan,
+				'created_at' => null,
+			);
+
+			// Panggil model untuk menyimpan data
+			$result = $this->ModelInstansiKesehatan->simpanInstansiKesehatan($query);
+
+			// Periksa hasil simpan
+			// if ($result) {
+			// 	// Simpan berhasil
+				$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data Berhasil ditambahkan </div>');
+				redirect('InstansiKesehatan');
+			// } else {
+			// 	// Simpan gagal
+			// 	$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Data gagal ditambahkan </div>');
+			// }
+		}
+	}
+
+	public function updateInstansi()
+	{
+	}
 }
