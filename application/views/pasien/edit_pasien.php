@@ -43,8 +43,7 @@
                                 <label for="id_kecamatan" class="mr-2">Kecamatan:</label>
                                 <select class="form-control" id="id_kecamatan" name="id_kecamatan">
                                     <?php foreach ($list_kecamatan as $kecamatan) { ?>
-                                        <option value="<?= $kecamatan['id_kecamatan'] ?>" <?php if ($kecamatan['id_kecamatan'] == $pasien['id_kecamatan'])
-                                                                                                echo "selected"; ?>>
+                                        <option value="<?= $kecamatan['id_kecamatan'] ?>" <?php if ($kecamatan['id_kecamatan'] == $pasien['id_kecamatan']) echo "selected"; ?>>
                                             <?= $kecamatan['nama_kecamatan'] ?>
                                         </option>
                                     <?php } ?>

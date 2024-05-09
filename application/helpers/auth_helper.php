@@ -21,7 +21,7 @@ function cek_user()
     $ci = get_instance();
     $role_id = $ci->session->userdata('role_id');
     if (!$role_id == 1 && !$role_id == 2) {
-        $ci->session->set_flashdata('pesan', '<div class="alert alertdanger" role="alert">Akses tidak diizinkan </div>');
+        $ci->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Akses tidak diizinkan </div>');
         redirect('home');
     }
 }
