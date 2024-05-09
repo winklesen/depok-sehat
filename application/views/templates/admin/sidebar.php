@@ -6,6 +6,7 @@
 
     <li class="nav-heading">Pages</li>
 
+
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('admin'); ?>">
         <i class="bi bi-grid"></i>
@@ -18,14 +19,14 @@
         <span>Pasien</span>
       </a>
     </li>
+
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('RekamMedis'); ?>">
         <i class="fa-solid fa-file-medical"></i>
         <span>Rekam Medis</span>
       </a>
     </li>
-    <li
-     class="nav-item">
+    <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('penyakit'); ?>">
         <i class="fa-solid fa-virus"></i>
         <span>Penyakit</span>

@@ -17,76 +17,47 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Master <?= $judul; ?></h5>
+                        <!-- <h5 class="card-title">Master <?= $judul; ?></h5> -->
+                        <div class=" justify-content-between mt-3 mb-3 d-flex">
+                            <a href="<?= base_url('') ?>" class="btn btn-success mb-2">Tambah Kecamatan</a>
+                            <form class="d-flex" method="post" action="<?= base_url(''); ?>">
+                                <input class="form-control mb-2" type="text" placeholder="Cari Rekam Medis" name="keyword">
+                                <button type="submit" class="btn btn-success mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                            </form>
+                        </div>
+
 
                         <!-- Table with hoverable rows -->
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Position</th>
-                                    <th scope="col">Age</th>
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">id_rekam_medis</th>
+                                    <th scope="col">id_pasien</th>
+                                    <th scope="col">id_penyakit</th>
+                                    <th scope="col">id_instansi</th>
+                                    <th scope="col">tanggal_pemeriksaan</th>
+                                    <th scope="col">keterangan</th>
+                                    <th scope="col">created_at</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Brandon Jacob</td>
-                                    <td>Designer</td>
-                                    <td>28</td>
-                                    <td>2016-05-25</td>
-                                    <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                        <a href="google.com" class="btn btn-success">Success</a>
-                                        <a href="google.com" class="btn btn-danger">Danger</a>
-                                        <a href="google.com" class="btn btn-warning">Warning</button></a>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Bridie Kessler</td>
-                                    <td>Developer</td>
-                                    <td>35</td>
-                                    <td>2014-12-05</td>
-                                    <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                        <a href="google.com" class="btn btn-success">Success</a>
-                                        <a href="google.com" class="btn btn-danger">Danger</a>
-                                        <a href="google.com" class="btn btn-warning">Warning</button></a>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Ashleigh Langosh</td>
-                                    <td>Finance</td>
-                                    <td>45</td>
-                                    <td>2011-08-12</td>
-                                    <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                        <a href="google.com" class="btn btn-success">Success</a>
-                                        <a href="google.com" class="btn btn-danger">Danger</a>
-                                        <a href="google.com" class="btn btn-warning">Warning</button></a>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Angus Grady</td>
-                                    <td>HR</td>
-                                    <td>34</td>
-                                    <td>2012-06-11</td>
-                                    <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                        <a href="google.com" class="btn btn-success">Success</a>
-                                        <a href="google.com" class="btn btn-danger">Danger</a>
-                                        <a href="google.com" class="btn btn-warning">Warning</button></a>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Raheem Lehner</td>
-                                    <td>Dynamic Division Officer</td>
-                                    <td>47</td>
-                                    <td>2011-04-19</td>
-                                    <td><a href="google.com" class="btn btn-primary">Primary</a>
-                                        <a href="google.com" class="btn btn-success">Success</a>
-                                        <a href="google.com" class="btn btn-danger">Danger</a>
-                                        <a href="google.com" class="btn btn-warning">Warning</button></a>
-                                </tr>
+                                <?php foreach ($rekam_medis as $key => $p) { ?>
+                                    <tr>
+                                        <th scope="row"><?= $key + 1 ?></th>
+                                        <td><?= $p['id_rekam_medis'] ?></td>
+                                        <td><?= $p['id_pasien'] ?></td>
+                                        <td><?= $p['id_penyakit'] ?></td>
+                                        <td><?= $p['id_instansi'] ?></td>
+                                        <td><?= $p['tanggal_pemeriksaan'] ?></td>
+                                        <td><?= $p['keterangan'] ?></td>
+                                        <td><?= $p['created_at'] ?></td>
+                                        <td>
+                                            <a href="" class="btn btn-primary">Edit</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                         <!-- End Table with hoverable rows -->

@@ -11,6 +11,7 @@
         </nav>
     </div><!-- End Page Title -->
 
+
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
@@ -42,23 +43,21 @@
                                     foreach ($User as $key => $p) {
                                         if (is_array($p)) { ?>
                                             <tr>
-                                                <th scope="row"><?= $key ?></th>
+                                                <th scope="row"><?= $key + 1 ?></th>
                                                 <td><?= isset($p['id_user']) ? $p['id_user'] : '' ?></td>
                                                 <td><?= isset($p['nama']) ? $p['nama'] : '' ?></td>
                                                 <td><?= isset($p['email']) ? $p['email'] : '' ?></td>
                                                 <td><?= isset($p['id_instansi']) ? $p['id_instansi'] : '' ?></td>
-                                                
+
                                                 <td><?= isset($p['created_at']) ? $p['created_at'] : '' ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('user/editUser/' . $p['id_user']) ?>"
-                                                        class="btn btn-primary">Edit</a>
-                                                
-                                                    <a href="<?= base_url('user/deleteUser/' . $p['id_user']) ?>"
-                                                        class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">Hapus</a>
+                                                    <a href="<?= base_url('user/editUser/' . $p['id_user']) ?>" class="btn btn-primary">Edit</a>
+
+                                                    <a href="<?= base_url('user/deleteUser/' . $p['id_user']) ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">Hapus</a>
                                                 </td>
-                                                
+
                                             </tr>
-                                        <?php }
+                                <?php }
                                     }
                                 } else {
                                     echo "Variabel User tidak berisi array seperti yang diharapkan.";

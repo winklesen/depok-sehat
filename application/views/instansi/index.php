@@ -38,7 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($instansi as $key => $p) { ?>
+                                <?php foreach ($instansi as $key => $p) { ?>
                                     <tr>
                                         <th scope="row"><?= $key + 1 ?></th>
                                         <td><?= $p['id_instansi'] ?></td>

@@ -1,4 +1,5 @@
 <main id="main" class="main">
+
     <div class="pagetitle">
         <h1><?= $judul; ?></h1>
         <nav>
@@ -51,4 +52,5 @@
             </div>
         </div>
     </section>
+
 </main><!-- End #main -->
