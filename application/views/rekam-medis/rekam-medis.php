@@ -23,7 +23,6 @@
                                     <th scope="col">Nama Instansi</th>
                                     <th scope="col">Tanggal Pemeriksaan</th>
                                     <th scope="col">Keterangan</th>
-                                    <th scope="col">Created At</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,7 +36,6 @@
                                         <td><?= $r['nama_instansi'] ?></td>
                                         <td><?= $r['tanggal_pemeriksaan'] ?></td>
                                         <td><?= $r['keterangan'] ?></td>
-                                        <td><?= $r['created_at'] ?></td>
                                     </tr>
                                 <?php } ?>
                                 <!-- End data rekam medis -->

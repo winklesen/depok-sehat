@@ -6,30 +6,32 @@
           <div class="card-body m-3">
             <h5 class="card-title p-0">Tambah Rekam Medis</h5>
             <!-- Form untuk menambahkan data rekam medis -->
-            <form id="editForm" action="<?= base_url('rekam-medis/createRekamMedis') ?>" method="post">
+            <form id="editForm" action="<?= base_url('RekamMedis/createRekamMedis') ?>" method="post">
 
               <div class="form-group mb-2">
                 <label for="nama_pasien" class="mr-2">Nama Pasien:</label>
                 <input type="text" id="nama_pasien" name="nama_pasien" class="form-control"
-                  placeholder="Cari Nama Pasien">
+                  placeholder="Cari Nama Pasien" required>
                 <input type="hidden" id="id_pasien" name="id_pasien"> <!-- Menyimpan ID pasien yang dipilih -->
+                <div id="nama_pasien_error" class="text-danger"></div> <!-- Menampilkan pesan error -->
               </div>
 
               <div class="form-group mb-2">
                 <label for="nama_penyakit" class="mr-2">Nama Penyakit:</label>
                 <input type="text" id="nama_penyakit" name="nama_penyakit" class="form-control"
-                  placeholder="Cari Nama Penyakit">
+                  placeholder="Cari Nama Penyakit" required>
                 <input type="hidden" id="id_penyakit" name="id_penyakit"> <!-- Menyimpan ID penyakit yang dipilih -->
+                <div id="nama_penyakit_error" class="text-danger"></div> <!-- Menampilkan pesan error -->
               </div>
 
               <div class="form-group mb-2">
                 <label for="tanggal_pemeriksaan" class="mr-2">Tanggal Pemeriksaan:</label>
-                <input type="date" class="form-control" id="tanggal_pemeriksaan" name="tanggal_pemeriksaan">
+                <input type="date" class="form-control" id="tanggal_pemeriksaan" name="tanggal_pemeriksaan" required>
               </div>
 
               <div class="form-group mb-2">
                 <label for="keterangan" class="mr-2">Keterangan:</label>
-                <input type="text" class="form-control" id="keterangan" name="keterangan">
+                <input type="text" class="form-control" id="keterangan" name="keterangan" required>
               </div>
 
               <!-- Tambahkan field lainnya sesuai dengan kebutuhan -->
@@ -42,9 +44,6 @@
     </div>
   </section>
 </main><!-- End #main -->
-
-<script src="<?= base_url('assets/'); ?>jquery/jquery-min.js"></script>
-<script src="<?= base_url('assets/'); ?>jquery/jquery-ui.js"></script>
 
 <script>
   $(function () {
@@ -102,11 +101,21 @@
       }
     });
 
-    // Fungsi response untuk menampilkan dropdown
-    function responseFunction(data) {
-      $("#nama_pasien").autocomplete("search", "");
-      $("#nama_pasien").autocomplete("option", "source", data);
-    }
+    // Fungsi untuk validasi formulir sebelum disubmit
+    $("#editForm").submit(function (event) {
+      var selectedPasien = $("#id_pasien").val(); // Ambil ID pasien yang dipilih
+      if (!selectedPasien) {
+        // Jika tidak ada pasien yang dipilih, tampilkan pesan error
+        $("#nama_pasien_error").text("Harap pilih nama pasien dari dropdown yang tersedia.");
+        event.preventDefault(); // Hentikan proses submit formulir
+      }
+
+      var selectedPenyakit = $("#id_penyakit").val(); // Ambil ID penyakit yang dipilih
+      if (!selectedPenyakit) {
+        // Jika tidak ada penyakit yang dipilih, tampilkan pesan error
+        $("#nama_penyakit_error").text("Harap pilih nama penyakit dari dropdown yang tersedia.");
+        event.preventDefault(); // Hentikan proses submit formulir
+      }
+    });
   });
 </script>
-

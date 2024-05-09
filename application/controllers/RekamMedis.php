@@ -53,4 +53,31 @@ class RekamMedis extends CI_Controller
 		echo json_encode($results); // Keluarkan hasil pencarian dalam format JSON
 	}
 
+	public function createRekamMedis() {
+		$userData = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+
+		$data = array(
+			'id_pasien' => $this->input->post('id_pasien'),
+			'id_penyakit' => $this->input->post('id_penyakit'),
+			'tanggal_pemeriksaan' => $this->input->post('tanggal_pemeriksaan'),
+			'keterangan' => $this->input->post('keterangan'),
+			'id_instansi' => $userData['id_instansi']
+		);
+
+
+
+		// Panggil model untuk menyimpan data
+    $result = $this->ModelRekamMedis->simpanRekamMedis($data);
+
+    // Periksa hasil simpan
+    if ($result) {
+			// Simpan berhasil
+			echo "<script>alert('Data pasien berhasil disimpan');</script>";
+			redirect('RekamMedis'); // Redirect ke halaman pasien setelah simpan
+	} else {
+			// Simpan gagal
+			echo "<script>alert('Gagal menyimpan data pasien. Mohon coba lagi');</script>";
+			redirect('RekamMedis/tambahRekamMedis'); 
+	}
+	}
 }

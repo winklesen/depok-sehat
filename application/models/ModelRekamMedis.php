@@ -14,7 +14,28 @@ class ModelRekamMedis extends CI_Model
     return $this->db->get()->result_array();
   }
 
+  public function simpanRekamMedis($data = null)
+  {
+    $this->db->select('id_rekam_medis');
+    $this->db->order_by('id_rekam_medis', 'DESC');
+    $this->db->limit(1);
+    $query = $this->db->get('rekam_medis');
 
+    if ($query->num_rows() == 0) {
+      $newRekamMedis = 'RKM0001';
+    } else {
+      $lastId = $query->row()->id_rekam_medis;
+
+      $numericPart = intval(substr($lastId, 4));
+
+      $newNumericPart = $numericPart + 1;
+
+      $newRekamMedis = 'RKM' . sprintf('%04s', $newNumericPart);
+    }
+    $data['id_rekam_medis'] = $newRekamMedis;
+
+    return $this->db->insert('rekam_medis', $data);
+  }
   public function getAllPenyakit()
   {
     $this->db->limit(10);
