@@ -36,6 +36,7 @@ class InstansiKesehatan extends CI_Controller
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['list_kecamatan'] = $this->ModelPasien->getAllKecamatan();
 		$data['last_id'] = $this->ModelInstansiKesehatan->getLastIdInstansiKesehatan();
+		$data['enum_values'] = $this->ModelInstansiKesehatan->get_enum_values();
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
@@ -44,12 +45,13 @@ class InstansiKesehatan extends CI_Controller
 		$this->load->view('templates/admin/footer');
 	}
 
-	public function editInstansi()
+	public function editInstansi($id)
 	{
 		$data['judul'] = 'Edit Instansi Kesehatan';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-		$data['list_kecamatan'] = $this->ModelPasien->getAllKecamatan();
-		
+		$data['enum_values'] = $this->ModelInstansiKesehatan->get_enum_values();
+		$data['instansi'] = $this->ModelInstansiKesehatan->getInstansiKesehatanById($id);
+
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
@@ -60,7 +62,7 @@ class InstansiKesehatan extends CI_Controller
 	public function createInstansi()
 	{
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-
+		
 		$this->form_validation->set_rules(
 			'id_instansi',
 			'Id Instansi',
@@ -151,5 +153,36 @@ class InstansiKesehatan extends CI_Controller
 
 	public function updateInstansi()
 	{
+		// Ambil data dari form
+		$data = array(
+			'id_instansi' => $this->input->post('id_instansi'),
+			'nama_instansi' => $this->input->post('nama_instansi'),
+			'tipe' => $this->input->post('tipe_instansi')
+		);
+
+
+		// Ambil ID Instansi dari form
+		$id_instansi = $this->input->post('id_instansi');
+
+		// Panggil model untuk melakukan update data
+		$result = $this->ModelInstansiKesehatan->updateInstansiKesehatan($id_instansi, $data);
+
+		if ($result) {
+			// Update berhasil
+			echo "<script>alert('Data kecamatan berhasil di edit');</script>";
+			redirect('instansikesehatan'); // Redirect ke halaman kecamatan setelah update
+		} else {
+			// Update gagal
+			echo "<script>alert('Gagal menyimpan data kecamatan. Mohon coba lagi');</script>";
+		}
+	}
+
+	public function deleteInstansi($id)
+	{	
+
+	    $where = ['id_instansi' => $this->uri->segment(3)];
+	    $this->ModelInstansiKesehatan->hapusInstansiKesehatan($where);
+	    redirect('instansikesehatan');
+
 	}
 }

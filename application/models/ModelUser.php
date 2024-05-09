@@ -35,6 +35,7 @@ class ModelUser extends CI_Model
             // Membuat ID user baru
             $newIdUser = 'USR' . str_pad($newNumericPart, 3, '0', STR_PAD_LEFT);
         }
+        return $newIdUser;
     }
 
 
