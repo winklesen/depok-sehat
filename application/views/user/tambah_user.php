@@ -9,12 +9,13 @@
           </ol>
       </nav>
   </div><!-- End Page Title -->
+<?= $this->session->flashdata('pesan'); ?>
   <section class="section">
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body m-3">
-            <h5 class="card-title p-0">Tambah Data User</h5>
+            <h5 class="card-title ">Tambah Data User</h5>
             <!-- Form untuk mengedit data user -->
             <form id="editForm" action="<?= base_url('user/createUser') ?>" method="post">
               <div class="form-group mb-2">
