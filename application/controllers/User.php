@@ -36,6 +36,7 @@ class User extends CI_Controller
         $data['judul'] = 'Tambah Pengguna';
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
         // $data['list_kecamatan'] = $this->ModelUser->getAllKecamatan();
+        $data['last_id'] = $this->ModelUser->getLastIdUser();
 
         $this->load->view('templates/admin/header', $data);
         $this->load->view('templates/admin/sidebar', $data);

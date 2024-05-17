@@ -69,9 +69,14 @@ class ModelInstansiKesehatan extends CI_Model
     {
         $this->db->insert('instansi_kesehatan', $data);
     }
-    public function updateInstansiKesehatan($data = null, $where = null)
+    // public function updateInstansiKesehatan($data = null, $where = null)
+    // {
+    //     $this->db->update('instansi_kesehatan', $data, $where);
+    // }
+    public function updateInstansiKesehatan($id_instansi, $data)
     {
-        $this->db->update('instansi_kesehatan', $data, $where);
+        $this->db->where('id_instansi', $id_instansi);
+        return $this->db->update('instansi_kesehatan', $data);
     }
     public function hapusInstansiKesehatan($where = null)
     {
@@ -91,5 +96,27 @@ class ModelInstansiKesehatan extends CI_Model
     {
         $this->db->limit(15);
         return $this->db->get('instansi_kesehatan');
+    }
+
+    // Mendapatkan data kecamatan berdasarkan ID kecamatan beserta informasi nama kecamatan
+    public function getInstansiKesehatanById($id)
+    {
+        $this->db->select('*');
+        $this->db->from('instansi_kesehatan');
+        $this->db->where('id_instansi', $id);
+        return $this->db->get()->row_array();
+    }
+
+    public function get_enum_values() {
+        // Query database untuk mendapatkan nilai ENUM
+        $query = $this->db->query("SHOW COLUMNS FROM instansi_kesehatan WHERE Field = 'tipe'");
+        $row = $query->row();
+        $enum_str = $row->Type;
+
+        // Parse nilai ENUM
+        preg_match("/^enum\(\'(.*)\'\)$/", $enum_str, $matches);
+        $enum_values = explode("','", $matches[1]);
+
+        return $enum_values;
     }
 }
