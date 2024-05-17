@@ -25,9 +25,12 @@
   <link href="<?= base_url('assets/'); ?>vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="<?= base_url('assets/'); ?>vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?= base_url('assets/'); ?>vendor/simple-datatables/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?= base_url('assets/'); ?>jquery/jquery.css">
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url('assets/'); ?>css/style.css" rel="stylesheet">
+  <script src="<?= base_url('assets/'); ?>jquery/jquery-min.js"></script>
+  <script src="<?= base_url('assets/'); ?>jquery/jquery-ui.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 

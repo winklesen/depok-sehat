@@ -6,6 +6,7 @@
 
     <li class="nav-heading">Pages</li>
 
+
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('admin'); ?>">
         <i class="bi bi-grid"></i>
@@ -14,39 +15,33 @@
     </li>
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('pasien'); ?>">
-        <i class="fa-solid fa-hospital-user"></i>
+        <i class="bi bi-grid"></i>
         <span>Pasien</span>
       </a>
     </li>
+
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('RekamMedis'); ?>">
-        <i class="fa-solid fa-file-medical"></i>
+        <i class="bi bi-grid"></i>
         <span>Rekam Medis</span>
       </a>
     </li>
-    <li
-     class="nav-item">
+    <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('penyakit'); ?>">
-        <i class="fa-solid fa-virus"></i>
+        <i class="bi bi-grid"></i>
         <span>Penyakit</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('user/master'); ?>">
-        <i class="fa-solid fa-user"></i>
+        <i class="bi bi-grid"></i>
         <span>Pengguna</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?= base_url('InstansiKesehatan'); ?>">
-        <i class="fa-solid fa-house-medical"></i>
+        <i class="bi bi-grid"></i>
         <span>Instansi Kesehatan</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="<?= base_url('Kecamatan'); ?>">
-        <i class="fa-solid fa-city"></i>
-        <span>Kecamatan</span>
       </a>
     </li>
 
