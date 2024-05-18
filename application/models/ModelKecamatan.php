@@ -70,19 +70,13 @@ class ModelKecamatan extends CI_Model
     {
         return $this->db->insert('kecamatan', $data);
     }
-    // public function updateKecamatan($data = null, $where = null)
-    // {
-    //     $this->db->update('kecamatan', $data, $where);
-    // }
+    
     public function updateKecamatan($id_kecamatan, $data)
     {
         $this->db->where('id_kecamatan', $id_kecamatan);
         return $this->db->update('kecamatan', $data);
     }
-    // public function hapusKecamatan($where = null)
-    // {
-    //     $this->db->delete('kecamatan', $where);
-    // }
+    
     public function total($field, $where)
     {
         $this->db->select_sum($field);

@@ -8,6 +8,7 @@ class RekamMedis extends CI_Controller
 		parent::__construct();
 		cek_login();
 		cek_user();
+		error_reporting(0);		
 	}
 
 	public function index()

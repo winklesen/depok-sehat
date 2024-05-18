@@ -49,10 +49,8 @@ class InstansiKesehatan extends CI_Controller
 	{
 		$data['judul'] = 'Edit Instansi Kesehatan';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-
 		$data['enum_values'] = $this->ModelInstansiKesehatan->get_enum_values();
 		$data['instansi'] = $this->ModelInstansiKesehatan->getInstansiKesehatanById($id);
-
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);

@@ -19,12 +19,11 @@
             <h5 class="card-title p-0"></h5>
 
 
-            <form id="editForm" action="<?= base_url('InstansiKesehatan/editttt') ?>" method="post">
+            <form id="editForm" action="<?= base_url('InstansiKesehatan/createInstansi') ?>" method="post">
 
               <div class="form-group mb-2">
                 <label for="id_instansi" class="mr-2">ID Instansi</label>
                 <input type="text" class="form-control" id="id_instansi" name="id_instansi" value="<?= $last_id ?>" disabled>
-
               </div>
 
               <div class="form-group mb-2">

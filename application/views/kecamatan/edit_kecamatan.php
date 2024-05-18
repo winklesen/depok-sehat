@@ -21,7 +21,7 @@
 
                             <div class="form-group mb-2">
                                 <label for="id_kecamatan" class="mr-2">ID Kecamatan:</label>
-                                <input type="text" class="form-control" id="id_kecamatan" name="id_kecamatan" value="<?= $kecamatan['id_kecamatan'] ?>">
+                                <input type="text" class="form-control" id="id_kecamatan" name="id_kecamatan" value="<?= $kecamatan['id_kecamatan'] ?>" disabled>
                             </div>
 
                             <div class="form-group mb-2">
@@ -32,7 +32,7 @@
 
                             <!-- Tambahkan field lainnya sesuai dengan kebutuhan -->
 
-                            <button type="submit" class="btn btn-primary mt-4">Simpan Perubahan</button>
+                            <button type="submit" class="btn btn-primary mt-4">Simpan</button>
                         </form>
                     </div>
                 </div>

@@ -6,6 +6,62 @@ class ModelPasien extends CI_Model
     {
         return $this->db->get('pasien');
     }
+
+    public function getLastIdPasien(){
+        // Mendapatkan ID pasien terakhir dari database
+        $this->db->select('id_pasien');
+        $this->db->order_by('id_pasien', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('pasien');
+
+        // Jika tidak ada data pasien, kita mulai dengan nomor 1
+        if ($query->num_rows() == 0) {
+            $newIdPasien = 'PS00000001';
+        } else {
+            $lastId = $query->row()->id_pasien;
+            // Mendapatkan bagian numerik dari ID pasien terakhir
+            $numericPart = intval(substr($lastId, 2));
+
+            // Menambahkan 1 ke bagian numerik
+            $newNumericPart = $numericPart + 1;
+
+            // Membuat ID pasien baru
+            $newIdPasien = 'PS' . str_pad($newNumericPart, 8, '0', STR_PAD_LEFT);
+        }
+        return $newIdPasien;
+    }
+
+    
+    public function simpanPasienIncrement($data = null)
+    {
+        // Mendapatkan ID pasien terakhir dari database
+        $this->db->select('id_pasien');
+        $this->db->order_by('id_pasien', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('pasien');
+
+        // Jika tidak ada data pasien, kita mulai dengan nomor 1
+        if ($query->num_rows() == 0) {
+            $newIdPasien = 'PS00000001';
+        } else {
+            $lastId = $query->row()->id_pasien;
+            // Mendapatkan bagian numerik dari ID pasien terakhir
+            $numericPart = intval(substr($lastId, 2));
+
+            // Menambahkan 1 ke bagian numerik
+            $newNumericPart = $numericPart + 1;
+
+            // Membuat ID pasien baru
+            $newIdPasien = 'PS' . str_pad($newNumericPart, 8, '0', STR_PAD_LEFT);
+        }
+
+        // Menambahkan ID pasien baru ke dalam data
+        $data['id_pasien'] = $newIdPasien;
+
+        // Memasukkan data ke dalam database
+        return $this->db->insert('pasien', $data);
+    }
+    
     public function pasienWhere($where)
     {
         return $this->db->get_where('pasien', $where);

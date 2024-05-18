@@ -51,23 +51,23 @@ class Kecamatan extends CI_Controller
 	public function createKecamatan()
 	{
 		$data = array(
-			'id_kecamatan' => $this->input->post('id_kecamatan'),
+			// 'id_kecamatan' => $this->input->post('id_kecamatan'),
 			'nama_kecamatan' => $this->input->post('nama_kecamatan'),
 		);
 
 		// var_dump($data); exit;
 
 		// Panggil model untuk menyimpan data
-		$result = $this->ModelKecamatan->simpanKecamatan($data);
+		$result = $this->ModelKecamatan->simpanKecamatanIncrement($data);
 
 		// Periksa hasil simpan
 		if ($result) {
-			// Simpan berhasil
-			echo "<script>alert('Data kecamatan berhasil disimpan');</script>";
+			// Simpan berhasil						
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
 			redirect('kecamatan'); // Redirect ke halaman kecamatan setelah simpan
 		} else {
 			// Simpan gagal
-			echo "<script>alert('Gagal menyimpan data kecamatan. Mohon coba lagi');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
 		}
 	}
 
@@ -101,19 +101,19 @@ class Kecamatan extends CI_Controller
 		$result = $this->ModelKecamatan->updateKecamatan($id_kecamatan, $data);
 
 		if ($result) {
-			// Update berhasil
-			echo "<script>alert('Data kecamatan berhasil di edit');</script>";
+			// Update berhasil						
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
 			redirect('kecamatan'); // Redirect ke halaman kecamatan setelah update
 		} else {
 			// Update gagal
-			echo "<script>alert('Gagal menyimpan data kecamatan. Mohon coba lagi');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
 		}
 	}
 
 	// public function hapusKecamatan()
 	// {
 	//     $where = ['id_kecamatan' => $this->uri->segment(3)];
-	//     $this->ModelKecamatan->hapusKecamatan($where);
+	//     $this->ModelKecamatan->hapusKecamatan($where);	
 	//     redirect('kecamatan');
 	// }
 
