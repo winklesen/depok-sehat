@@ -1,68 +1,45 @@
-<!-- 
-BLM RAPIH, blm templating
- -->
-
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!--====== Title ======-->
-    <title>Depok Sehat</title>
+    <title>Depok Sehat | <?= $judul; ?></title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicons -->
+    <link href="<?= base_url('assets/'); ?>img/favicon.png" rel="icon">
+    <link href="<?= base_url('assets/'); ?>img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="<?= base_url('assets/template_landing'); ?>/images/favicon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!--====== Slick CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/animate.css">
+    <!-- Vendor CSS Files -->
+    <link href="<?= base_url('assets/'); ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/'); ?>vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="<?= base_url('assets/'); ?>vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/'); ?>vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="<?= base_url('assets/'); ?>vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="<?= base_url('assets/'); ?>vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="<?= base_url('assets/'); ?>vendor/simple-datatables/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>jquery/jquery.css">
 
-    <!--====== LineIcons CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/lineicons.css">
+    <!-- Template Main CSS File -->
+    <link href="<?= base_url('assets/'); ?>css/style.css" rel="stylesheet">
+    <script src="<?= base_url('assets/'); ?>jquery/jquery-min.js"></script>
+    <script src="<?= base_url('assets/'); ?>jquery/jquery-ui.js"></script>
 
-    <!--====== Bootstrap CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!--====== Default CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/default.css">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 
-    <!--====== Style CSS ======-->
-    <link rel="stylesheet" href="<?= base_url('assets/template_landing'); ?>/css/style.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
-        input {
-            width: 100%;
-            height: 100%;
-            display: relative;
-            border-radius: 15px;
-            padding: 8px 40px 8px 20px;
-            border: none;
-        }   
-
-        input:focus {
-            width: 100%;
-            height: 100%;
-            display: block;
-            border-radius: 15px;
-            padding: 8px 40px 8px 20px;
-            border: none;
-        }   
-
-        button {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 25%;
-            height: 100%;
-            border-radius: 50%;
-            border:none;
-            background: none;
-        }
-    </style>
 </head>
+
+<body>

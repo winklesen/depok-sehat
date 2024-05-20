@@ -14,8 +14,8 @@ class Home extends CI_Controller
 		// - Desain sesuai mockup
 		// - Tampil data sesuai mockup		
         $this->load->view('templates/user/header');
-		$this->load->view('home/index');	
         $this->load->view('templates/user/navbar');
+		$this->load->view('home/index');	        
         $this->load->view('templates/user/footer');
         
     }
@@ -25,9 +25,10 @@ class Home extends CI_Controller
 		// - Desain sesuai mockup
 		// - Tampil data sesuai mockup		
         $this->load->view('templates/user/header');
+        $this->load->view('templates/user/navbar');
 		$this->load->view('home/about');	
         $this->load->view('templates/user/footer');
-        $this->load->view('templates/user/navbar');
+        
         
     }
 }
