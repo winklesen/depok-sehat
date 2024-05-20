@@ -23,7 +23,7 @@ class Kecamatan extends CI_Controller
 		}
 
 		// Get Data Kecamatan
-		$data['kecamatan'] = $this->ModelKecamatan->getKecamatan();
+		$data['kecamatan'] = $this->ModelKecamatan->getKecamatan()->result_array();
 		// var_dump($data['kecamatan']);
 		// exit;
 		$this->load->view('templates/admin/header', $data);
