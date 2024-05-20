@@ -23,7 +23,7 @@ class Kecamatan extends CI_Controller
 		}
 
 		// Get Data Kecamatan
-		$data['kecamatan'] = $this->ModelKecamatan->getKecamatanLimit();
+		$data['kecamatan'] = $this->ModelKecamatan->getKecamatan();
 		// var_dump($data['kecamatan']);
 		// exit;
 		$this->load->view('templates/admin/header', $data);
@@ -55,7 +55,22 @@ class Kecamatan extends CI_Controller
 			'nama_kecamatan' => $this->input->post('nama_kecamatan'),
 		);
 
+		$rules = [
+			[
+				'nama_kecamatan',
+				'Nama Kecamatan',
+				'required', [
+					'required' => 'Nama Kecamatan harus diisi',
+				]
+			]
+		];
+		$this->form_validation->set_rules($rules);
+
 		// var_dump($data); exit;
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('kecamatan/tambahKecamatan');
+		}
 
 		// Panggil model untuk menyimpan data
 		$result = $this->ModelKecamatan->simpanKecamatanIncrement($data);
@@ -68,6 +83,7 @@ class Kecamatan extends CI_Controller
 		} else {
 			// Simpan gagal
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('kecamatan/tambahKecamatan'); 
 		}
 	}
 
@@ -93,12 +109,23 @@ class Kecamatan extends CI_Controller
 			'nama_kecamatan' => $this->input->post('nama_kecamatan')
 		);
 
-
-		// Ambil ID kecamatan dari form
-		$id_kecamatan = $this->input->post('id_kecamatan');
-
+		$rules = [
+			[
+				'nama_kecamatan',
+				'Nama Kecamatan',
+				'required', [
+					'required' => 'Nama Kecamatan harus diisi',
+				]
+			]
+		];
+		$this->form_validation->set_rules($rules);
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('kecamatan/editKecamatan');
+		}
+		
 		// Panggil model untuk melakukan update data
-		$result = $this->ModelKecamatan->updateKecamatan($id_kecamatan, $data);
+		$result = $this->ModelKecamatan->updateKecamatan($data['id_kecamatan'], $data);
 
 		if ($result) {
 			// Update berhasil						
@@ -107,6 +134,7 @@ class Kecamatan extends CI_Controller
 		} else {
 			// Update gagal
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('kecamatan/editKecamatan');
 		}
 	}
 

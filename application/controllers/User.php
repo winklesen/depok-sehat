@@ -45,19 +45,63 @@ class User extends CI_Controller
         $this->load->view('templates/admin/footer');
     }
 
-    public function createUser() {
-        
-        $data = array(            
+    public function createUser()
+    {
+
+        $data = array(
             'nama' => $this->input->post('nama'),
             'email' => $this->input->post('email'),
             'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             'role_id' => '1',
             'id_instansi' => $this->input->post('id_instansi'),
         );
-    
+
+        $rules = [
+            [
+                'nama',
+                'Nama',
+                'required', [
+                    'required' => 'Nama harus diisi',
+                ]
+            ],
+            [
+                'email',
+                'Email',
+                'required', [
+                    'required' => 'Email harus diisi',
+                ]
+            ],
+            [
+                'password',
+                'Password',
+                'required', [
+                    'required' => 'Password harus diisi',
+                ]
+            ],
+            [
+                'role_id',
+                'Role Id',
+                'required', [
+                    'required' => 'Role Id harus diisi',
+                ]
+            ],
+            [
+                'id_instansi',
+                'Id Instansi',
+                'required', [
+                    'required' => 'Id Instansi harus diisi',
+                ]
+            ],
+        ];
+        $this->form_validation->set_rules($rules);
+        if ($this->form_validation->run() != true) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+            redirect('user/tambahUser');
+        }
+
         // Panggil model untuk menyimpan data
         $this->ModelUser->simpanUserIncrement($data);
-    
+
         // Periksa hasil simpan
         if ($this->db->affected_rows() > 0) {
             // Simpan berhasil
@@ -69,7 +113,7 @@ class User extends CI_Controller
             redirect('user/tambahUser'); // Redirect kembali ke form create user
         }
     }
-    
+
 
     public function editUser($id_user)
     {
@@ -86,7 +130,8 @@ class User extends CI_Controller
     }
 
 
-    public function deleteUser($id_user) {
+    public function deleteUser($id_user)
+    {
         $result = $this->ModelUser->deleteUser($id_user);
 
         if ($result) {
@@ -106,6 +151,35 @@ class User extends CI_Controller
             'id_instansi' => $this->input->post('id_instansi'),
         );
 
+        $rules = [
+            [
+                'nama',
+                'Nama',
+                'required', [
+                    'required' => 'Nama harus diisi',
+                ]
+            ],
+            [
+                'email',
+                'Email',
+                'required', [
+                    'required' => 'Email harus diisi',
+                ]
+            ],
+            [
+                'id_instansi',
+                'Id Instansi',
+                'required', [
+                    'required' => 'Id Instansi harus diisi',
+                ]
+            ],
+        ];
+        $this->form_validation->set_rules($rules);
+        if ($this->form_validation->run() != true) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+            redirect('user/editUser');
+        }
+
         // Jika pengguna memasukkan password baru, hash dan tambahkan ke data
         if (!empty($this->input->post('password'))) {
             $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
@@ -123,6 +197,7 @@ class User extends CI_Controller
         } else {
             // Update gagal
             echo "<script>alert('Gagal menyimpan data pasien. Mohon coba lagi');</script>";
+            redirect('user/editUser');
         }
     }
 }

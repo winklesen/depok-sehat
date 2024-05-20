@@ -64,6 +64,56 @@ class Penyakit extends CI_Controller
 			'gambar_penyakit' => $this->input->post('gambar_penyakit')
 		);
 
+		$rules = [
+			[
+				'id_penyakit',
+				'Id Penyakit',
+				'required', [
+					'required' => 'Id Penyakit harus diisi',
+				]
+			],
+			[
+				'nama_penyakit',
+				'Nama Penyakit',
+				'required', [
+					'required' => 'Nama Penyakit harus diisi',
+				]
+			],
+			[
+				'info_gejala',
+				'Info Gejala',
+				'required', [
+					'required' => 'Info Gejala harus diisi',
+				]
+			],
+			[
+				'info_pencegahan',
+				'Info Pencegahan',
+				'required', [
+					'required' => 'Info Pencegahan harus diisi',
+				]
+			],
+			[
+				'info_pengobatan',
+				'Info Pengobatan',
+				'required', [
+					'required' => 'Info Pengobatan harus diisi',
+				]
+			],
+			// [
+			// 	'gambar_penyakit',
+			// 	'Gambar Penyakit',
+			// 	'required', [
+			// 		'required' => 'Gambar Penyakit harus diisi',
+			// 	]
+			// ],
+		];
+		$this->form_validation->set_rules($rules);
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('Penyakit/addPenyakit');
+		}
+
 		// Panggil model untuk menyimpan data
 		$result = $this->ModelPenyakit->simpanPenyakit($data);
 
@@ -75,6 +125,7 @@ class Penyakit extends CI_Controller
 		} else {
 			// Simpan gagal
 			echo "<script>alert('Gagal menambahkan data penyakit. Mohon coba lagi');</script>";
+			redirect('Penyakit/addPenyakit');
 		}
 	}
 
@@ -102,6 +153,50 @@ class Penyakit extends CI_Controller
 			'gambar_penyakit' => $this->input->post('gambar_penyakit')
 		);
 
+		$rules = [
+			
+			[
+				'nama_penyakit',
+				'Nama Penyakit',
+				'required', [
+					'required' => 'Nama Penyakit harus diisi',
+				]
+			],
+			[
+				'info_gejala',
+				'Info Gejala',
+				'required', [
+					'required' => 'Info Gejala harus diisi',
+				]
+			],
+			[
+				'info_pencegahan',
+				'Info Pencegahan',
+				'required', [
+					'required' => 'Info Pencegahan harus diisi',
+				]
+			],
+			[
+				'info_pengobatan',
+				'Info Pengobatan',
+				'required', [
+					'required' => 'Info Pengobatan harus diisi',
+				]
+			],
+			// [
+			// 	'gambar_penyakit',
+			// 	'Gambar Penyakit',
+			// 	'required', [
+			// 		'required' => 'Gambar Penyakit harus diisi',
+			// 	]
+			// ],
+		];
+		$this->form_validation->set_rules($rules);
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('Penyakit/editPenyakit');
+		}
+
 		// Ambil ID penyakit dari form
 		$id_penyakit = $this->input->post('id_penyakit');
 
@@ -115,6 +210,7 @@ class Penyakit extends CI_Controller
 		} else {
 			// Update gagal
 			echo "<script>alert('Gagal mengubah data penyakit. Mohon coba lagi');</script>";
+			redirect('Penyakit/editPenyakit');
 		}
 	}
 }
