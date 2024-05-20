@@ -18,10 +18,10 @@
                         <h5 class="card-title p-0"></h5>
                         <!-- Form untuk mengedit data kecamatan -->
                         <form id="editForm" action="<?= base_url('instansikesehatan/updateinstansi') ?>" method="post">
-
                             <div class="form-group mb-2">
                                 <label for="id_instansi" class="mr-2">ID Instansi:</label>
-                                <input type="text" class="form-control" id="id_instansi" name="id_instansi" value="<?= $instansi['id_instansi'] ?>">
+                                <input type="text" disabled class="form-control" id="id_instansi" name="id_instansi" value="<?= $instansi['id_instansi'] ?>">
+                                <input type="hidden" class="form-control" id="id_instansi" name="id_instansi" value="<?= $instansi['id_instansi'] ?>">
                             </div>
 
                             <div class="form-group mb-2">

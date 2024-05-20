@@ -18,8 +18,7 @@
           <div class="card-body m-3">
             <h5 class="card-title p-0"></h5>
 
-
-            <form id="editForm" action="<?= base_url('InstansiKesehatan/createInstansi') ?>" method="post">
+            <form id="editForm" action="<?= base_url('InstansiKesehatan/createInstansi') ?>" method="post" enctype="multipart/form-data">
 
               <div class="form-group mb-2">
                 <label for="id_instansi" class="mr-2">ID Instansi</label>

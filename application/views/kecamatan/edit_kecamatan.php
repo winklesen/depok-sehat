@@ -22,6 +22,7 @@
                             <div class="form-group mb-2">
                                 <label for="id_kecamatan" class="mr-2">ID Kecamatan:</label>
                                 <input type="text" class="form-control" id="id_kecamatan" name="id_kecamatan" value="<?= $kecamatan['id_kecamatan'] ?>" disabled>
+                                <input type="hidden" class="form-control" id="id_kecamatan" name="id_kecamatan" value="<?= $kecamatan['id_kecamatan'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
