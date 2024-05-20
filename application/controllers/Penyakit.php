@@ -66,39 +66,29 @@ class Penyakit extends CI_Controller
 
 		$rules = [
 			[
-				'id_penyakit',
-				'Id Penyakit',
-				'required', [
-					'required' => 'Id Penyakit harus diisi',
-				]
+				'field' => 'id_penyakit',
+				'label' => 'Id Penyakit',
+				'rules' => 'required'
 			],
 			[
-				'nama_penyakit',
-				'Nama Penyakit',
-				'required', [
-					'required' => 'Nama Penyakit harus diisi',
-				]
+				'field' => 'nama_penyakit',
+				'label' => 'Nama Penyakit',
+				'rules' => 'required'
 			],
 			[
-				'info_gejala',
-				'Info Gejala',
-				'required', [
-					'required' => 'Info Gejala harus diisi',
-				]
+				'field' => 'info_gejala',
+				'label' => 'Info Gejala',
+				'rules' => 'required'
 			],
 			[
-				'info_pencegahan',
-				'Info Pencegahan',
-				'required', [
-					'required' => 'Info Pencegahan harus diisi',
-				]
+				'field' => 'info_pencegahan',
+				'label' => 'Info Pencegahan',
+				'rules' => 'required'
 			],
 			[
-				'info_pengobatan',
-				'Info Pengobatan',
-				'required', [
-					'required' => 'Info Pengobatan harus diisi',
-				]
+				'field' => 'info_pengobatan',
+				'label' => 'Info Pengobatan',
+				'rules' => 'required'
 			],
 			// [
 			// 	'gambar_penyakit',
@@ -154,34 +144,26 @@ class Penyakit extends CI_Controller
 		);
 
 		$rules = [
-			
+
 			[
-				'nama_penyakit',
-				'Nama Penyakit',
-				'required', [
-					'required' => 'Nama Penyakit harus diisi',
-				]
+				'field' => 'nama_penyakit',
+				'label' => 'Nama Penyakit',
+				'rules' => 'required'
 			],
 			[
-				'info_gejala',
-				'Info Gejala',
-				'required', [
-					'required' => 'Info Gejala harus diisi',
-				]
+				'field' => 'info_gejala',
+				'label' => 'Info Gejala',
+				'rules' => 'required'
 			],
 			[
-				'info_pencegahan',
-				'Info Pencegahan',
-				'required', [
-					'required' => 'Info Pencegahan harus diisi',
-				]
+				'field' => 'info_pencegahan',
+				'label' => 'Info Pencegahan',
+				'rules' => 'required'
 			],
 			[
-				'info_pengobatan',
-				'Info Pengobatan',
-				'required', [
-					'required' => 'Info Pengobatan harus diisi',
-				]
+				'field' => 'info_pengobatan',
+				'label' => 'Info Pengobatan',
+				'rules' => 'required'
 			],
 			// [
 			// 	'gambar_penyakit',

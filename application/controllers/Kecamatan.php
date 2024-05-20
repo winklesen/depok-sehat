@@ -57,12 +57,10 @@ class Kecamatan extends CI_Controller
 
 		$rules = [
 			[
-				'nama_kecamatan',
-				'Nama Kecamatan',
-				'required', [
-					'required' => 'Nama Kecamatan harus diisi',
-				]
-			]
+				'field' => 'nama_kecamatan', //<- ini mengikuti nama input di form
+				'label' => 'Nama Kecamatan',
+				'rules' => 'required'
+			],			
 		];
 		$this->form_validation->set_rules($rules);
 
@@ -83,7 +81,7 @@ class Kecamatan extends CI_Controller
 		} else {
 			// Simpan gagal
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
-			redirect('kecamatan/tambahKecamatan'); 
+			redirect('kecamatan/tambahKecamatan');
 		}
 	}
 
@@ -111,19 +109,17 @@ class Kecamatan extends CI_Controller
 
 		$rules = [
 			[
-				'nama_kecamatan',
-				'Nama Kecamatan',
-				'required', [
-					'required' => 'Nama Kecamatan harus diisi',
-				]
+				'field' => 'nama_kecamatan', 
+				'label' => 'Nama Kecamatan',
+				'rules' => 'required'
 			]
 		];
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() != true) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
-			redirect('kecamatan/editKecamatan');
+			redirect('kecamatan/editkecamatan/'.$data['id_kecamatan']);
 		}
-		
+
 		// Panggil model untuk melakukan update data
 		$result = $this->ModelKecamatan->updateKecamatan($data['id_kecamatan'], $data);
 

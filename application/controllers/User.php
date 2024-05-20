@@ -58,39 +58,29 @@ class User extends CI_Controller
 
         $rules = [
             [
-                'nama',
-                'Nama',
-                'required', [
-                    'required' => 'Nama harus diisi',
-                ]
+                'field' => 'nama',
+                'label' => 'Nama',
+                'rules' => 'required'
             ],
             [
-                'email',
-                'Email',
-                'required', [
-                    'required' => 'Email harus diisi',
-                ]
+                'field' => 'email',
+                'label' => 'Email',
+                'rules' => 'required'
             ],
             [
-                'password',
-                'Password',
-                'required', [
-                    'required' => 'Password harus diisi',
-                ]
+                'field' => 'password',
+                'label' => 'Password',
+                'rules' => 'required'
             ],
             [
-                'role_id',
-                'Role Id',
-                'required', [
-                    'required' => 'Role Id harus diisi',
-                ]
+                'field' => 'role_id',
+                'label' => 'Role Id',
+                'rules' => 'required'
             ],
             [
-                'id_instansi',
-                'Id Instansi',
-                'required', [
-                    'required' => 'Id Instansi harus diisi',
-                ]
+                'field' => 'id_instansi',
+                'label' => 'Id Instansi',
+                'rules' => 'required'
             ],
         ];
         $this->form_validation->set_rules($rules);
@@ -146,6 +136,7 @@ class User extends CI_Controller
     {
         // Ambil data dari form
         $data = array(
+            'id_user' => $this->input->post('id_user'),
             'nama' => $this->input->post('nama'),
             'email' => $this->input->post('email'),
             'id_instansi' => $this->input->post('id_instansi'),
@@ -153,31 +144,25 @@ class User extends CI_Controller
 
         $rules = [
             [
-                'nama',
-                'Nama',
-                'required', [
-                    'required' => 'Nama harus diisi',
-                ]
+                'field' => 'nama',
+                'label' => 'Nama',
+                'rules' => 'required'
             ],
             [
-                'email',
-                'Email',
-                'required', [
-                    'required' => 'Email harus diisi',
-                ]
+                'field' => 'email',
+                'label' => 'Email',
+                'rules' => 'required'
             ],
             [
-                'id_instansi',
-                'Id Instansi',
-                'required', [
-                    'required' => 'Id Instansi harus diisi',
-                ]
+                'field' => 'id_instansi',
+                'label' => 'Id Instansi',
+                'rules' => 'required'
             ],
         ];
         $this->form_validation->set_rules($rules);
         if ($this->form_validation->run() != true) {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
-            redirect('user/editUser');
+            redirect('user/editUser'.$data['id_user']);
         }
 
         // Jika pengguna memasukkan password baru, hash dan tambahkan ke data

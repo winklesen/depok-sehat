@@ -66,52 +66,34 @@ class InstansiKesehatan extends CI_Controller
 
 		$rules = [
 			[
-				"id_instansi",
-				"Id Instansi",
-				"required",
-				[
-					"required" => "Id Instansi tidak Boleh Kosong"
-				]
+				'field' => 'id_instansi',
+				'label' => "Id Instansi",
+				'rules' => "required",
 			],
 			[
-				"nama_instansi",
-				"Nama Instansi",
-				"required",
-				[
-					"required" => "Nama Instansi tidak Boleh Kosong"
-				]
+				'field' => 'nama_instansi',
+				'label' => "Nama Instansi",
+				'rules' => "required",
 			],
 			[
-				"tipe",
-				"Tipe",
-				"required",
-				[
-					"required" => "Tipe tidak Boleh Kosong"
-				]
+				'field' => 'tipe',
+				'label' => "Tipe",
+				'rules' => "required",
 			],
 			[
-				"alamat",
-				"Alamat",
-				"required",
-				[
-					"required" => "Alamat tidak Boleh Kosong"
-				]
+				'field' => 'alamat',
+				'label' => "Alamat",
+				'rules' => "required",
 			],
 			[
-				"kontak",
-				"Kontak",
-				"required",
-				[
-					"required" => "Kontak tidak Boleh Kosong"
-				]
+				'field' => 'kontak',
+				'label' => "Kontak",
+				'rules' => "required",
 			],
 			[
-				"id_kecamatan",
-				"Id Kecamatan",
-				"required",
-				[
-					"required" => "Id Kecamatan tidak Boleh Kosong"
-				]
+				'field' => 'id_kecamatan',
+				'label' => "Id Kecamatan",
+				'rules' => "required",
 			],
 		];
 		$this->form_validation->set_rules($rules);
@@ -163,34 +145,25 @@ class InstansiKesehatan extends CI_Controller
 
 		$rules = [
 			[
-				"id_instansi",
-				"Id Instansi",
-				"required",
-				[
-					"required" => "Id Instansi tidak Boleh Kosong"
-				]
+				'field' => 'id_instansi',
+				'label' => "Id Instansi",
+				'rules' => "required",
 			],
 			[
-				"nama_instansi",
-				"Nama Instansi",
-				"required",
-				[
-					"required" => "Nama Instansi tidak Boleh Kosong"
-				]
+				'field' => 'nama_instansi',
+				'label' => "Nama Instansi",
+				'rules' => "required",
 			],
 			[
-				"tipe",
-				"Tipe",
-				"required",
-				[
-					"required" => "Tipe tidak Boleh Kosong"
-				]
-			],			
+				'field' => 'tipe',
+				'label' => "Tipe",
+				'rules' => "required",
+			],
 		];
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() != true) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
-			redirect('InstansiKesehatan/editInstansi');
+			redirect('InstansiKesehatan/editInstansi'.$data['id_instansi']);
 		}
 
 
