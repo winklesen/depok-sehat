@@ -102,7 +102,7 @@ class InstansiKesehatan extends CI_Controller
 			redirect('InstansiKesehatan/tambahInstansi');
 		}
 
-		$id_instansi = $this->input->post('id_instansi', true);
+		// $id_instansi = $this->input->post('id_instansi', true);
 		$nama_instansi = $this->input->post('nama_instansi', true);
 		$tipe = $this->input->post('tipe', true);
 		$alamat = $this->input->post('alamat', true);
@@ -110,7 +110,7 @@ class InstansiKesehatan extends CI_Controller
 		$id_kecamatan = $this->input->post('id_kecamatan', true);
 
 		$query = array(
-			'id_instansi' => $id_instansi,
+			// 'id_instansi' => $id_instansi,
 			'nama_instansi' => $nama_instansi,
 			'tipe' => $tipe,
 			'alamat' => $alamat,
@@ -120,7 +120,7 @@ class InstansiKesehatan extends CI_Controller
 		);
 
 		// Panggil model untuk menyimpan data
-		$result = $this->ModelInstansiKesehatan->simpanInstansiKesehatan($query);
+		$result = $this->ModelInstansiKesehatan->simpanInstansiKesehatanIncrement($query);
 
 		// Periksa hasil simpan
 		if ($result) {
@@ -163,7 +163,7 @@ class InstansiKesehatan extends CI_Controller
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() != true) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
-			redirect('InstansiKesehatan/editInstansi'.$data['id_instansi']);
+			redirect('InstansiKesehatan/editInstansi/' . $data['id_instansi']);
 		}
 
 
@@ -175,12 +175,12 @@ class InstansiKesehatan extends CI_Controller
 
 		if ($result) {
 			// Update berhasil
-			echo "<script>alert('Data kecamatan berhasil di edit');</script>";
-			redirect('instansikesehatan'); // Redirect ke halaman kecamatan setelah update
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
+			redirect('InstansiKesehatan'); // Redirect ke halaman kecamatan setelah update
 		} else {
 			// Update gagal
-			echo "<script>alert('Gagal menyimpan data kecamatan. Mohon coba lagi');</script>";
-			redirect('InstansiKesehatan/editInstansi');
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('InstansiKesehatan/editInstansi/' . $data['id_instansi']);
 		}
 	}
 
@@ -188,6 +188,7 @@ class InstansiKesehatan extends CI_Controller
 	{
 		$where = ['id_instansi' => $this->uri->segment(3)];
 		$this->ModelInstansiKesehatan->hapusInstansiKesehatan($where);
-		redirect('instansikesehatan');
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil dihapus</div>');
+		redirect('InstansiKesehatan');
 	}
 }

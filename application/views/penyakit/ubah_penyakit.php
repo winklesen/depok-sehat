@@ -9,6 +9,7 @@
             </ol>
         </nav>
     </div>
+    <?= $this->session->flashdata('pesan'); ?>
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
@@ -20,7 +21,7 @@
 
                             <div class="form-group mb-2">
                                 <label for="id_penyakit" class="mr-2">ID Penyakit:</label>
-                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit" value="<?= $penyakit['id_penyakit'] ?>" readonly>
+                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit" value="<?= $penyakit['id_penyakit'] ?>" readonly>                                
                             </div>
 
                             <div class="form-group mb-2">

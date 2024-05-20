@@ -17,7 +17,7 @@
                     <div class="card-body m-3">
                         <h5 class="card-title p-0"></h5>
                         <!-- Form untuk mengedit data kecamatan -->
-                        <form id="editForm" action="<?= base_url('instansikesehatan/updateinstansi') ?>" method="post">
+                        <form id="editForm" action="<?= base_url('InstansiKesehatan/updateInstansi') ?>" method="post">
                             <div class="form-group mb-2">
                                 <label for="id_instansi" class="mr-2">ID Instansi:</label>
                                 <input type="text" disabled class="form-control" id="id_instansi" name="id_instansi" value="<?= $instansi['id_instansi'] ?>">
@@ -31,7 +31,7 @@
                             
                             <div class="form-group mb-2">
                                 <label for="tipe" class="mr-2">Tipe:</label>
-                                <select class="form-control" id="tipe" name="tipe_instansi">
+                                <select class="form-control" id="tipe" name="tipe">
                                     <option value="<?= $instansi['tipe']?>" >~ Pilih ~</option> 
                                     <?php
                                         foreach ($enum_values as $value) {

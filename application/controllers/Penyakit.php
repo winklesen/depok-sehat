@@ -110,11 +110,11 @@ class Penyakit extends CI_Controller
 		// Periksa hasil simpan
 		if ($result) {
 			// Simpan berhasil
-			echo "<script>alert('Data penyakit berhasil ditambahkan');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
 			redirect('penyakit'); // Redirect ke halaman penyakit setelah simpan
 		} else {
 			// Simpan gagal
-			echo "<script>alert('Gagal menambahkan data penyakit. Mohon coba lagi');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
 			redirect('Penyakit/addPenyakit');
 		}
 	}
@@ -136,6 +136,7 @@ class Penyakit extends CI_Controller
 	{
 		// Ambil data dari form
 		$data = array(
+			'id_penyakit' => $this->input->post('id_penyakit'),
 			'nama_penyakit' => $this->input->post('nama_penyakit'),
 			'info_gejala' => $this->input->post('info_gejala'),
 			'info_pencegahan' => $this->input->post('info_pencegahan'),
@@ -176,7 +177,7 @@ class Penyakit extends CI_Controller
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() != true) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
-			redirect('Penyakit/editPenyakit');
+			redirect('Penyakit/editPenyakit/' . $data['id_penyakit']);
 		}
 
 		// Ambil ID penyakit dari form
@@ -187,12 +188,12 @@ class Penyakit extends CI_Controller
 
 		if ($result) {
 			// Update berhasil
-			echo "<script>alert('Data penyakit berhasil diubah');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
 			redirect('penyakit'); // Redirect ke halaman penyakit setelah update
 		} else {
 			// Update gagal
-			echo "<script>alert('Gagal mengubah data penyakit. Mohon coba lagi');</script>";
-			redirect('Penyakit/editPenyakit');
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('Penyakit/editPenyakit/' . $data['id_penyakit']);
 		}
 	}
 }

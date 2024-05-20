@@ -72,11 +72,11 @@ class User extends CI_Controller
                 'label' => 'Password',
                 'rules' => 'required'
             ],
-            [
-                'field' => 'role_id',
-                'label' => 'Role Id',
-                'rules' => 'required'
-            ],
+            // [
+            //     'field' => 'role_id',
+            //     'label' => 'Role Id',
+            //     'rules' => 'required'
+            // ],
             [
                 'field' => 'id_instansi',
                 'label' => 'Id Instansi',
@@ -95,11 +95,11 @@ class User extends CI_Controller
         // Periksa hasil simpan
         if ($this->db->affected_rows() > 0) {
             // Simpan berhasil
-            $this->session->set_flashdata('message', 'Data User berhasil disimpan');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
             redirect('user/master'); // Redirect ke halaman user setelah simpan
         } else {
             // Simpan gagal
-            $this->session->set_flashdata('error', 'Gagal menyimpan data User. Mohon coba lagi');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
             redirect('user/tambahUser'); // Redirect kembali ke form create user
         }
     }
@@ -125,10 +125,10 @@ class User extends CI_Controller
         $result = $this->ModelUser->deleteUser($id_user);
 
         if ($result) {
-            echo "<script>alert('Data user berhasil dihapus');</script>";
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil dihapus</div>');
             redirect('user/master');
         } else {
-            echo "<script>alert('Gagal menghapus data user. Mohon coba lagi');</script>";
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menghapus data. Mohon coba lagi</div>');
         }
     }
 
@@ -162,7 +162,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules($rules);
         if ($this->form_validation->run() != true) {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
-            redirect('user/editUser'.$data['id_user']);
+            redirect('user/editUser/' . $data['id_user']);
         }
 
         // Jika pengguna memasukkan password baru, hash dan tambahkan ke data
@@ -177,12 +177,12 @@ class User extends CI_Controller
 
         if ($result) {
             // Update berhasil
-            echo "<script>alert('Data pasien berhasil di edit');</script>";
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
             redirect('user/master'); // Redirect ke halaman pasien setelah update
         } else {
             // Update gagal
-            echo "<script>alert('Gagal menyimpan data pasien. Mohon coba lagi');</script>";
-            redirect('user/editUser');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+            redirect('user/editUser/' . $data['id_user']);
         }
     }
 }

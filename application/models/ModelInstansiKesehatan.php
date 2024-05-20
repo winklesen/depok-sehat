@@ -41,7 +41,8 @@ class ModelInstansiKesehatan extends CI_Model
         return $this->db->insert('instansi_kesehatan', $data);
     }
 
-    public function getLastIdInstansiKesehatan(){
+    public function getLastIdInstansiKesehatan()
+    {
         // Mendapatkan ID instansi terakhir dari database
         $this->db->select('id_instansi');
         $this->db->order_by('id_instansi', 'DESC');
@@ -107,7 +108,8 @@ class ModelInstansiKesehatan extends CI_Model
         return $this->db->get()->row_array();
     }
 
-    public function get_enum_values() {
+    public function get_enum_values()
+    {
         // Query database untuk mendapatkan nilai ENUM
         $query = $this->db->query("SHOW COLUMNS FROM instansi_kesehatan WHERE Field = 'tipe'");
         $row = $query->row();
