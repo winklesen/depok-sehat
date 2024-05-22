@@ -12,10 +12,11 @@ class Home extends CI_Controller
     public function index(){        
         // TODO di Akhir (Hard)
 		// - Desain sesuai mockup
-		// - Tampil data sesuai mockup		
+		// - Tampil data sesuai mockup	
+        $data['judul'] = 'Home';
         $this->load->view('templates/user/header');
         $this->load->view('templates/user/navbar');
-		$this->load->view('home/index');	        
+		$this->load->view('home/index', $data);	        
         $this->load->view('templates/user/footer');
         
     }
