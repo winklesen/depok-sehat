@@ -126,9 +126,31 @@
 
 <!-- Half Screen Container -->
 <div class="half-screen-container">
-    <h2>Title Here</h2>
+    <!-- <h2>Title Here</h2>
     <p>Subtitle Here</p>
-    <a href="#" class="btn btn-primary">Button Here</a>
+    <a href="#" class="btn btn-primary">Button Here</a> -->
+    <div class="row p-2">
+        <div class="col-12 col-md-6 text-center text-md-start">
+            <h1 class="fw-bold"><d class="text-success">Waspada</d> Akan Bahaya Wabah Penyakit</h1>
+            <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, mollitia?</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="col-12 col-md-6">          
+                    <h3 class="fw-bold">2000000000</h3>
+                    <p class="small">Pasien Terdata</p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3 class="fw-bold">200000</h3>
+                    <p class="small">Instansi Kesehatan</p>
+                </div>
+                <div class="col-12 col-md-12">
+                    <h3 class="fw-bold">825000</h3>
+                    <p class="small">Kecamatan</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
