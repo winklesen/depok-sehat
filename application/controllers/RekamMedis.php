@@ -61,7 +61,7 @@ class RekamMedis extends CI_Controller
 		$data = array(
 			'id_pasien' => $this->input->post('id_pasien'),
 			'id_penyakit' => $this->input->post('id_penyakit'),
-			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+			'tanggal_pemeriksaan' => $this->input->post('tanggal_pemeriksaan'),
 			'keterangan' => $this->input->post('keterangan'),
 			'id_instansi' => $userData['id_instansi']
 		);
