@@ -56,5 +56,4 @@ class ModelRekamMedis extends CI_Model
     $query = $this->db->get('penyakit');
     return $query->result(); // Kembalikan hasil pencarian
   }
-
 }
