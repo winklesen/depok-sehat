@@ -4,21 +4,13 @@
         <h1><?= $judul; ?></h1>
         <nav>
             <ol class="breadcrumb">
-<<<<<<< HEAD
-                <li class="breadcrumb-item"><a href="<?= base_url('admin') ;?>">Home</a></li>
-=======
                 <li class="breadcrumb-item"><a href="<?= base_url('admin'); ?>">Home</a></li>
->>>>>>> cb8a9d87c6ed37bde02d40d34974044764e02e6c
                 <li class="breadcrumb-item">User</li>
                 <li class="breadcrumb-item active">Master</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
-<<<<<<< HEAD
-
-=======
     <?= $this->session->flashdata('pesan'); ?>
->>>>>>> cb8a9d87c6ed37bde02d40d34974044764e02e6c
 
     <section class="section">
         <div class="row">
@@ -28,11 +20,7 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-<<<<<<< HEAD
-                        <h5 class="card-title">Master <?= $judul;?></h5>
-=======
                         <h5 class="card-title">Master <?= $judul; ?></h5>
->>>>>>> cb8a9d87c6ed37bde02d40d34974044764e02e6c
                         <!-- <a href="<?= base_url('user/tambahUser') ?>" class="btn btn-success mt-2 mb-3">Tambah User</a> -->
 
                         <!-- Table with hoverable rows -->
