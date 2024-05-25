@@ -9,6 +9,10 @@
           </ol>
       </nav>
   </div><!-- End Page Title -->
+<<<<<<< HEAD
+=======
+<?= $this->session->flashdata('pesan'); ?>
+>>>>>>> cb8a9d87c6ed37bde02d40d34974044764e02e6c
   <section class="section">
     <div class="row">
       <div class="col-lg-12">

@@ -24,7 +24,7 @@
                             <div class="form-group mb-2">
                                 <label for="id_penyakit" class="mr-2">ID Penyakit:</label>
                                 <input type="text" class="form-control" id="id_penyakit" name="id_penyakit"
-                                    value="<?= $last_id?>">
+                                    value="<?= $last_id?>" readonly>
                             </div>
 
                             <div class="form-group mb-2">
@@ -66,7 +66,7 @@
 
                             <!-- Tambahkan field lainnya sesuai dengan kebutuhan -->
 
-                            <button type="submit" class="btn btn-primary mt-4">Simpan Perubahan</button>
+                            <button type="submit" class="btn btn-primary mt-4">Simpan</button>
                         </form>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ class InstansiKesehatan extends CI_Controller
 		parent::__construct();
 		cek_login();
 		cek_user();
+		error_reporting(0);
 	}
 
 	public function index()
@@ -62,92 +63,74 @@ class InstansiKesehatan extends CI_Controller
 	public function createInstansi()
 	{
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-		
-		$this->form_validation->set_rules(
-			'id_instansi',
-			'Id Instansi',
-			'required',
+
+		$rules = [
 			[
-				'required' => 'Id Instansi tidak Boleh Kosong'
-			]
+				'field' => 'id_instansi',
+				'label' => "Id Instansi",
+				'rules' => "required",
+			],
+			[
+				'field' => 'nama_instansi',
+				'label' => "Nama Instansi",
+				'rules' => "required",
+			],
+			[
+				'field' => 'tipe',
+				'label' => "Tipe",
+				'rules' => "required",
+			],
+			[
+				'field' => 'alamat',
+				'label' => "Alamat",
+				'rules' => "required",
+			],
+			[
+				'field' => 'kontak',
+				'label' => "Kontak",
+				'rules' => "required",
+			],
+			[
+				'field' => 'id_kecamatan',
+				'label' => "Id Kecamatan",
+				'rules' => "required",
+			],
+		];
+		$this->form_validation->set_rules($rules);
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('InstansiKesehatan/tambahInstansi');
+		}
+
+		// $id_instansi = $this->input->post('id_instansi', true);
+		$nama_instansi = $this->input->post('nama_instansi', true);
+		$tipe = $this->input->post('tipe', true);
+		$alamat = $this->input->post('alamat', true);
+		$kontak = $this->input->post('kontak', true);
+		$id_kecamatan = $this->input->post('id_kecamatan', true);
+
+		$query = array(
+			// 'id_instansi' => $id_instansi,
+			'nama_instansi' => $nama_instansi,
+			'tipe' => $tipe,
+			'alamat' => $alamat,
+			'kontak' => $kontak,
+			'id_kecamatan' => $id_kecamatan,
+			'created_at' => null,
 		);
 
-		$this->form_validation->set_rules(
-			'nama_instansi',
-			'Nama Instansi',
-			'required',
-			[
-				'required' => 'Nama Instansi tidak Boleh Kosong'
-			]
-		);
-		$this->form_validation->set_rules(
-			'tipe',
-			'Tipe',
-			'required',
-			[
-				'required' => 'Tipe tidak Boleh Kosong'
-			]
-		);
-		$this->form_validation->set_rules(
-			'alamat',
-			'Alamat',
-			'required',
-			[
-				'required' => 'Alamat tidak Boleh Kosong'
-			]
-		);
-		$this->form_validation->set_rules(
-			'kontak',
-			'Kontak',
-			'required',
-			[
-				'required' => 'Kontak tidak Boleh Kosong'
-			]
-		);
-		$this->form_validation->set_rules(
-			'id_kecamatan',
-			'Id Kecamatan',
-			'required',
-			[
-				'required' => 'Id Kecamatan tidak Boleh Kosong'
-			]
-		);
+		// Panggil model untuk menyimpan data
+		$result = $this->ModelInstansiKesehatan->simpanInstansiKesehatanIncrement($query);
 
-
-		//Form validasi
-		if ($this->form_validation->run() == false) {
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Akses ditolak </div>');
+		// Periksa hasil simpan
+		if ($result) {
+			// Simpan berhasil
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data Berhasil ditambahkan </div>');
 			redirect('InstansiKesehatan');
 		} else {
-			$id_instansi = $this->input->post('id_instansi', true);
-			$nama_instansi = $this->input->post('nama_instansi', true);
-			$tipe = $this->input->post('tipe', true);
-			$alamat = $this->input->post('alamat', true);
-			$kontak = $this->input->post('kontak', true);
-			$id_kecamatan = $this->input->post('id_kecamatan', true);
-
-			$query = array(
-				'id_instansi' => $id_instansi,
-				'nama_instansi' => $nama_instansi,
-				'tipe' => $tipe,
-				'alamat' => $alamat,
-				'kontak' => $kontak,
-				'id_kecamatan' => $id_kecamatan,
-				'created_at' => null,
-			);
-
-			// Panggil model untuk menyimpan data
-			$result = $this->ModelInstansiKesehatan->simpanInstansiKesehatan($query);
-
-			// Periksa hasil simpan
-			// if ($result) {
-			// 	// Simpan berhasil
-				$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data Berhasil ditambahkan </div>');
-				redirect('InstansiKesehatan');
-			// } else {
-			// 	// Simpan gagal
-			// 	$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Data gagal ditambahkan </div>');
-			// }
+			// Simpan gagal
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Data gagal ditambahkan </div>');
+			redirect('InstansiKesehatan/tambahInstansi');
 		}
 	}
 
@@ -160,6 +143,29 @@ class InstansiKesehatan extends CI_Controller
 			'tipe' => $this->input->post('tipe_instansi')
 		);
 
+		$rules = [
+			[
+				'field' => 'id_instansi',
+				'label' => "Id Instansi",
+				'rules' => "required",
+			],
+			[
+				'field' => 'nama_instansi',
+				'label' => "Nama Instansi",
+				'rules' => "required",
+			],
+			[
+				'field' => 'tipe',
+				'label' => "Tipe",
+				'rules' => "required",
+			],
+		];
+		$this->form_validation->set_rules($rules);
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('InstansiKesehatan/editInstansi/' . $data['id_instansi']);
+		}
+
 
 		// Ambil ID Instansi dari form
 		$id_instansi = $this->input->post('id_instansi');
@@ -169,20 +175,20 @@ class InstansiKesehatan extends CI_Controller
 
 		if ($result) {
 			// Update berhasil
-			echo "<script>alert('Data kecamatan berhasil di edit');</script>";
-			redirect('instansikesehatan'); // Redirect ke halaman kecamatan setelah update
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
+			redirect('InstansiKesehatan'); // Redirect ke halaman kecamatan setelah update
 		} else {
 			// Update gagal
-			echo "<script>alert('Gagal menyimpan data kecamatan. Mohon coba lagi');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('InstansiKesehatan/editInstansi/' . $data['id_instansi']);
 		}
 	}
 
 	public function deleteInstansi($id)
-	{	
-
-	    $where = ['id_instansi' => $this->uri->segment(3)];
-	    $this->ModelInstansiKesehatan->hapusInstansiKesehatan($where);
-	    redirect('instansikesehatan');
-
+	{
+		$where = ['id_instansi' => $this->uri->segment(3)];
+		$this->ModelInstansiKesehatan->hapusInstansiKesehatan($where);
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil dihapus</div>');
+		redirect('InstansiKesehatan');
 	}
 }

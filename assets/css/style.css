@@ -1263,9 +1263,55 @@ h6 {
 /*--------------------------------------------------------------
 # Custom
 --------------------------------------------------------------*/
-.title-green{  
+.title-green {
   color: #4CAF4F !important;
   font-weight: bold;
   /* font-size: ; */
-  
+
+}
+
+/* .navbar-brand {
+            color: green;
+        }
+
+        .navbar-brand:hover {
+            color: darkgreen;
+        } */
+  /* ============================================= */
+ /* dibawah Kodingan kurang serius. ganti gpp */
+ /* ============================================= */
+.carousel-item {
+  height: 60vh;
+  background: #777;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.section-title {
+  margin: 40px 0 20px;
+  text-align: center;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.card-icon {
+  font-size: 3rem;
+}
+
+.half-screen-container {
+  height: 50vh;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 40px;
 }

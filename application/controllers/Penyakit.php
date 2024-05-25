@@ -64,17 +64,58 @@ class Penyakit extends CI_Controller
 			'gambar_penyakit' => $this->input->post('gambar_penyakit')
 		);
 
+		$rules = [
+			[
+				'field' => 'id_penyakit',
+				'label' => 'Id Penyakit',
+				'rules' => 'required'
+			],
+			[
+				'field' => 'nama_penyakit',
+				'label' => 'Nama Penyakit',
+				'rules' => 'required'
+			],
+			[
+				'field' => 'info_gejala',
+				'label' => 'Info Gejala',
+				'rules' => 'required'
+			],
+			[
+				'field' => 'info_pencegahan',
+				'label' => 'Info Pencegahan',
+				'rules' => 'required'
+			],
+			[
+				'field' => 'info_pengobatan',
+				'label' => 'Info Pengobatan',
+				'rules' => 'required'
+			],
+			// [
+			// 	'gambar_penyakit',
+			// 	'Gambar Penyakit',
+			// 	'required', [
+			// 		'required' => 'Gambar Penyakit harus diisi',
+			// 	]
+			// ],
+		];
+		$this->form_validation->set_rules($rules);
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('Penyakit/addPenyakit');
+		}
+
 		// Panggil model untuk menyimpan data
 		$result = $this->ModelPenyakit->simpanPenyakit($data);
 
 		// Periksa hasil simpan
 		if ($result) {
 			// Simpan berhasil
-			echo "<script>alert('Data penyakit berhasil ditambahkan');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
 			redirect('penyakit'); // Redirect ke halaman penyakit setelah simpan
 		} else {
 			// Simpan gagal
-			echo "<script>alert('Gagal menambahkan data penyakit. Mohon coba lagi');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('Penyakit/addPenyakit');
 		}
 	}
 
@@ -95,12 +136,49 @@ class Penyakit extends CI_Controller
 	{
 		// Ambil data dari form
 		$data = array(
+			'id_penyakit' => $this->input->post('id_penyakit'),
 			'nama_penyakit' => $this->input->post('nama_penyakit'),
 			'info_gejala' => $this->input->post('info_gejala'),
 			'info_pencegahan' => $this->input->post('info_pencegahan'),
 			'info_pengobatan' => $this->input->post('info_pengobatan'),
 			'gambar_penyakit' => $this->input->post('gambar_penyakit')
 		);
+
+		$rules = [
+
+			[
+				'field' => 'nama_penyakit',
+				'label' => 'Nama Penyakit',
+				'rules' => 'required'
+			],
+			[
+				'field' => 'info_gejala',
+				'label' => 'Info Gejala',
+				'rules' => 'required'
+			],
+			[
+				'field' => 'info_pencegahan',
+				'label' => 'Info Pencegahan',
+				'rules' => 'required'
+			],
+			[
+				'field' => 'info_pengobatan',
+				'label' => 'Info Pengobatan',
+				'rules' => 'required'
+			],
+			// [
+			// 	'gambar_penyakit',
+			// 	'Gambar Penyakit',
+			// 	'required', [
+			// 		'required' => 'Gambar Penyakit harus diisi',
+			// 	]
+			// ],
+		];
+		$this->form_validation->set_rules($rules);
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('Penyakit/editPenyakit/' . $data['id_penyakit']);
+		}
 
 		// Ambil ID penyakit dari form
 		$id_penyakit = $this->input->post('id_penyakit');
@@ -110,11 +188,12 @@ class Penyakit extends CI_Controller
 
 		if ($result) {
 			// Update berhasil
-			echo "<script>alert('Data penyakit berhasil diubah');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
 			redirect('penyakit'); // Redirect ke halaman penyakit setelah update
 		} else {
 			// Update gagal
-			echo "<script>alert('Gagal mengubah data penyakit. Mohon coba lagi');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('Penyakit/editPenyakit/' . $data['id_penyakit']);
 		}
 	}
 }

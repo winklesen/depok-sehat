@@ -32,7 +32,7 @@
               </div>
               <!-- Tambahkan field lainnya sesuai dengan kebutuhan -->
 
-              <button type="submit" class="btn btn-primary mt-4">Simpan Perubahan</button>
+              <button type="submit" class="btn btn-primary mt-4">Simpan</button>
             </form>
           </div>
         </div>

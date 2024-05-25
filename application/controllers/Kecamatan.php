@@ -23,7 +23,7 @@ class Kecamatan extends CI_Controller
 		}
 
 		// Get Data Kecamatan
-		$data['kecamatan'] = $this->ModelKecamatan->getKecamatanLimit();
+		$data['kecamatan'] = $this->ModelKecamatan->getKecamatan()->result_array();
 		// var_dump($data['kecamatan']);
 		// exit;
 		$this->load->view('templates/admin/header', $data);
@@ -51,23 +51,37 @@ class Kecamatan extends CI_Controller
 	public function createKecamatan()
 	{
 		$data = array(
-			'id_kecamatan' => $this->input->post('id_kecamatan'),
+			// 'id_kecamatan' => $this->input->post('id_kecamatan'),
 			'nama_kecamatan' => $this->input->post('nama_kecamatan'),
 		);
 
+		$rules = [
+			[
+				'field' => 'nama_kecamatan', //<- ini mengikuti nama input di form
+				'label' => 'Nama Kecamatan',
+				'rules' => 'required'
+			],			
+		];
+		$this->form_validation->set_rules($rules);
+
 		// var_dump($data); exit;
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('kecamatan/tambahKecamatan');
+		}
 
 		// Panggil model untuk menyimpan data
-		$result = $this->ModelKecamatan->simpanKecamatan($data);
+		$result = $this->ModelKecamatan->simpanKecamatanIncrement($data);
 
 		// Periksa hasil simpan
 		if ($result) {
-			// Simpan berhasil
-			echo "<script>alert('Data kecamatan berhasil disimpan');</script>";
+			// Simpan berhasil						
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
 			redirect('kecamatan'); // Redirect ke halaman kecamatan setelah simpan
 		} else {
 			// Simpan gagal
-			echo "<script>alert('Gagal menyimpan data kecamatan. Mohon coba lagi');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('kecamatan/tambahKecamatan');
 		}
 	}
 
@@ -93,27 +107,37 @@ class Kecamatan extends CI_Controller
 			'nama_kecamatan' => $this->input->post('nama_kecamatan')
 		);
 
-
-		// Ambil ID kecamatan dari form
-		$id_kecamatan = $this->input->post('id_kecamatan');
+		$rules = [
+			[
+				'field' => 'nama_kecamatan', 
+				'label' => 'Nama Kecamatan',
+				'rules' => 'required'
+			]
+		];
+		$this->form_validation->set_rules($rules);
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('kecamatan/editkecamatan/'.$data['id_kecamatan']);
+		}
 
 		// Panggil model untuk melakukan update data
-		$result = $this->ModelKecamatan->updateKecamatan($id_kecamatan, $data);
+		$result = $this->ModelKecamatan->updateKecamatan($data['id_kecamatan'], $data);
 
 		if ($result) {
-			// Update berhasil
-			echo "<script>alert('Data kecamatan berhasil di edit');</script>";
+			// Update berhasil						
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
 			redirect('kecamatan'); // Redirect ke halaman kecamatan setelah update
 		} else {
 			// Update gagal
-			echo "<script>alert('Gagal menyimpan data kecamatan. Mohon coba lagi');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('kecamatan/editKecamatan');
 		}
 	}
 
 	// public function hapusKecamatan()
 	// {
 	//     $where = ['id_kecamatan' => $this->uri->segment(3)];
-	//     $this->ModelKecamatan->hapusKecamatan($where);
+	//     $this->ModelKecamatan->hapusKecamatan($where);	
 	//     redirect('kecamatan');
 	// }
 

@@ -23,6 +23,7 @@
                             <div class="form-group mb-2">
                                 <label for="id_user" class="mr-2">id_user:</label>
                                 <input type="text" class="form-control" disabled id="id_user" name="id_user" value="<?= $user['id_user'] ?>">
+                                <input type="hidden" class="form-control" id="id_user" name="id_user" value="<?= $user['id_user'] ?>">
                             </div>
                             <div class="form-group mb-2">
                                 <label for="nama" class="mr-2">Nama:</label>

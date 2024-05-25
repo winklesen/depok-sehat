@@ -10,6 +10,7 @@
             </ol>
         </nav>
     </div>
+    <?= $this->session->flashdata('pesan'); ?>
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
