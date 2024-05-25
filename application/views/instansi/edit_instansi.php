@@ -20,19 +20,22 @@
                         <form id="editForm" action="<?= base_url('InstansiKesehatan/updateInstansi') ?>" method="post">
                             <div class="form-group mb-2">
                                 <label for="id_instansi" class="mr-2">ID Instansi:</label>
-                                <input type="text" disabled class="form-control" id="id_instansi" name="id_instansi" value="<?= $instansi['id_instansi'] ?>">
-                                <input type="hidden" class="form-control" id="id_instansi" name="id_instansi" value="<?= $instansi['id_instansi'] ?>">
+                                <input type="text" disabled class="form-control" id="id_instansi" name="id_instansi"
+                                    value="<?= $instansi['id_instansi'] ?>">
+                                <input type="hidden" class="form-control" id="id_instansi" name="id_instansi"
+                                    value="<?= $instansi['id_instansi'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="nama_instansi" class="mr-2">Nama Instansi:</label>
-                                <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" value="<?= $instansi['nama_instansi'] ?>">
+                                <input type="text" class="form-control" id="nama_instansi" name="nama_instansi"
+                                    value="<?= $instansi['nama_instansi'] ?>">
                             </div>
-                            
+
                             <div class="form-group mb-2">
                                 <label for="tipe" class="mr-2">Tipe:</label>
                                 <select class="form-control" id="tipe" name="tipe">
-                                    <option value="<?= $instansi['tipe']?>" >~ Pilih ~</option> 
+                                    <option value="<?= $instansi['tipe']?>">~ Pilih ~</option>
                                     <?php
                                         foreach ($enum_values as $value) {
                                             echo "<option value='$value'>$value</option>";
@@ -51,4 +54,5 @@
             </div>
         </div>
     </section>
+    <<<<<<< HEAD=======>>>>>>> cb8a9d87c6ed37bde02d40d34974044764e02e6c
 </main><!-- End #main -->

@@ -16,7 +16,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="d-flex justify-content-start mt-2 mb-4">
-                    <a href="<?= base_url('InstansiKesehatan/tambahinstansi') ?>" class="btn btn-success">Tambah Data</a>
+                    <a href="<?= base_url('InstansiKesehatan/tambahinstansi') ?>" class="btn btn-success">Tambah
+                        Data</a>
                 </div>
                 <div class="card">
                     <div class="card-body">
@@ -38,20 +39,23 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($instansi as $key => $p) { ?>
-                                    <tr>
-                                        <th scope="row"><?= $key + 1 ?></th>
-                                        <td><?= $p['id_instansi'] ?></td>
-                                        <td><?= $p['nama_instansi'] ?></td>
-                                        <td><?= $p['tipe'] ?></td>
-                                        <td><?= $p['alamat'] ?></td>
-                                        <td><?= $p['kontak'] ?></td>
-                                        <td><?= $p['id_kecamatan'] ?></td>
-                                        <td><?= $p['created_at'] ?></td>
-                                        <td class="">
-                                            <a href="<?= base_url('InstansiKesehatan/editInstansi/' . $p['id_instansi']) ?>" class="btn btn-primary">Edit</a>
-                                            <a href="<?= base_url('instansiKesehatan/deleteInstansi/') . $p['id_instansi']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $p['nama_instansi']; ?> ?');" class="btn btn-danger"> Hapus</a>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <th scope="row"><?= $key + 1 ?></th>
+                                    <td><?= $p['id_instansi'] ?></td>
+                                    <td><?= $p['nama_instansi'] ?></td>
+                                    <td><?= $p['tipe'] ?></td>
+                                    <td><?= $p['alamat'] ?></td>
+                                    <td><?= $p['kontak'] ?></td>
+                                    <td><?= $p['id_kecamatan'] ?></td>
+                                    <td><?= $p['created_at'] ?></td>
+                                    <td class="">
+                                        <a href="<?= base_url('InstansiKesehatan/editInstansi/' . $p['id_instansi']) ?>"
+                                            class="btn btn-primary">Edit</a>
+                                        <a href="<?= base_url('instansiKesehatan/deleteInstansi/') . $p['id_instansi']; ?>"
+                                            onclick="return confirm('Kamu yakin akan menghapus <?= $p['nama_instansi']; ?> ?');"
+                                            class="btn btn-danger"> Hapus</a>
+                                    </td>
+                                </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
