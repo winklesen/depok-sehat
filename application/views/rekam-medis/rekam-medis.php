@@ -4,13 +4,24 @@
         <h1>Rekam Medis</h1>
     </div><!-- End Page Title -->
 
+    <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Master Rekam Medis</h5>
-                        <a href="<?= base_url('RekamMedis/tambahRekamMedis') ?>" class="btn btn-success mb-3">Tambah Rekam Medis</a>
+                        <div class="d-flex flex-start mb-3 gap-4">
+                            <a href="<?= base_url('RekamMedis/downloadCSV') ?>" class="btn btn-primary">Download CSV</a>
+                            <a href="<?= base_url('RekamMedis/tambahRekamMedis') ?>" class="btn btn-success">Tambah
+                                Rekam Medis</a>
+                            <form action="<?= base_url('RekamMedis/importCSV') ?>" method="post"
+                                enctype="multipart/form-data">
+                                <input type="file" name="csv_file">
+                                <button type="submit" class="btn btn-info">Import CSV</button>
+                            </form>
+                        </div>
 
                         <!-- Table with hoverable rows -->
                         <table class="table table-hover">
@@ -78,5 +89,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Ambil pesan kesalahan dari session jika ada
+        let errorMessage = "<?php echo $this->session->flashdata('error'); ?>";
+
+        // Tampilkan pesan kesalahan dalam alert jika ada
+        if (errorMessage !== "") {
+            alert(errorMessage);
+        }
+    </script>
 
 </main><!-- End #main -->
