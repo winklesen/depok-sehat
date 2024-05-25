@@ -1,4 +1,5 @@
 <main id="main" class="main">
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 
     <div class="pagetitle">
         <h1><?= $judul; ?></h1>
@@ -22,7 +23,8 @@
 
                             <div class="form-group mb-2">
                                 <label for="id_penyakit" class="mr-2">ID Penyakit:</label>
-                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit" value="<?= $last_id?>">
+                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit"
+                                    value="<?= $last_id?>">
                             </div>
 
                             <div class="form-group mb-2">
@@ -35,15 +37,27 @@
                                 <textarea class="form-control" id="info_gejala" name="info_gejala"></textarea>
                             </div>
 
+                            <script>
+                            CKEDITOR.replace('info_gejala');
+                            </script>
+
                             <div class="form-group mb-2">
                                 <label for="info_pencegahan" class="mr-2">Info Pencegahan:</label>
                                 <textarea class="form-control" id="info_pencegahan" name="info_pencegahan"></textarea>
                             </div>
 
+                            <script>
+                            CKEDITOR.replace('info_pencegahan');
+                            </script>
+
                             <div class="form-group mb-2">
                                 <label for="info_pengobatan" class="mr-2">Info Pengobatan:</label>
                                 <textarea class="form-control" id="info_pengobatan" name="info_pengobatan"></textarea>
                             </div>
+
+                            <script>
+                            CKEDITOR.replace('info_pengobatan');
+                            </script>
 
                             <div class="form-group mb-2">
                                 <label for="gambar_penyakit" class="mr-2">Gambar Penyakit:</label>
