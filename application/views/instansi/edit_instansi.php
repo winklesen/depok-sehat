@@ -9,6 +9,7 @@
             </ol>
         </nav>
     </div>
+
     <?= $this->session->flashdata('pesan'); ?>
     <section class="section">
         <div class="row">
@@ -16,21 +17,27 @@
                 <div class="card">
                     <div class="card-body m-3">
                         <h5 class="card-title p-0"></h5>
-                        <!-- Form untuk mengedit data kecamatan -->
-                        <form id="editForm" action="<?= base_url('InstansiKesehatan/updateInstansi') ?>" method="post">
+
+                        <form id="editForm" action="<?= base_url('InstansiKesehatan/updateInstansi') ?>" method="post"
+                            enctype="multipart/form-data">
+
                             <div class="form-group mb-2">
-                                <label for="id_instansi" class="mr-2">ID Instansi:</label>
-                                <input type="text" disabled class="form-control" id="id_instansi" name="id_instansi"
-                                    value="<?= $instansi['id_instansi'] ?>">
+                                <label for="id_instansi" class="mr-2">ID Instansi</label>
+                                <input type="text" class="form-control" id="id_instansi" name="id_instansi"
+                                    value="<?= $instansi['id_instansi']?>" disabled>
                                 <input type="hidden" class="form-control" id="id_instansi" name="id_instansi"
-                                    value="<?= $instansi['id_instansi'] ?>">
+                                    value="<?= $instansi['id_instansi']?>">
                             </div>
 
                             <div class="form-group mb-2">
-                                <label for="nama_instansi" class="mr-2">Nama Instansi:</label>
-                                <input type="text" class="form-control" id="nama_instansi" name="nama_instansi"
-                                    value="<?= $instansi['nama_instansi'] ?>">
+                                <label for="nama_instansi" class="mr-2">Nama Instansi</label>
+                                <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" value="<?= $instansi['nama_instansi']?>">
                             </div>
+
+                            <!-- <div class="form-group mb-2">
+                                <label for="tipe" class="mr-2">Tipe</label>
+                                <input type="text" class="form-control" id="tipe" name="tipe">
+                            </div> -->
 
                             <div class="form-group mb-2">
                                 <label for="tipe" class="mr-2">Tipe:</label>
@@ -44,8 +51,26 @@
                                 </select>
                             </div>
 
+                            <div class="form-group mb-2">
+                                <label for="alamat" class="mr-2">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $instansi['alamat']?>">
+                            </div>
 
-                            <!-- Tambahkan field lainnya sesuai dengan kebutuhan -->
+                            <div class="form-group mb-2">
+                                <label for="kontak" class="mr-2">Kontak</label>
+                                <input type="text" class="form-control" id="kontak" name="kontak" value="<?= $instansi['kontak']?>">
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="id_kecamatan" class="mr-2">Kecamatan:</label>
+                                <select class="form-control" id="id_kecamatan" name="id_kecamatan">
+                                    <?php foreach ($kecamatan as $kecamatan) { ?>
+                                        <option value="<?= $kecamatan['id_kecamatan'] ?>" <?php if ($kecamatan['id_kecamatan'] == $instansi['id_kecamatan']) echo "selected"; ?>>
+                                            <?= $kecamatan['nama_kecamatan'] ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                            </div> 
 
                             <button type="submit" class="btn btn-primary mt-4">Simpan Perubahan</button>
                         </form>
@@ -54,5 +79,4 @@
             </div>
         </div>
     </section>
-    <<<<<<< HEAD=======>>>>>>> cb8a9d87c6ed37bde02d40d34974044764e02e6c
 </main><!-- End #main -->

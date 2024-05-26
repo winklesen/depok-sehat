@@ -34,9 +34,21 @@
                                 <input type="text" class="form-control" id="nama_instansi" name="nama_instansi">
                             </div>
 
-                            <div class="form-group mb-2">
+                            <!-- <div class="form-group mb-2">
                                 <label for="tipe" class="mr-2">Tipe</label>
                                 <input type="text" class="form-control" id="tipe" name="tipe">
+                            </div> -->
+
+                            <div class="form-group mb-2">
+                                <label for="tipe" class="mr-2">Tipe:</label>
+                                <select class="form-control" id="tipe" name="tipe">
+                                    <option value="<?= $instansi['tipe']?>">~ Pilih ~</option>
+                                    <?php
+                                        foreach ($enum_values as $value) {
+                                            echo "<option value='$value'>$value</option>";
+                                        }
+                                    ?>
+                                </select>
                             </div>
 
                             <div class="form-group mb-2">
@@ -50,9 +62,15 @@
                             </div>
 
                             <div class="form-group mb-2">
-                                <label for="id_kecamatan" class="mr-2">ID Kecamatan</label>
-                                <input type="text" class="form-control" id="id_kecamatan" name="id_kecamatan">
-                            </div>
+                                <label for="id_kecamatan" class="mr-2">Kecamatan:</label>
+                                <select class="form-control" id="id_kecamatan" name="id_kecamatan">
+                                    <?php foreach ($kecamatan as $kecamatan) { ?>
+                                        <option value="<?= $kecamatan['id_kecamatan'] ?>" <?php if ($kecamatan['id_kecamatan'] == $instansi['id_kecamatan']) echo "selected"; ?>>
+                                            <?= $kecamatan['nama_kecamatan'] ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                            </div> 
 
                             <button type="submit" class="btn btn-primary mt-4">Simpan</button>
                         </form>

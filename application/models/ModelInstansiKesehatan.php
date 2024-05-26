@@ -121,4 +121,9 @@ class ModelInstansiKesehatan extends CI_Model
 
         return $enum_values;
     }
+
+    public function getAllKecamatan()
+    {
+        return $this->db->get('kecamatan')->result_array();
+    }
 }

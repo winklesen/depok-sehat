@@ -35,9 +35,9 @@ class InstansiKesehatan extends CI_Controller
 	{
 		$data['judul'] = 'Tambah Instansi Kesehatan';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-		$data['list_kecamatan'] = $this->ModelPasien->getAllKecamatan();
 		$data['last_id'] = $this->ModelInstansiKesehatan->getLastIdInstansiKesehatan();
 		$data['enum_values'] = $this->ModelInstansiKesehatan->get_enum_values();
+		$data['kecamatan'] = $this->ModelInstansiKesehatan->getAllKecamatan();
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
@@ -52,6 +52,7 @@ class InstansiKesehatan extends CI_Controller
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['enum_values'] = $this->ModelInstansiKesehatan->get_enum_values();
 		$data['instansi'] = $this->ModelInstansiKesehatan->getInstansiKesehatanById($id);
+		$data['kecamatan'] = $this->ModelInstansiKesehatan->getAllKecamatan();
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
@@ -136,11 +137,21 @@ class InstansiKesehatan extends CI_Controller
 
 	public function updateInstansi()
 	{
-		// Ambil data dari form
+		$id_instansi = $this->input->post('id_instansi', true);
+		$nama_instansi = $this->input->post('nama_instansi', true);
+		$tipe = $this->input->post('tipe', true);
+		$alamat = $this->input->post('alamat', true);
+		$kontak = $this->input->post('kontak', true);
+		$id_kecamatan = $this->input->post('id_kecamatan', true);
+
 		$data = array(
-			'id_instansi' => $this->input->post('id_instansi'),
-			'nama_instansi' => $this->input->post('nama_instansi'),
-			'tipe' => $this->input->post('tipe_instansi')
+			'id_instansi' => $id_instansi,
+			'nama_instansi' => $nama_instansi,
+			'tipe' => $tipe,
+			'alamat' => $alamat,
+			'kontak' => $kontak,
+			'id_kecamatan' => $id_kecamatan,
+			'created_at' => null,
 		);
 
 		$rules = [
@@ -159,11 +170,26 @@ class InstansiKesehatan extends CI_Controller
 				'label' => "Tipe",
 				'rules' => "required",
 			],
+			[
+				'field' => 'alamat',
+				'label' => "Alamat",
+				'rules' => "required",
+			],
+			[
+				'field' => 'kontak',
+				'label' => "Kontak",
+				'rules' => "required",
+			],
+			[
+				'field' => 'id_kecamatan',
+				'label' => "Id Kecamatan",
+				'rules' => "required",
+			],
 		];
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() != true) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
-			redirect('InstansiKesehatan/editInstansi/' . $data['id_instansi']);
+			redirect('InstansiKesehatan/editInstansi/'.$data['id_instansi']);
 		}
 
 
@@ -171,7 +197,7 @@ class InstansiKesehatan extends CI_Controller
 		$id_instansi = $this->input->post('id_instansi');
 
 		// Panggil model untuk melakukan update data
-		$result = $this->ModelInstansiKesehatan->updateInstansiKesehatan($id_instansi, $data);
+		$result = $this->ModelInstansiKesehatan->updateInstansiKesehatan($data['id_instansi'], $data);
 
 		if ($result) {
 			// Update berhasil
@@ -180,7 +206,7 @@ class InstansiKesehatan extends CI_Controller
 		} else {
 			// Update gagal
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
-			redirect('InstansiKesehatan/editInstansi/' . $data['id_instansi']);
+			redirect('InstansiKesehatan/editInstansi');
 		}
 	}
 

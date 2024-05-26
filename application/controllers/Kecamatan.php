@@ -53,6 +53,7 @@ class Kecamatan extends CI_Controller
 		$data = array(
 			// 'id_kecamatan' => $this->input->post('id_kecamatan'),
 			'nama_kecamatan' => $this->input->post('nama_kecamatan'),
+			'created_at' => null,
 		);
 
 		$rules = [
@@ -104,7 +105,8 @@ class Kecamatan extends CI_Controller
 		// Ambil data dari form
 		$data = array(
 			'id_kecamatan' => $this->input->post('id_kecamatan'),
-			'nama_kecamatan' => $this->input->post('nama_kecamatan')
+			'nama_kecamatan' => $this->input->post('nama_kecamatan'),
+			'created_at' => null,
 		);
 
 		$rules = [
@@ -140,39 +142,4 @@ class Kecamatan extends CI_Controller
 	//     $this->ModelKecamatan->hapusKecamatan($where);	
 	//     redirect('kecamatan');
 	// }
-
-	public function searchKecamatan()
-	{
-
-		// Ahmad Search
-		// Mengambil kata kunci pencarian dari form
-		$data['judul'] = 'Data Kecamatan';
-
-		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-		$data['kecamatan'] = $this->ModelKecamatan->getKecamatanLimit();
-		$keyword = $this->input->post('keyword');
-
-		// Melakukan pencarian dengan memanggil fungsi searchPasien
-		$data['search_kecamatan'] = $this->ModelKecamatan->searchKecamatan($keyword)->result_array();
-
-		// Memeriksa apakah hasil pencarian kosong
-		if (empty($data['search_kecamatan'])) {
-			// Jika kosong, atur pesan yang akan ditampilkan
-			$data['search_message'] = 'Data tidak ditemukan.';
-		}
-
-		// Bila route diakses dengan TIDAK membawa parameter        
-		$this->load->view('templates/admin/header', $data);
-		$this->load->view('templates/admin/sidebar', $data);
-		$this->load->view('templates/admin/topbar', $data);
-
-		// Tampilkan view sesuai dengan kondisi
-		if (empty($data['search_message'])) {
-			$this->load->view('kecamatan/index', $data);
-		} else {
-			redirect('kecamatan');
-		}
-
-		$this->load->view('templates/admin/footer', $data);
-	}
 }
