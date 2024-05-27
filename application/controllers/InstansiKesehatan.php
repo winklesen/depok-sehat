@@ -17,7 +17,7 @@ class InstansiKesehatan extends CI_Controller
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 
 		// Get Data Instansi
-		$data['instansi'] = $this->ModelInstansiKesehatan->getInstansiKesehatan()->result_array();
+		$data['instansi'] = $this->ModelInstansiKesehatan->getInstansiKesehatanJoinKecamatan()->result_array();
 
 		// TODO (Easy)
 		// - Add Instansi

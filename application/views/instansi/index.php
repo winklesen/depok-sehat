@@ -32,7 +32,7 @@
                                     <th scope="col">Tipe</th>
                                     <th scope="col">Alamat</th>
                                     <th scope="col">Kontak</th>
-                                    <th scope="col">Id Kecamatan</th>
+                                    <th scope="col">Kecamatan</th>
                                     <th scope="col">Tgl Ditambahkan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -46,7 +46,7 @@
                                     <td><?= $p['tipe'] ?></td>
                                     <td><?= $p['alamat'] ?></td>
                                     <td><?= $p['kontak'] ?></td>
-                                    <td><?= $p['id_kecamatan'] ?></td>
+                                    <td><?= $p['nama_kecamatan'] ?></td>
                                     <td><?= $p['created_at'] ?></td>
                                     <td class="">
                                         <a href="<?= base_url('InstansiKesehatan/editInstansi/' . $p['id_instansi']) ?>"

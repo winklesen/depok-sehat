@@ -50,25 +50,57 @@ class Pasien extends CI_Controller
 	public function createPasien()
 	{
 		$data = array(
-			'id_pasien' => $this->input->post('nik'),
+			// 'id_pasien' => $this->input->post('id_pasien'),
 			'nama' => $this->input->post('nama'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'info_kontak' => $this->input->post('info_kontak'),
 			'id_kecamatan' => $this->input->post('id_kecamatan'),
-			'alamat' => $this->input->post('alamat')
+			'alamat' => $this->input->post('alamat'),
+			'created_at' => null,
 		);
 
+		$rules = [	
+			[
+				'field' => 'nama', //<- ini mengikuti nama input di form
+				'label' => 'Nama Pasien',
+				'rules' => 'required'
+			],	
+			[
+				'field' => 'tanggal_lahir', //<- ini mengikuti nama input di form
+				'label' => 'Tanggal Lahir Pasien',
+				'rules' => 'required'
+			],		
+			[
+				'field' => 'info_kontak', //<- ini mengikuti nama input di form
+				'label' => 'Info Kontak Pasien',
+				'rules' => 'required'
+			],	
+			[
+				'field' => 'alamat', //<- ini mengikuti nama input di form
+				'label' => 'Alamat Pasien',
+				'rules' => 'required'
+			],	
+		];
+		$this->form_validation->set_rules($rules);
+
+		// var_dump($data); exit;
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('pasien/tambahPasien');
+		}
+
 		// Panggil model untuk menyimpan data
-		$result = $this->ModelPasien->simpanPasien($data);
+		$result = $this->ModelPasien->simpanPasienIncrement($data);
 
 		// Periksa hasil simpan
 		if ($result) {
-			// Simpan berhasil
-			echo "<script>alert('Data pasien berhasil disimpan');</script>";
-			redirect('pasien'); // Redirect ke halaman pasien setelah simpan
+			// Simpan berhasil						
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
+			redirect('pasien'); // Redirect ke halaman kecamatan setelah simpan
 		} else {
 			// Simpan gagal
-			echo "<script>alert('Gagal menyimpan data pasien. Mohon coba lagi');</script>";
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('pasien/tambahPasien');
 		}
 	}
 
@@ -89,29 +121,58 @@ class Pasien extends CI_Controller
 
 	public function updatePasien()
 	{
-		// Ambil data dari form
 		$data = array(
+			'id_pasien' => $this->input->post('id_pasien'),
 			'nama' => $this->input->post('nama'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'info_kontak' => $this->input->post('info_kontak'),
 			'id_kecamatan' => $this->input->post('id_kecamatan'),
-			'alamat' => $this->input->post('alamat')
+			'alamat' => $this->input->post('alamat'),
+			'created_at' => null,
 		);
 
+		$rules = [	
+			[
+				'field' => 'nama', //<- ini mengikuti nama input di form
+				'label' => 'Nama Pasien',
+				'rules' => 'required'
+			],	
+			[
+				'field' => 'tanggal_lahir', //<- ini mengikuti nama input di form
+				'label' => 'Tanggal Lahir Pasien',
+				'rules' => 'required'
+			],		
+			[
+				'field' => 'info_kontak', //<- ini mengikuti nama input di form
+				'label' => 'Info Kontak Pasien',
+				'rules' => 'required'
+			],	
+			[
+				'field' => 'alamat', //<- ini mengikuti nama input di form
+				'label' => 'Alamat Pasien',
+				'rules' => 'required'
+			],	
+		];
+		$this->form_validation->set_rules($rules);
 
-		// Ambil ID pasien dari form
-		$id_pasien = $this->input->post('nik');
+		// var_dump($data); exit;
+		if ($this->form_validation->run() != true) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
+			redirect('pasien/editPasien/'  . $data['id_pasien']);
+		}
 
-		// Panggil model untuk melakukan update data
-		$result = $this->ModelPasien->updatePasien($id_pasien, $data);
+		// Panggil model untuk menyimpan data
+		$result = $this->ModelPasien->updatePasien($data['id_pasien'], $data);
 
+		// Periksa hasil simpan
 		if ($result) {
-			// Update berhasil
-			echo "<script>alert('Data pasien berhasil di edit');</script>";
-			redirect('pasien'); // Redirect ke halaman pasien setelah update
+			// Simpan berhasil						
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil disimpan</div>');
+			redirect('pasien'); // Redirect ke halaman kecamatan setelah simpan
 		} else {
-			// Update gagal
-			echo "<script>alert('Gagal menyimpan data pasien. Mohon coba lagi');</script>";
+			// Simpan gagal
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Gagal menyimpan data. Mohon coba lagi</div>');
+			redirect('pasien/editPasien');
 		}
 	}
 

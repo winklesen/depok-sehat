@@ -89,7 +89,7 @@ class ModelPasien extends CI_Model
         $this->db->select('pasien.*, kecamatan.nama_kecamatan');
         $this->db->from('pasien');
         $this->db->join('kecamatan', 'pasien.id_kecamatan = kecamatan.id_kecamatan');
-        $this->db->limit(15); // Batasan 15 entri
+        // $this->db->limit(15); // Batasan 15 entri
         return $this->db->get()->result_array();
     }
 

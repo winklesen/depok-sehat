@@ -126,4 +126,15 @@ class ModelInstansiKesehatan extends CI_Model
     {
         return $this->db->get('kecamatan')->result_array();
     }
+
+
+    public function getInstansiKesehatanJoinKecamatan()
+    {
+        $this->db->select('instansi_kesehatan.*, kecamatan.nama_kecamatan');
+        $this->db->from('instansi_kesehatan');
+        $this->db->join('kecamatan', 'instansi_kesehatan.id_kecamatan = kecamatan.id_kecamatan');
+        return $this->db->get();
+    }
+    
+
 }
