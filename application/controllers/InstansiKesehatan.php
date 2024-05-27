@@ -7,7 +7,7 @@ class InstansiKesehatan extends CI_Controller
 	{
 		parent::__construct();
 		cek_login();
-		cek_user();
+		cek_admin();
 		error_reporting(0);
 	}
 
@@ -18,7 +18,7 @@ class InstansiKesehatan extends CI_Controller
 
 		// Get Data Instansi
 		$data['instansi'] = $this->ModelInstansiKesehatan->getInstansiKesehatanJoinKecamatan()->result_array();
-
+		
 		// TODO (Easy)
 		// - Add Instansi
 		// - Edit Instansi

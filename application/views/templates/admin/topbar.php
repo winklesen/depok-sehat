@@ -184,7 +184,13 @@
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">
             <h6><?= $user['nama']; ?></h6>
-            <span><?= $user['role_id'] == '2' ? 'Admin' : 'Petugas Instansi'; ?></span>
+            <span>
+                <?php if ($user['role_id'] == 1): ?>
+                    Petugas Instansi
+                <?php elseif ($user['role_id'] == 2) :?>
+                    Admin
+                <?php endif; ?>
+            </span>
           </li>
           <li>
             <hr class="dropdown-divider">

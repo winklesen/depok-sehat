@@ -7,7 +7,7 @@ class User extends CI_Controller
     {
         parent::__construct();
         cek_login();
-        cek_user();
+        cek_admin();
     }
 
     public function master()
@@ -15,11 +15,6 @@ class User extends CI_Controller
         $data['judul'] = 'Pengguna';
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 
-        if ($data['user']['role_id'] == 2) {
-            $data['user']['role_id'] = 'Admin';
-        } else {
-            $data['user']['role_id'] = 'Petugas';
-        }
 
         $data['User'] = $this->ModelUser->getUser();
 

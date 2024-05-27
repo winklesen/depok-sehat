@@ -15,11 +15,6 @@ class Penyakit extends CI_Controller
 		$data['judul'] = 'Penyakit';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 
-		if ($data['user']['role_id'] == 2) {
-			$data['user']['role_id'] = 'Admin';
-		} else {
-			$data['user']['role_id'] = 'Petugas';
-		}
 		// Get Data Penyakit
 		$data['penyakit'] = $this->ModelPenyakit->getPenyakit()->result_array();
 
