@@ -1,9 +1,9 @@
 <!-- Carousel -->
 <div id="myCarousel" class="carousel slide carousel-fade mt-5" data-ride="carousel">
-    <div class="carousel-inner mt-5">
+    <div class="carousel-inner mt-5 ">
         <div class="carousel-item mt-5 active">
             <div class="mask flex-center">
-                <div class="container">
+                <div class="container px-5 ">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
                             <h4>Lihat Penyakit <br>
@@ -18,7 +18,7 @@
         </div>
         <div class="carousel-item mt-5">
             <div class="mask flex-center">
-                <div class="container">
+                <div class="container px-5 ">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
                             <h4>Pahami Informasi Kesehatan</h4>
@@ -32,7 +32,7 @@
         </div>
         <div class="carousel-item mt-5">
             <div class="mask flex-center">
-                <div class="container">
+                <div class="container px-5 ">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
                             <h4>Akses Informasi <br>
@@ -86,39 +86,79 @@
 </div> -->
 
 <!-- Trending Information Section -->
-<div class="container h">
-    <h2 class="section-title">Trending Penyebaran Penyakit</h2>
-    <p class="section-subtitle">Kami menyediakan data real time, dan transparan mengenai penyakit di kota depok.</p>
-    <div class="row">
-        <div class="col-md-4">
+<div class="main-container container   justify-content-center">
+    <h2 class="section-title mt-5">Trending Penygebaran Penyakit</h2>
+    <p class="section-subtitle">Kami menyediakan data real time, dan transparan mengenai penyakit di kota depok</p>
+    <div class="row align-items-center d-flex">
+        <div class="row justify-content-between  align-items-end ">
+            <div class="col-1">
+            </div>
+            <div class="col-10">
+                <h3 class=" mt-5 text-center font-weight-bold">Depok</h3>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
+                    Filter
+                </button>
+            </div>
+
+
+        </div>
+        <div class="col-md-4 mt-4">
             <div class="card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Penyakit A</h5>
-                    <p class="card-text">Total Pasien: 100</p>
-                    <div class="card-icon">
-                        <i class="fas fa-user"></i>
+                    <h3 class="card-title">Nama Penyakit</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h3 class="card-text-number">1.723.128</h3>
+                            <h5 class="card-text">Pasien</h5>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-4 mt-4">
             <div class="card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Penyakit B</h5>
-                    <p class="card-text">Total Pasien: 150</p>
-                    <div class="card-icon">
-                        <i class="fas fa-user"></i>
+                    <h3 class="card-title">Nama Penyakit</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h3 class="card-text-number">1.723.128</h3>
+                            <h5 class="card-text">Pasien</h5>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-4 mt-4">
             <div class="card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Penyakit C</h5>
-                    <p class="card-text">Total Pasien: 200</p>
-                    <div class="card-icon">
-                        <i class="fas fa-user"></i>
+                    <h3 class="card-title">Nama Penyakit</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h3 class="card-text-number">1.723.128</h3>
+                            <h5 class="card-text">Pasien</h5>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -126,50 +166,124 @@
     </div>
 </div>
 
-<!-- Half Screen Container -->
-<div class="half-screen-container">
-    <h2>Title Here</h2>
-    <p>Subtitle Here</p>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-        Launch demo modal
-    </button>
-
+<!-- Waspada Section -->
+<div class="half-screen-container container">
+    <div class="row p-2">
+        <div class="col-12 col-md-6 text-center text-md-start">
+            <h1 class="fw-bold">
+                <d class="text-success">Waspada</d> Akan Bahaya Wabah Penyakit
+            </h1>
+            <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, mollitia?</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <h3 class="fw-bold">2.384.249</h3>
+                            <p class="small">Pasien Terdata</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <h3 class="fw-bold">2.384.249</h3>
+                            <p class="small">Pasien Terdata</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <h3 class="fw-bold">2.384.249</h3>
+                            <p class="small">Pasien Terdata</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 <!-- Instansi Kesehatan Section -->
-<div class="container">
-    <h2 class="section-title">Instansi Kesehatan</h2>
+<div class="main-container container   justify-content-center">
+    <h2 class="section-title mt-5">Instansi Kesehatan</h2>
     <p class="section-subtitle">Data instansi kesehatan di kota depok</p>
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row align-items-center d-flex">
+        <div class="col-md-4 mt-5">
             <div class="card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">RS A</h5>
-                    <p class="card-text">Total Pasien Terlapor: 500</p>
-                    <div class="card-icon">
-                        <i class="fas fa-hospital"></i>
+                    <h3 class="card-title">Total Puskesmas</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h3 class="card-text-number">1.723.128</h3>
+                            <h5 class="card-text">Pasien Terlapor</h5>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-4 mt-5">
             <div class="card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">RS B</h5>
-                    <p class="card-text">Total Pasien Terlapor: 400</p>
-                    <div class="card-icon">
-                        <i class="fas fa-hospital"></i>
+                    <h3 class="card-title">Total Rumah Sakit</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h3 class="card-text-number">1.723.128</h3>
+                            <h5 class="card-text">Pasien Terlapor</h5>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-4 mt-5">
             <div class="card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">RS C</h5>
-                    <p class="card-text">Total Pasien Terlapor: 300</p>
-                    <div class="card-icon">
-                        <i class="fas fa-hospital"></i>
+                    <h3 class="card-title">Total Klinkik</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <div class="card-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h3 class="card-text-number">1.723.128</h3>
+                            <h5 class="card-text">Pasien Terlapor</h5>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -177,11 +291,8 @@
     </div>
 </div>
 
-<!-- Half Screen Container -->
-<div class="half-screen-container">
-    <!-- <h2>Title Here</h2>
-    <p>Subtitle Here</p>
-    <a href="#" class="btn btn-primary">Button Here</a> -->
+<!-- Himbauawan Secton -->
+<!-- <div class="half-screen-container">    
     <div class="row p-2">
         <div class="col-12 col-md-6 text-center text-md-start">
             <h1 class="fw-bold">
@@ -206,8 +317,7 @@
             </div>
         </div>
     </div>
-</div>
-
+</div> -->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

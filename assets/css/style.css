@@ -13,10 +13,10 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   /* outline: 1px solid red !important; */
   /* outline-offset: -1px; */
-  background: #f6f9ff;
+  background: #ffffff;
   color: #444444;
 }
 
@@ -1283,7 +1283,13 @@ h6 {
 /* dibawah Kodingan kurang serius. ganti gpp */
 /* ============================================= */
 
+
 /* Carousel */
+
+#myCarousel{
+  background-color: #F4F4F5 !important;
+}
+
 #myCarousel .carousel-item .mask {
   position: absolute;
   top: 0;
@@ -1548,17 +1554,45 @@ h6 {
 }
 
 /* Carousel  */
-.section-title{
+
+.main-container {
+  padding-top: 60px;
   
+  min-height: calc(100vh - 60px);
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.section-title {
+  text-align: center;
+  font-weight: bold !important;
+}
+
+.section-subtitle {
+  text-align: center;
+}
+
+.card-title {
+  font-weight: bold !important;  
 }
 
 .card-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  color:#4CAF4F 
+}
+
+.card-text-number{
+  font-weight: bold !important;
+}
+
+.font-weight-bold{
+  font-weight: bold !important;
 }
 
 .half-screen-container {
   height: 50vh;
-  background: #ccc;
+  background: #F4F4F5;
   display: flex;
   align-items: center;
   justify-content: center;
