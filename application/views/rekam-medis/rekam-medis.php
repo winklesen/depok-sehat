@@ -14,8 +14,10 @@
                         <h5 class="card-title">Master Rekam Medis</h5>
                         <div class="d-flex flex-start mb-3 gap-4">
                             <a href="<?= base_url('RekamMedis/downloadCSV') ?>" class="btn btn-primary">Download CSV</a>
+                            <?php  if ($user['role_id'] == 1) { ?>
                             <a href="<?= base_url('RekamMedis/tambahRekamMedis') ?>" class="btn btn-success">Tambah
                                 Rekam Medis</a>
+                            <?php } ?>
                             <form action="<?= base_url('RekamMedis/importCSV') ?>" method="post"
                                 enctype="multipart/form-data">
                                 <input type="file" name="csv_file">

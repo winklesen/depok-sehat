@@ -28,6 +28,7 @@ class RekamMedis extends CI_Controller
 
 	public function tambahRekamMedis()
 	{
+		cek_petugas();
 		$data['judul'] = 'Tambah Rekam Medis';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['list_pasien'] = $this->ModelPasien->getAllPasien();
