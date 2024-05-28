@@ -30,7 +30,7 @@ class User extends CI_Controller
     {
         $data['judul'] = 'Tambah Pengguna';
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-        // $data['list_kecamatan'] = $this->ModelUser->getAllKecamatan();
+        $data['list_instansi'] = $this->ModelUser->getAllInstansi();
         $data['last_id'] = $this->ModelUser->getLastIdUser();
 
         $this->load->view('templates/admin/header', $data);
@@ -105,6 +105,7 @@ class User extends CI_Controller
         $data['judul'] = 'Edit Pengguna';
         $data['user'] = $this->ModelUser->getUserById($id_user);
         $data['id_user'] = $this->ModelUser->getUserById($id_user);
+        $data['list_instansi'] = $this->ModelUser->getAllInstansi();
 
 
         $this->load->view('templates/admin/header', $data);

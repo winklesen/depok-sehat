@@ -74,10 +74,10 @@ class ModelUser extends CI_Model
         $this->db->insert('user', $data);
     }
 
-    // public function updateUser($data = null, $where = null)
-    // {
-    //     $this->db->update('user', $data, $where);
-    // }
+    public function updateUserProfile($data = null, $where = null)
+    {
+        $this->db->update('user', $data, $where);
+    }
 
     public function updateUser($id_user, $data)
     {
@@ -139,6 +139,11 @@ class ModelUser extends CI_Model
         $this->db->from('access_menu');
         $this->db->where($where);
         return $this->db->get();
+    }
+
+    public function getAllInstansi()
+    {
+        return $this->db->get('instansi_kesehatan')->result_array();
     }
 
     // public function getUserLimit()

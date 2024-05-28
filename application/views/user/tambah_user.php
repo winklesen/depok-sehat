@@ -40,7 +40,14 @@
 
               <div class="form-group mb-2">
                 <label for="id_instansi" class="mr-2">ID Instansi:</label>
-                <input type="text" class="form-control" id="id_instansi" name="id_instansi">
+                <select class="form-control" id="id_instansi" name="id_instansi">
+                  <option value="" selected disabled>Pilih Instansi Kesehatan</option>
+                  <?php foreach ($list_instansi as $instansi) { ?>
+                    <option value="<?= $instansi['id_instansi'] ?>">
+                      <?= $instansi['nama_instansi'] ?>
+                    </option>
+                  <?php } ?>
+                </select>
               </div>
 
 

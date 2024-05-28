@@ -109,7 +109,7 @@ class Admin extends CI_Controller
 
 			$query = ['nama' => $nama, 'email' => $email,];
 			$where = ['id_user' => $data['user']['id_user']];
-			$this->ModelUser->updateUser($query, $where);
+			$this->ModelUser->updateUserProfile($query, $where);
 
 
 			// Refresh Session
@@ -157,7 +157,7 @@ class Admin extends CI_Controller
 		} else {
 			$query = ['password' => password_hash($renewpassword, PASSWORD_DEFAULT)];
 			$where = ['id_user' => $data['user']['id_user']];
-			$this->ModelUser->updateUser($query, $where);
+			$this->ModelUser->updateUserProfile($query, $where);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Password Berhasil diubah </div>');
 			redirect('admin/profile');
