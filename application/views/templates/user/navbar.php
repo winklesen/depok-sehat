@@ -1,5 +1,5 @@
 <!-- ======= Header ======= -->
-<header id="header" class="header fixed-top d-flex align-items-center">
+<header id="header" class="header fixed-top d-flex align-items-center mb-5">
 
 
     <div class="d-flex align-items-center justify-content-between ">
@@ -15,8 +15,6 @@
 
     <nav class="header-nav ms-auto">
         <ul class="d-flex align-items-center">
-
-
         </ul>
     </nav><!-- End Icons Navigation -->
 

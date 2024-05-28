@@ -1,5 +1,57 @@
 <!-- Carousel -->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide carousel-fade mt-5" data-ride="carousel">
+    <div class="carousel-inner mt-5">
+        <div class="carousel-item mt-5 active">
+            <div class="mask flex-center">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-7 col-12 order-md-1 order-2">
+                            <h4>Lihat Penyakit <br>
+                                Trending</h4>
+                            <p>Pantau Data Real Time total penyakit trending di Kota Depok.</p>
+                            <a href="#">Lihat</a>
+                        </div>
+                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto" alt="slide"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item mt-5">
+            <div class="mask flex-center">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-7 col-12 order-md-1 order-2">
+                            <h4>Pahami Informasi Kesehatan</h4>
+                            <p>Pahami informasi mengenai penyakit yang sedang trending di Kota Depok.</p>
+                            <a href="#">Lihat</a>
+                        </div>
+                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto" alt="slide"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item mt-5">
+            <div class="mask flex-center">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-7 col-12 order-md-1 order-2">
+                            <h4>Akses Informasi <br>
+                                Instansi Kesehatan</h4>
+                            <p>Tersedia informasi Insantsi Kesehatan di Kota Depok</p>
+                            <a href="#">Lihat</a>
+                        </div>
+                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto" alt="slide"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+</div>
+<!--slide end-->
+
+
+<!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -7,19 +59,20 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <h2>Himbauan 1</h2>
-            <p>Subtitle Himbauan 1</p>
-            <a href="#" class="btn btn-primary">Aksi 1</a>
+            <h2></h2>
+            <p></p>
+            <a href="#" class="btn btn-primary">Lihat</a>
+        </div>
+
+        <div class="carousel-item">
+            <h2> </h2>
+            <p></p>
+            <a href="#" class="btn btn-primary">Lihat</a>
         </div>
         <div class="carousel-item">
-            <h2>Himbauan 2</h2>
-            <p>Subtitle Himbauan 2</p>
-            <a href="#" class="btn btn-primary">Aksi 2</a>
-        </div>
-        <div class="carousel-item">
-            <h2>Himbauan 3</h2>
-            <p>Subtitle Himbauan 3</p>
-            <a href="#" class="btn btn-primary">Aksi 3</a>
+            <h2></h2>
+            <p></p>
+            <a href="#" class="btn btn-primary">Lihat</a>
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -30,10 +83,10 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
+</div> -->
 
 <!-- Trending Information Section -->
-<div class="container">
+<div class="container h">
     <h2 class="section-title">Trending Penyebaran Penyakit</h2>
     <p class="section-subtitle">Kami menyediakan data real time, dan transparan mengenai penyakit di kota depok.</p>
     <div class="row">
@@ -131,12 +184,14 @@
     <a href="#" class="btn btn-primary">Button Here</a> -->
     <div class="row p-2">
         <div class="col-12 col-md-6 text-center text-md-start">
-            <h1 class="fw-bold"><d class="text-success">Waspada</d> Akan Bahaya Wabah Penyakit</h1>
+            <h1 class="fw-bold">
+                <d class="text-success">Waspada</d> Akan Bahaya Wabah Penyakit
+            </h1>
             <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, mollitia?</p>
         </div>
         <div class="col-12 col-md-6">
             <div class="row">
-                <div class="col-12 col-md-6">          
+                <div class="col-12 col-md-6">
                     <h3 class="fw-bold">2000000000</h3>
                     <p class="small">Pasien Terdata</p>
                 </div>
