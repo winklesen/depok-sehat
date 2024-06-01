@@ -15,45 +15,25 @@ class Admin extends CI_Controller
 		$data['judul'] = 'Dashboard';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 
+		// Ambil parameter filter dari request, default ke 'Today'
+    $pasienFilter = $this->input->get('pasienFilter') ? $this->input->get('pasienFilter') : 'Today';
+    // Ambil data berdasarkan filter
+    $data['total_pasien'] = $this->ModelDashboard->getTotalPatients($pasienFilter);
+    $data['selected_pasien_filter'] = $pasienFilter;
 
+		$data['total_instansi'] = $this->ModelDashboard->getTotalInstansi();
 
+		$rekamMedisFilter = $this->input->get('rekamMedisFilter') ? $this->input->get('rekamMedisFilter') : 'Today';
+		// Ambil data berdasarkan filter
+		$data['total_rekam_medis'] = $this->ModelDashboard->getTotalRekamMedis($rekamMedisFilter, $data['user']['id_instansi']);
+		$data['selected_rekam_medis_filter'] = $rekamMedisFilter;
 
-		// ============================================
-		// KODINGAN CONTEKAN (SABEB RUBAH AJA)
-		// ============================================
-		// $data['anggota'] = $this->ModelUser->getUserLimit()->result_array();
-		// $data['buku'] = $this->ModelBuku->getLimitBuku()->result_array();
+		$listRekamMedisFilter = $this->input->get('listRekamMedisFilter') ? $this->input->get('listRekamMedisFilter') : 'Today';
+		$data['selected_list_rekam_medis_filter'] = $listRekamMedisFilter;
 
-		// //mengupdate stok dan dibooking pada tabel buku
-		// $detail = $this->db->query("SELECT*FROM booking,booking_detail WHERE DAY(curdate()) < DAY(batas_ambil) AND booking.id_booking=booking_detail.id_booking")->result_array();
-		// foreach ($detail as $key) {
-		// 	$id_buku = $key['id_buku'];
-		// 	$batas = $key['tgl_booking'];
-		// 	$tglawal = date_create($batas);
-		// 	$tglskrg = date_create();
-		// 	$beda = date_diff($tglawal, $tglskrg);
+		$data['rekam_medis'] = $this->ModelDashboard->getListRekamMedis($listRekamMedisFilter, $data['user']['id_instansi']);
 
-
-		// 	if ($beda->days > 2)
-		// 		$this->db->query("UPDATE buku SET stok=stok+1, dibooking=dibooking-1 WHERE id='$id_buku'");
-		// }
-
-		// //menghapus otomatis data booking yang sudah lewat dari 2 hari
-		// $booking = $this->ModelBooking->getData('booking');
-		// if (!empty($booking)) {
-		// 	foreach ($booking as $bo) {
-		// 		$id_booking = $booking->id_booking;
-		// 		$tglbooking = $booking->tgl_booking;
-		// 		$tglawal = date_create($tglbooking);
-		// 		$tglskrg = date_create();
-		// 		$beda = date_diff($tglawal, $tglskrg);
-		// 		if ($beda->days > 2) {
-		// 			$this->db->query("DELETE FROM booking WHERE id_booking='$id_booking'");
-		// 			$this->db->query("DELETE FROM booking_detail WHERE id_booking='$id_booking'");
-		// 		}
-		// 	}
-		// }
-
+		$data['top_diseases'] = $this->ModelDashboard->getTopDiseasesLastMonth();
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
