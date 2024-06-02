@@ -9,7 +9,7 @@
                             <h4>Lihat Penyakit <br>
                                 Trending</h4>
                             <p>Pantau Data Real Time total penyakit trending di Kota Depok.</p>
-                            <a href="#">Lihat</a>
+                            <a href="#trendingpenyakit">Lihat</a>
                         </div>
                         <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto" alt="slide"></div>
                     </div>
@@ -38,7 +38,7 @@
                             <h4>Akses Informasi <br>
                                 Instansi Kesehatan</h4>
                             <p>Tersedia informasi Insantsi Kesehatan di Kota Depok</p>
-                            <a href="#">Lihat</a>
+                            <a href="#instansikesehatan">Lihat</a>
                         </div>
                         <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto" alt="slide"></div>
                     </div>
@@ -85,86 +85,51 @@
     </a>
 </div> -->
 
-<!-- Trending Information Section -->
-<div class="main-container container   justify-content-center">
-    <h2 class="section-title mt-5">Trending Penygebaran Penyakit</h2>
+<section id="trendingpenyakit">
+    <!-- Trending Information Section -->
+<div class="main-container container justify-content-center">
+    <h2 class="section-title mt-5">Trending Penyebaran Penyakit</h2>
     <p class="section-subtitle">Kami menyediakan data real time, dan transparan mengenai penyakit di kota depok</p>
     <div class="row align-items-center d-flex">
         <div class="row justify-content-between  align-items-end ">
-            <div class="col-1">
+            <div class="col-2">
             </div>
-            <div class="col-10">
+            <div class="col-8">
                 <h3 class=" mt-5 text-center font-weight-bold">Depok</h3>
             </div>
-            <div class="col-1">
+            <div class="col-2">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
-                    Filter
+                    Filter Kecamatan
                 </button>
             </div>
 
 
         </div>
+        <?php foreach ($most_common_diseases as $disease) { ?>
         <div class="col-md-4 mt-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Nama Penyakit</h3>
-                    <div class="row justify-content-center">
-                        <div class="col-2">
-                            <div class="card-icon">
-                                <i class="fas fa-hospital"></i>
+            <a href="<?= base_url('home/detailpenyakit/') . $disease->id_penyakit ?>" class="link-dark">  
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3 class="card-title"><?= $disease->nama_penyakit ?></h3>
+                        <div class="row justify-content-center">
+                            <div class="col-1">
+                                <div class="card-icon">
+                                    <i class="fas fa-hospital"></i>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <h3 class="card-text-number"><?= $disease->total ?></h3>
+                                <h5 class="card-text">Pasien</h5>
                             </div>
                         </div>
-                        <div class="col-5">
-                            <h3 class="card-text-number">1.723.128</h3>
-                            <h5 class="card-text">Pasien</h5>
-                        </div>
-
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
-
-        <div class="col-md-4 mt-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Nama Penyakit</h3>
-                    <div class="row justify-content-center">
-                        <div class="col-2">
-                            <div class="card-icon">
-                                <i class="fas fa-hospital"></i>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <h3 class="card-text-number">1.723.128</h3>
-                            <h5 class="card-text">Pasien</h5>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mt-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Nama Penyakit</h3>
-                    <div class="row justify-content-center">
-                        <div class="col-2">
-                            <div class="card-icon">
-                                <i class="fas fa-hospital"></i>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <h3 class="card-text-number">1.723.128</h3>
-                            <h5 class="card-text">Pasien</h5>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </div>
+</section>
 
 <!-- Waspada Section -->
 <div class="half-screen-container container">
@@ -173,7 +138,7 @@
             <h1 class="fw-bold">
                 <d class="text-success">Waspada</d> Akan Bahaya Wabah Penyakit
             </h1>
-            <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, mollitia?</p>
+            <p class="text-secondary">Pentingnya Kesadaran Terhadap Penyebaran Penyakit di Sekitar Anda</p>
         </div>
         <div class="col-12 col-md-6">
             <div class="row justify-content-center">
@@ -181,12 +146,12 @@
                     <div class="row">
                         <div class="col-md-1">
                             <div class="card-icon">
-                                <i class="fas fa-hospital"></i>
+                                <i class="fa-solid fa-hospital-user"></i>
                             </div>
                         </div>
                         <div class="col-md-11">
-                            <h3 class="fw-bold">2.384.249</h3>
-                            <p class="small">Pasien Terdata</p>
+                            <h3 class="fw-bold"><?= $total_pasien; ?></h3>
+                            <p class="small">Pasien Terdata <span>| <?= $selected_pasien_filter; ?></span></p>
                         </div>
                     </div>
                 </div>
@@ -198,8 +163,8 @@
                             </div>
                         </div>
                         <div class="col-md-11">
-                            <h3 class="fw-bold">2.384.249</h3>
-                            <p class="small">Pasien Terdata</p>
+                            <h3 class="fw-bold"><?= $total_instansi; ?></h3>
+                            <p class="small">Instansi Kesehatan</p>
                         </div>
                     </div>
                 </div>
@@ -207,89 +172,106 @@
                     <div class="row">
                         <div class="col-md-1">
                             <div class="card-icon">
-                                <i class="fas fa-hospital"></i>
+                                <i class="fa-solid fa-city"></i>
                             </div>
                         </div>
                         <div class="col-md-11">
-                            <h3 class="fw-bold">2.384.249</h3>
-                            <p class="small">Pasien Terdata</p>
+                            <h3 class="fw-bold"><?= $total_kecamatan; ?></h3>
+                            <p class="small">Kecamatan</p>
                         </div>
                     </div>
                 </div>
                 
             </div>
         </div>
+        <div class="filter">
+            <a class="icon" href="#" data-toggle="dropdown">
+                <i class="bi bi-three-dots"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <h6 class="dropdown-header text-start">Filter</h6>
+                <a class="dropdown-item" href="<?= base_url('admin?pasienFilter=Today'); ?>">Today</a>
+                <a class="dropdown-item" href="<?= base_url('admin?pasienFilter=This Month'); ?>">This Month</a>
+                <a class="dropdown-item" href="<?= base_url('admin?pasienFilter=This Year'); ?>">This Year</a>
+            </div>
+        </div>
+
     </div>
 </div>
 
 
 
-<!-- Instansi Kesehatan Section -->
-<div class="main-container container   justify-content-center">
-    <h2 class="section-title mt-5">Instansi Kesehatan</h2>
-    <p class="section-subtitle">Data instansi kesehatan di kota depok</p>
-    <div class="row align-items-center d-flex">
-        <div class="col-md-4 mt-5">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Total Puskesmas</h3>
-                    <div class="row justify-content-center">
-                        <div class="col-2">
-                            <div class="card-icon">
-                                <i class="fas fa-hospital"></i>
+<section id="instansikesehatan">
+    <!-- Instansi Kesehatan Section -->
+    <div class="main-container container   justify-content-center">
+        <h2 class="section-title mt-5">Instansi Kesehatan</h2>
+        <p class="section-subtitle">Data instansi kesehatan di kota depok</p>
+        <div class="row align-items-center d-flex">
+            <div class="col-md-4 mt-5">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Total Puskesmas</h3>
+                        <div class="row justify-content-center">
+                            <div class="col-2">
+                                <div class="card-icon">
+                                    <i class="fas fa-hospital"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-5">
-                            <h3 class="card-text-number">1.723.128</h3>
-                            <h5 class="card-text">Pasien Terlapor</h5>
-                        </div>
+                            <div class="col-5">
+                                <h3 class="card-text-number"><?= $jumlah_puskesmas ;?></h3>
+                                <h5 class="card-text">Instansi Tersedia </h5>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-5">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Total Rumah Sakit</h3>
+                        <div class="row justify-content-center">
+                            <div class="col-2">
+                                <div class="card-icon">
+                                    <i class="fas fa-hospital"></i>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <h3 class="card-text-number"><?= $jumlah_rumah_sakit ;?></h3>
+                                <h5 class="card-text">Instansi Tersedia</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-5">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Total Klinik</h3>
+                        <div class="row justify-content-center">
+                            <div class="col-2">
+                                <div class="card-icon">
+                                    <i class="fas fa-hospital"></i>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <h3 class="card-text-number"><?= $jumlah_klinik ;?></h3>
+                                <h5 class="card-text">Instansi Tersedia</h5>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-md-4 mt-5">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Total Rumah Sakit</h3>
-                    <div class="row justify-content-center">
-                        <div class="col-2">
-                            <div class="card-icon">
-                                <i class="fas fa-hospital"></i>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <h3 class="card-text-number">1.723.128</h3>
-                            <h5 class="card-text">Pasien Terlapor</h5>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mt-5">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Total Klinkik</h3>
-                    <div class="row justify-content-center">
-                        <div class="col-2">
-                            <div class="card-icon">
-                                <i class="fas fa-hospital"></i>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <h3 class="card-text-number">1.723.128</h3>
-                            <h5 class="card-text">Pasien Terlapor</h5>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+        <div class="text-center">
+            <a href="<?= base_url('home/listinstansi') ;?>" class="link-success">Selengkapnya</a>
         </div>
     </div>
-</div>
+</section>
 
 <!-- Himbauawan Secton -->
 <!-- <div class="half-screen-container">    

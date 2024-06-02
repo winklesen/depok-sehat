@@ -42,7 +42,7 @@
                                     <td><?= $p['info_gejala'] ?></td>
                                     <td><?= $p['info_pencegahan'] ?></td>
                                     <td><?= $p['info_pengobatan'] ?></td>
-                                    <td><?= $p['gambar_penyakit'] ?></td>
+                                    <td><img src="<?= base_url('assets/img/penyakit/') . $p['gambar_penyakit'] ?>" alt="Gambar <?= $p['gambar_penyakit']?>"></td>
                                     <td>
                                         <a href="<?= base_url('penyakit/editpenyakit/' . $p['id_penyakit']) ?>"
                                             class="btn btn-primary">Edit</a>

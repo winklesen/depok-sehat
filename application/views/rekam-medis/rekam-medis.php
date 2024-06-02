@@ -1,8 +1,15 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Rekam Medis</h1>
-    </div><!-- End Page Title -->
+        <h1><?= $judul; ?></h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<?= base_url('admin') ;?>">Home</a></li>
+                <li class="breadcrumb-item">Rekam Medis</li>
+                <li class="breadcrumb-item active">Master</li>
+            </ol>
+        </nav>
+    </div>
 
     <div id="error-message" class="alert alert-danger" style="display: none;"></div>
 

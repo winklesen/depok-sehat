@@ -18,7 +18,7 @@
                     <div class="card-body m-3">
                         <h5 class="card-title p-0">Edit Data Penyakit</h5>
                         <!-- Form untuk mengedit data penyakit -->
-                        <form id="editForm" action="<?= base_url('penyakit/updatePenyakit') ?>" method="post">
+                        <form id="editForm" action="<?= base_url('penyakit/updatePenyakit') ?>" method="post" enctype="multipart/form-data">
 
                             <div class="form-group mb-2">
                                 <label for="id_penyakit" class="mr-2">ID Penyakit:</label>
