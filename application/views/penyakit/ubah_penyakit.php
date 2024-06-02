@@ -59,7 +59,7 @@
 
                             <div class="form-group mb-2">
                                 <label for="gambar_penyakit" class="mr-2">Gambar Penyakit:</label>
-                                <input type="file" class="form-control" id="gambar_penyakit" name="gambar_penyakit">
+                                <input type="file" class="form-control" id="gambar_penyakit" name="gambar_penyakit" required>
                             </div>
 
                             <!-- Tambahkan field lainnya sesuai dengan kebutuhan -->
