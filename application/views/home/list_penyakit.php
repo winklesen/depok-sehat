@@ -27,7 +27,7 @@
                 </ul>
             </div>
 
-            <div class="mt-3 mb-5">
+            <div class="mt-5 mb-5">
                 <a href="javascript:history.back()" class="link-secondary"><b>Kembali ke Halaman Sebelumnya</b> <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>

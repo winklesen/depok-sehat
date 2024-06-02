@@ -14,13 +14,13 @@
                 <!-- Preview image figure-->
                 <figure class="mb-4"><img class="img-fluid rounded" src="<?= base_url('assets/img/penyakit/') . $penyakit['gambar_penyakit'];?>" alt="Gambar  <?= $penyakit['nama_penyakit'];?>" /></figure>
                 <!-- Post content-->
-                <section class="mb-5">
+                <section class="mb-5" style="text-align: justify;">
                     <?= $penyakit['info_gejala']; ?>
                 </section>
-                <section class="mb-5">
+                <section class="mb-5" style="text-align: justify;">
                     <?= $penyakit['info_pencegahan']; ?>
                 </section>
-                <section class="mb-5">
+                <section class="mb-5" style="text-align: justify;">
                     <?= $penyakit['info_pengobatan']; ?>
                 </section>
             </article>
@@ -32,33 +32,33 @@
         <div class="col-lg-4">
             <!-- Search widget-->
             <div class="card mt-5 mb-4">
-                <div class="card-header">Search</div>
+                <div class="card-header">Cari Penyakit Lainnya:</div>
                 <div class="card-body">
                     <div class="input-group">
                         <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                        <button class="btn btn-primary" id="button-search" type="button">cari</button>
                     </div>
                 </div>
             </div>
             <!-- Categories widget-->
             <div class="card mb-4">
-                <div class="card-header">Categories</div>
+                <div class="card-header">Informasi Penting</div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="#!">Web Design</a></li>
-                                <li><a href="#!">HTML</a></li>
-                                <li><a href="#!">Freebies</a></li>
+                            <ul class="list-unstyled mt-2 mb-0">
+                                <li><a class="link-dark" href="<?= base_url('home');?>">Home</a></li>
+                                <li><a class="link-dark" href="<?= base_url('home');?>#trendingpenyakit">Trending Penyakit</a></li>
+                                <li><a class="link-dark" href="<?= base_url('home');?>#instansikesehatan">Instansi Kesehatan</a></li>
                             </ul>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <ul class="list-unstyled mb-0">
-                                <li><a href="#!">JavaScript</a></li>
+                                <li><a href="#!"></a></li>
                                 <li><a href="#!">CSS</a></li>
                                 <li><a href="#!">Tutorials</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
