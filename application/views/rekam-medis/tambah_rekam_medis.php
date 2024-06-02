@@ -47,84 +47,83 @@
   $(function() {
     // Autocompletion untuk input pasien
     $("#nama_pasien").autocomplete({
-        source: function(request, response) {
-            console.log('Requesting pasien data with term:', request.term); // Debugging line
-            $.ajax({
-                url: "<?= base_url('RekamMedis/get_nama_pasien') ?>",
-                dataType: "json",
-                data: {
-                    term: request.term
-                },
-                success: function(data) {
-                    console.log('Received pasien data:', data); // Debugging line
-                    response($.map(data, function(item) {
-                        return {
-                            label: item.nama, // Menampilkan nama pasien sebagai label dropdown
-                            value: item.nama, // Menetapkan nilai input ke nama pasien yang dipilih
-                            id_pasien: item.id_pasien // Menyimpan ID pasien yang dipilih
-                        };
-                    }));
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Error fetching pasien data: ", textStatus, errorThrown); // Debugging line
-                }
-            });
-        },
-        minLength: 2,
-        autoFocus: true, // Membuat dropdown muncul secara otomatis saat input mendapatkan fokus
-        select: function(event, ui) {
-            $("#id_pasien").val(ui.item.id_pasien); // Set nilai ID pasien
-        }
+      source: function(request, response) {
+        console.log('Requesting pasien data with term:', request.term); // Debugging line
+        $.ajax({
+          url: "<?= base_url('RekamMedis/get_nama_pasien') ?>",
+          dataType: "json",
+          data: {
+            term: request.term
+          },
+          success: function(data) {
+            console.log('Received pasien data:', data); // Debugging line
+            response($.map(data, function(item) {
+              return {
+                label: item.nama, // Menampilkan nama pasien sebagai label dropdown
+                value: item.nama, // Menetapkan nilai input ke nama pasien yang dipilih
+                id_pasien: item.id_pasien // Menyimpan ID pasien yang dipilih
+              };
+            }));
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error fetching pasien data: ", textStatus, errorThrown); // Debugging line
+          }
+        });
+      },
+      minLength: 2,
+      autoFocus: true, // Membuat dropdown muncul secara otomatis saat input mendapatkan fokus
+      select: function(event, ui) {
+        $("#id_pasien").val(ui.item.id_pasien); // Set nilai ID pasien
+      }
     });
 
     // Autocompletion untuk input penyakit
     $("#nama_penyakit").autocomplete({
-        source: function(request, response) {
-            console.log('Requesting penyakit data with term:', request.term); // Debugging line
-            $.ajax({
-                url: "<?= base_url('RekamMedis/get_nama_penyakit') ?>",
-                dataType: "json",
-                data: {
-                    term: request.term
-                },
-                success: function(data) {
-                    console.log('Received penyakit data:', data); // Debugging line
-                    response($.map(data, function(item) {
-                        return {
-                            label: item.nama_penyakit, // Menampilkan nama penyakit sebagai label dropdown
-                            value: item.nama_penyakit, // Menetapkan nilai input ke nama penyakit yang dipilih
-                            id_penyakit: item.id_penyakit // Menyimpan ID penyakit yang dipilih
-                        };
-                    }));
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Error fetching penyakit data: ", textStatus, errorThrown); // Debugging line
-                }
-            });
-        },
-        minLength: 2,
-        autoFocus: true, // Membuat dropdown muncul secara otomatis saat input mendapatkan fokus
-        select: function(event, ui) {
-            $("#id_penyakit").val(ui.item.id_penyakit); // Set nilai ID penyakit
-        }
+      source: function(request, response) {
+        console.log('Requesting penyakit data with term:', request.term); // Debugging line
+        $.ajax({
+          url: "<?= base_url('RekamMedis/get_nama_penyakit') ?>",
+          dataType: "json",
+          data: {
+            term: request.term
+          },
+          success: function(data) {
+            console.log('Received penyakit data:', data); // Debugging line
+            response($.map(data, function(item) {
+              return {
+                label: item.nama_penyakit, // Menampilkan nama penyakit sebagai label dropdown
+                value: item.nama_penyakit, // Menetapkan nilai input ke nama penyakit yang dipilih
+                id_penyakit: item.id_penyakit // Menyimpan ID penyakit yang dipilih
+              };
+            }));
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error fetching penyakit data: ", textStatus, errorThrown); // Debugging line
+          }
+        });
+      },
+      minLength: 2,
+      autoFocus: true, // Membuat dropdown muncul secara otomatis saat input mendapatkan fokus
+      select: function(event, ui) {
+        $("#id_penyakit").val(ui.item.id_penyakit); // Set nilai ID penyakit
+      }
     });
 
     // Fungsi untuk validasi formulir sebelum disubmit
     $("#editForm").submit(function(event) {
-        var selectedPasien = $("#id_pasien").val(); // Ambil ID pasien yang dipilih
-        if (!selectedPasien) {
-            // Jika tidak ada pasien yang dipilih, tampilkan pesan error
-            $("#nama_pasien_error").text("Harap pilih nama pasien dari dropdown yang tersedia.");
-            event.preventDefault(); // Hentikan proses submit formulir
-        }
+      var selectedPasien = $("#id_pasien").val(); // Ambil ID pasien yang dipilih
+      if (!selectedPasien) {
+        // Jika tidak ada pasien yang dipilih, tampilkan pesan error
+        $("#nama_pasien_error").text("Harap pilih nama pasien dari dropdown yang tersedia.");
+        event.preventDefault(); // Hentikan proses submit formulir
+      }
 
-        var selectedPenyakit = $("#id_penyakit").val(); // Ambil ID penyakit yang dipilih
-        if (!selectedPenyakit) {
-            // Jika tidak ada penyakit yang dipilih, tampilkan pesan error
-            $("#nama_penyakit_error").text("Harap pilih nama penyakit dari dropdown yang tersedia.");
-            event.preventDefault(); // Hentikan proses submit formulir
-        }
+      var selectedPenyakit = $("#id_penyakit").val(); // Ambil ID penyakit yang dipilih
+      if (!selectedPenyakit) {
+        // Jika tidak ada penyakit yang dipilih, tampilkan pesan error
+        $("#nama_penyakit_error").text("Harap pilih nama penyakit dari dropdown yang tersedia.");
+        event.preventDefault(); // Hentikan proses submit formulir
+      }
     });
-});
-
+  });
 </script>

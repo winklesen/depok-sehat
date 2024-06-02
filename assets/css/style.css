@@ -1286,7 +1286,7 @@ h6 {
 
 /* Carousel */
 
-#myCarousel{
+#myCarousel {
   background-color: #F4F4F5 !important;
 }
 
@@ -1557,7 +1557,7 @@ h6 {
 
 .main-container {
   padding-top: 60px;
-  
+
   min-height: calc(100vh - 60px);
   /* display: flex;
   justify-content: center;
@@ -1574,19 +1574,19 @@ h6 {
 }
 
 .card-title {
-  font-weight: bold !important;  
+  font-weight: bold !important;
 }
 
 .card-icon {
   font-size: 2.5rem;
-  color:#4CAF4F 
+  color: #4CAF4F
 }
 
-.card-text-number{
+.card-text-number {
   font-weight: bold !important;
 }
 
-.font-weight-bold{
+.font-weight-bold {
   font-weight: bold !important;
 }
 

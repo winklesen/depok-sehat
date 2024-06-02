@@ -16,10 +16,10 @@ class Admin extends CI_Controller
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 
 		// Ambil parameter filter dari request, default ke 'Today'
-    $pasienFilter = $this->input->get('pasienFilter') ? $this->input->get('pasienFilter') : 'Today';
-    // Ambil data berdasarkan filter
-    $data['total_pasien'] = $this->ModelDashboard->getTotalPatients($pasienFilter);
-    $data['selected_pasien_filter'] = $pasienFilter;
+		$pasienFilter = $this->input->get('pasienFilter') ? $this->input->get('pasienFilter') : 'Today';
+		// Ambil data berdasarkan filter
+		$data['total_pasien'] = $this->ModelDashboard->getTotalPatients($pasienFilter);
+		$data['selected_pasien_filter'] = $pasienFilter;
 
 		$data['total_instansi'] = $this->ModelDashboard->getTotalInstansi();
 

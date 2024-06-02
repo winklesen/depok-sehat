@@ -1,10 +1,10 @@
 <main id="main" class="main">
 
-<div class="pagetitle">
+    <div class="pagetitle">
         <h1><?= $judul; ?></h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= base_url('admin') ;?>">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?= base_url('admin'); ?>">Home</a></li>
                 <li class="breadcrumb-item">Penyakit</li>
                 <li class="breadcrumb-item active">Master</li>
             </ol>
@@ -20,8 +20,8 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                    <h5 class="card-title">Master <?= $judul;?></h5>
-                        
+                        <h5 class="card-title">Master <?= $judul; ?></h5>
+
                         <table class="table datatable table-hover">
                             <thead>
                                 <tr>
@@ -36,6 +36,7 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($penyakit as $key => $p) { ?>
+<<<<<<< HEAD
                                 <tr>
                                     <th scope="row"><?= $key + 1 ?></th>
                                     <td><?= $p['nama_penyakit'] ?></td>
@@ -48,6 +49,19 @@
                                             class="btn btn-primary">Edit</a>
                                     </td>
                                 </tr>
+=======
+                                    <tr>
+                                        <th scope="row"><?= $key + 1 ?></th>
+                                        <td><?= $p['nama_penyakit'] ?></td>
+                                        <td><?= $p['info_gejala'] ?></td>
+                                        <td><?= $p['info_pencegahan'] ?></td>
+                                        <td><?= $p['info_pengobatan'] ?></td>
+                                        <td><?= $p['gambar_penyakit'] ?></td>
+                                        <td>
+                                            <a href="<?= base_url('penyakit/editpenyakit/' . $p['id_penyakit']) ?>" class="btn btn-primary">Edit</a>
+                                        </td>
+                                    </tr>
+>>>>>>> d9a05b1a2dad9e4deb4add2c0fd22af82de501e7
                                 <?php } ?>
                                 </tr>
                                 <!-- Tambahkan baris lainnya sesuai kebutuhan -->

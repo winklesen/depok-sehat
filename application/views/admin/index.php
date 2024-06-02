@@ -141,7 +141,7 @@
 
                             <!-- Card Body -->
                             <div class="card-body">
-                                <h5 class="card-title">Recent Rekam Medis <span>|
+                                <h5 class="card-title">Rekam Medis Terkini<span>|
                                         <?= $selected_list_rekam_medis_filter; ?></span></h5>
 
                                 <!-- Tabel untuk Menampilkan Rekam Medis -->

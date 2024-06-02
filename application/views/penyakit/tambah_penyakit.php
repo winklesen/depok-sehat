@@ -23,8 +23,7 @@
 
                             <div class="form-group mb-2">
                                 <label for="id_penyakit" class="mr-2">ID Penyakit:</label>
-                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit"
-                                    value="<?= $last_id?>" readonly>
+                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit" value="<?= $last_id ?>" readonly>
                             </div>
 
                             <div class="form-group mb-2">
@@ -38,7 +37,7 @@
                             </div>
 
                             <script>
-                            CKEDITOR.replace('info_gejala');
+                                CKEDITOR.replace('info_gejala');
                             </script>
 
                             <div class="form-group mb-2">
@@ -47,7 +46,7 @@
                             </div>
 
                             <script>
-                            CKEDITOR.replace('info_pencegahan');
+                                CKEDITOR.replace('info_pencegahan');
                             </script>
 
                             <div class="form-group mb-2">
@@ -56,7 +55,7 @@
                             </div>
 
                             <script>
-                            CKEDITOR.replace('info_pengobatan');
+                                CKEDITOR.replace('info_pengobatan');
                             </script>
 
                             <div class="form-group mb-2">
