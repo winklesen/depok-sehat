@@ -22,44 +22,39 @@
 
                             <div class="form-group mb-2">
                                 <label for="id_penyakit" class="mr-2">ID Penyakit:</label>
-                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit"
-                                    value="<?= $penyakit['id_penyakit'] ?>" readonly>
+                                <input type="text" class="form-control" id="id_penyakit" name="id_penyakit" value="<?= $penyakit['id_penyakit'] ?>" readonly>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="nama_penyakit" class="mr-2">Nama Penyakit:</label>
-                                <input type="text" class="form-control" id="nama_penyakit" name="nama_penyakit"
-                                    value="<?= $penyakit['nama_penyakit'] ?>">
+                                <input type="text" class="form-control" id="nama_penyakit" name="nama_penyakit" value="<?= $penyakit['nama_penyakit'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="info_gejala" class="mr-2">Info Gejala:</label>
-                                <textarea class="form-control" id="info_gejala"
-                                    name="info_gejala"><?= $penyakit['info_gejala'] ?></textarea>
+                                <textarea class="form-control" id="info_gejala" name="info_gejala"><?= $penyakit['info_gejala'] ?></textarea>
                             </div>
 
                             <script>
-                            CKEDITOR.replace('info_gejala');
+                                CKEDITOR.replace('info_gejala');
                             </script>
 
                             <div class="form-group mb-2">
                                 <label for="info_pencegahan" class="mr-2">Info Pencegahan:</label>
-                                <textarea class="form-control" id="info_pencegahan"
-                                    name="info_pencegahan"><?= $penyakit['info_pencegahan'] ?></textarea>
+                                <textarea class="form-control" id="info_pencegahan" name="info_pencegahan"><?= $penyakit['info_pencegahan'] ?></textarea>
                             </div>
 
                             <script>
-                            CKEDITOR.replace('info_pencegahan');
+                                CKEDITOR.replace('info_pencegahan');
                             </script>
 
                             <div class="form-group mb-2">
                                 <label for="info_pengobatan" class="mr-2">Info Pengobatan:</label>
-                                <textarea class="form-control" id="info_pengobatan"
-                                    name="info_pengobatan"><?= $penyakit['info_pengobatan'] ?></textarea>
+                                <textarea class="form-control" id="info_pengobatan" name="info_pengobatan"><?= $penyakit['info_pengobatan'] ?></textarea>
                             </div>
 
                             <script>
-                            CKEDITOR.replace('info_pengobatan');
+                                CKEDITOR.replace('info_pengobatan');
                             </script>
 
                             <div class="form-group mb-2">

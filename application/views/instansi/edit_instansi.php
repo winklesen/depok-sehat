@@ -18,20 +18,17 @@
                     <div class="card-body m-3">
                         <h5 class="card-title p-0"></h5>
 
-                        <form id="editForm" action="<?= base_url('InstansiKesehatan/updateInstansi') ?>" method="post"
-                            enctype="multipart/form-data">
+                        <form id="editForm" action="<?= base_url('InstansiKesehatan/updateInstansi') ?>" method="post" enctype="multipart/form-data">
 
                             <div class="form-group mb-2">
                                 <label for="id_instansi" class="mr-2">ID Instansi</label>
-                                <input type="text" class="form-control" id="id_instansi" name="id_instansi"
-                                    value="<?= $instansi['id_instansi']?>" disabled>
-                                <input type="hidden" class="form-control" id="id_instansi" name="id_instansi"
-                                    value="<?= $instansi['id_instansi']?>">
+                                <input type="text" class="form-control" id="id_instansi" name="id_instansi" value="<?= $instansi['id_instansi'] ?>" disabled>
+                                <input type="hidden" class="form-control" id="id_instansi" name="id_instansi" value="<?= $instansi['id_instansi'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="nama_instansi" class="mr-2">Nama Instansi</label>
-                                <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" value="<?= $instansi['nama_instansi']?>">
+                                <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" value="<?= $instansi['nama_instansi'] ?>">
                             </div>
 
                             <!-- <div class="form-group mb-2">
@@ -42,23 +39,23 @@
                             <div class="form-group mb-2">
                                 <label for="tipe" class="mr-2">Tipe:</label>
                                 <select class="form-control" id="tipe" name="tipe">
-                                    <option value="<?= $instansi['tipe']?>">~ Pilih ~</option>
+                                    <option value="<?= $instansi['tipe'] ?>">~ Pilih ~</option>
                                     <?php
-                                        foreach ($enum_values as $value) {
-                                            echo "<option value='$value'>$value</option>";
-                                        }
+                                    foreach ($enum_values as $value) {
+                                        echo "<option value='$value'>$value</option>";
+                                    }
                                     ?>
                                 </select>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="alamat" class="mr-2">Alamat</label>
-                                <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $instansi['alamat']?>">
+                                <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $instansi['alamat'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="kontak" class="mr-2">Kontak</label>
-                                <input type="text" class="form-control" id="kontak" name="kontak" value="<?= $instansi['kontak']?>">
+                                <input type="text" class="form-control" id="kontak" name="kontak" value="<?= $instansi['kontak'] ?>">
                             </div>
 
                             <div class="form-group mb-2">
@@ -70,7 +67,7 @@
                                         </option>
                                     <?php } ?>
                                 </select>
-                            </div> 
+                            </div>
 
                             <button type="submit" class="btn btn-primary mt-4">Simpan Perubahan</button>
                         </form>
