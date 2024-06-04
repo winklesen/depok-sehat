@@ -38,11 +38,11 @@
                                 <?php foreach ($penyakit as $key => $p) { ?>
                                 <tr>
                                     <th scope="row"><?= $key + 1 ?></th>
-                                    <td><?= $p['nama_penyakit'] ?></td>
+                                    <td><b><?= $p['nama_penyakit'] ?></b></td>
                                     <td><?= $p['info_gejala'] ?></td>
                                     <td><?= $p['info_pencegahan'] ?></td>
                                     <td><?= $p['info_pengobatan'] ?></td>
-                                    <td><img src="<?= base_url('assets/img/penyakit/') . $p['gambar_penyakit'] ?>" alt="Gambar <?= $p['gambar_penyakit']?>"></td>
+                                    <td><img src="<?= base_url('assets/img/penyakit/') . $p['gambar_penyakit'] ?>" alt="Gambar <?= $p['gambar_penyakit']?>" style="max-width: 100px; max-height: 100px;"></td>
                                     <td>
                                         <a href="<?= base_url('penyakit/editpenyakit/' . $p['id_penyakit']) ?>"
                                             class="btn btn-primary">Edit</a>

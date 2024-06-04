@@ -12,7 +12,9 @@
                     <div class="text-muted fst-italic mb-2">Diposting pada <?= $penyakit['created_at']; ?></div>
                 </header>
                 <!-- Preview image figure-->
-                <figure class="mb-4"><img class="img-fluid rounded" src="<?= base_url('assets/img/penyakit/') . $penyakit['gambar_penyakit'];?>" alt="Gambar  <?= $penyakit['nama_penyakit'];?>" /></figure>
+                <figure class="mb-4">
+    <img class="img-fluid rounded" src="<?= base_url('assets/img/penyakit/') . $penyakit['gambar_penyakit'];?>" alt="Gambar <?= $penyakit['nama_penyakit'];?>" style="max-width: 800px; max-height: 600px;" /></figure>
+
                 <!-- Post content-->
                 <section class="mb-5" style="text-align: justify;">
                     <?= $penyakit['info_gejala']; ?>
