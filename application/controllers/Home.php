@@ -93,15 +93,8 @@ class Home extends CI_Controller
             // Jika tidak ada hasil, arahkan kembali ke halaman list penyakit
             redirect('home/listPenyakit');
         } else {
-            // Jika ada hasil, tampilkan hasil pencarian
-            // Misalnya, Anda dapat melewatkan hasil pencarian ke view dan menampilkan hasilnya
-            $data['judul'] = 'Hasil Pencarian';
-            $data['hasil_pencarian'] = $results;
-            
-            $this->load->view('templates/user/header', $data);
-            $this->load->view('templates/user/navbar');
-            $this->load->view('home/search_penyakit', $data);          
-            $this->load->view('templates/user/footer');  
+            $id = $results[0]->id_penyakit;
+            redirect('home/detailPenyakit/' . $id);
         }
     }
 
