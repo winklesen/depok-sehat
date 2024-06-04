@@ -4,7 +4,6 @@
         <p class="small">Data ini merupakan Daftar Instansi Kesehatan yang Telah Terdaftar di Website Depok Sehat.</p>
         <div class="card mt-5">
             <div class="card-body">
-
                 <table class="table datatable table-hover">
                     <thead>
                         <tr>

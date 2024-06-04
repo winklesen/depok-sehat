@@ -21,7 +21,7 @@
                 <ul class="list-group list-group-flush">
                     <?php foreach ($list_penyakit as $penyakit) { ?>
                         <li class="list-group-item">
-                            <a href="<?= base_url('home/detailpenyakit/') . $penyakit['id_penyakit'] ?>" class="link-dark" data-toggle='modal' data-target='#exampleModal'><?= $penyakit['nama_penyakit']; ?></a>
+                            <a href="<?= base_url('home/detailpenyakit/') . $penyakit['id_penyakit'] ?>" class="link-dark"><?= $penyakit['nama_penyakit']; ?></a>
                         </li>
                     <?php } ?>
                 </ul>
