@@ -119,4 +119,12 @@ class ModelPasien extends CI_Model
         $this->db->limit(10);
         return $this->db->get('pasien')->result_array();
     }
+
+    public function getPasienJoinKecamatan()
+    {
+        $this->db->select('pasien.*, kecamatan.nama_kecamatan');
+        $this->db->from('pasien');
+        $this->db->join('kecamatan', 'pasien.id_kecamatan = kecamatan.id_kecamatan');
+        return $this->db->get()->result_array();
+    }
 }

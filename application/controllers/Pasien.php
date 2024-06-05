@@ -17,7 +17,7 @@ class Pasien extends CI_Controller
 
 
 		// Get Data Pasien
-		$data['pasien'] = $this->ModelPasien->getPasienLimit();
+		$data['pasien'] = $this->ModelPasien->getPasienJoinKecamatan();
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
