@@ -39,10 +39,10 @@
                     <a href="<?= base_url('home/about') ;?>" class="link-light mb-1">Tentang Kami</a>
                 </p>
                 <p>
-                    <a href="<?= base_url('home/listpenyakit') ;?>" class="link-light mb-1">Daftar Penyakit</a>
+                    <a href="<?= base_url('home');?>#trendingpenyakit" class="link-light mb-1">Trending Penyakit</a>
                 </p>
                 <p>
-                    <a href="<?= base_url('home/listinstansi') ;?>" class="link-light mb-1">Instansi Kesehatan</a>
+                    <a href="<?= base_url('home');?>#instansikesehatan"" class="link-light mb-1">Instansi Kesehatan</a>
                 </p>
 
             </div>
