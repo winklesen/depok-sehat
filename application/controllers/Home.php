@@ -66,15 +66,15 @@ class Home extends CI_Controller
     //     $this->load->view('templates/user/footer');    
     // }
 
-    // public function listInstansi() {
-    //     $data['judul'] = 'List Instansi';
-    //     $data['instansi'] = $this->ModelHome->getInstansiKesehatanJoinKecamatan()->result_array();
+    public function listInstansi() {
+        $data['judul'] = 'List Instansi';
+        $data['instansi'] = $this->ModelHome->getInstansiKesehatanJoinKecamatan()->result_array();
 
-    //     $this->load->view('templates/user/header', $data);
-    //     $this->load->view('templates/user/navbar');
-    //     $this->load->view('home/list_instansi', $data);          
-    //     $this->load->view('templates/user/footer');    
-    // }
+        $this->load->view('templates/user/header', $data);
+        $this->load->view('templates/user/navbar');
+        $this->load->view('home/list_instansi', $data);          
+        $this->load->view('templates/user/footer');    
+    }
 
 
     public function about()
