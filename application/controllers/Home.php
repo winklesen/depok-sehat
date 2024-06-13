@@ -108,8 +108,8 @@ class Home extends CI_Controller
 
         // Periksa apakah ada hasil pencarian
         if (!$results) {
-            // Jika tidak ada hasil, arahkan kembali ke halaman list penyakit
-            redirect('home/listPenyakit');
+            // Jika tidak ada hasil, arahkan kembali ke halaman utama
+            redirect('home/');
         } else {
             $id = $results[0]->id_penyakit;
             redirect('home/detailPenyakit/' . $id);
