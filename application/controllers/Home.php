@@ -6,15 +6,11 @@ class Home extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // cek_login();
         error_reporting(0);
     }
 
     public function index()
     {
-        // TODO di Akhir (Hard)
-        // - Desain sesuai mockup
-        // - Tampil data sesuai mockup   
         $data['judul'] = 'Home';
 
         $data['most_common_diseases'] = $this->ModelHome->penyakitTrending();
@@ -55,16 +51,6 @@ class Home extends CI_Controller
         $this->load->view('home/index', $data);
         $this->load->view('templates/user/footer');
     }
-
-    // public function listPenyakit() {
-    //     $data['judul'] = 'List Penyakit';
-    //     $data['list_penyakit'] = $this->ModelHome->getPenyakit()->result_array();
-
-    //     $this->load->view('templates/user/header', $data);
-    //     $this->load->view('templates/user/navbar');
-    //     $this->load->view('home/list_penyakit', $data);          
-    //     $this->load->view('templates/user/footer');    
-    // }
 
     public function listInstansi() {
         $data['judul'] = 'List Instansi';

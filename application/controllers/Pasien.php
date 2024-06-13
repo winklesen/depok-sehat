@@ -149,7 +149,6 @@ class Pasien extends CI_Controller
 		];
 		$this->form_validation->set_rules($rules);
 
-		// var_dump($data); exit;
 		if ($this->form_validation->run() != true) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
 			redirect('pasien/editPasien/'  . $data['id_pasien']);

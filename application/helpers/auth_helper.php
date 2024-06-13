@@ -47,29 +47,3 @@ function cek_petugas()
         redirect('admin');
     }
 }
-
-// ============================================
-// KODINGAN CONTEKAN (DIHAPUS DIAKHIR)
-// ============================================
-// <?php 
-// function cek_login($pagePermission)
-// {
-// 	// $pagePermission == admin hanya admin
-// 	// $pagePermission == eo hanya admin & EO
-// 	// $pagePermission == user hanya user_login
-// 	// $pagePermission == '' semua bisa akses
-
-// 	$ci = get_instance();
-// 	if (!$ci->session->userdata('user_email') && $pagePermission != '') {
-// 		$ci->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Akses ditolak. Anda belum login!! </div>');
-// 		redirect('autentifikasi');
-// 	} else {
-// 		if ($pagePermission == $ci->session->userdata('user_role')) {
-// 			$role = $ci->session->userdata('user_role');
-// 		} else if ($pagePermission == 'eo' && $ci->session->userdata('user_role') == 'admin') {
-// 			$role = $ci->session->userdata('user_role');
-// 		} else if ($pagePermission == 'user' && $ci->session->userdata('user_role') == 'admin' || $ci->session->userdata('user_role') == 'eo') {
-// 			$role = $ci->session->userdata('user_role');
-// 		}
-// 	}
-// }

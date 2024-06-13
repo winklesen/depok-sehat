@@ -17,7 +17,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body m-3">
-                        <h5 class="card-title p-0">Tambah Data Pasien</h5>
+                        <h5 class="card-title p-0">Tambah Data Penyakit</h5>
                         <!-- Form untuk mengedit data pasien -->
                         <form id="editForm" action="<?= base_url('penyakit/tambahPenyakit') ?>" method="post" enctype="multipart/form-data">
 

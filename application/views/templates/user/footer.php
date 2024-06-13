@@ -63,63 +63,13 @@
                 </p>
             </div>
             <!-- Grid column -->
-
-            <!-- Grid column -->
-            <!-- <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4"> -->
-                <!-- Links -->
-                <!-- <h6 class="text-uppercase fw-bold mb-4 text-white mb-1">Tetap Terhubung:</h6> -->
-                <!-- <div class="input-group mb-3"> -->
-                    <!-- <form action="" method="post"> -->
-                        <!-- <input type="email" name="" id="" placeholder="Masukkan Email Anda"> -->
-                        <!-- <button type="submit" aria-hidden="true"> -->
-                            <!-- <i class="fa-solid fa-paper-plane"></i> -->
-                        <!-- </button> -->
-                    <!-- </form> -->
-                    <!-- Grid column -->
-                <!-- </div> -->
-                <!-- Grid row -->
-            <!-- </div> -->
-            <!-- Section: Links  -->
+        </div>
+        <!-- Grid row -->
+    </div>
+    <!-- Section: Links  -->
 </footer>
 <!-- Footer -->
 <!-- FOOTER END -->
-
-<!-- Tautan Pusat Bantuan -->
-
-
-<!-- Tautan Pusat Bantuan -->
-<p>
-    <a href="#" class="text-white mb-1" data-toggle="modal" data-target="#pusatBantuanModal">Pusat Bantuan</a>
-</p>
-
-<!-- Modal -->
-<!-- <div class="modal fade" id="pusatBantuanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, quae doloribus voluptatum, ipsa
-                nobis quas tenetur vero quod saepe sed hic rem magnam voluptate natus similique ipsum. Nisi, molestias
-                cupiditate?
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis rerum id blanditiis perspiciatis
-                placeat dolorem fugiat pariatur repellat laboriosam, deleniti debitis minus aliquid exercitationem optio
-                autem ab numquam. Ad, veritatis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ducimus tenetur quod repudiandae at ut
-                obcaecati atque ipsam necessitatibus ex, minus voluptate maxime cupiditate vitae facilis. Repellat
-                aspernatur nam saepe.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 <!-- Modal -->
 <div class="modal fade" id="persyaratanLayanan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"

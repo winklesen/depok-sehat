@@ -13,7 +13,8 @@
                 </header>
                 <!-- Preview image figure-->
                 <figure class="mb-4">
-    <img class="img-fluid rounded" src="<?= base_url('assets/img/penyakit/') . $penyakit['gambar_penyakit'];?>" alt="Gambar <?= $penyakit['nama_penyakit'];?>" style="max-width: 800px; max-height: 600px;" /></figure>
+                    <img class="img-fluid rounded" src="<?= base_url('assets/img/penyakit/') . $penyakit['gambar_penyakit'];?>" alt="Gambar <?= $penyakit['nama_penyakit'];?>" style="max-width: 800px; max-height: 600px;" />
+                </figure>
 
                 <!-- Post content-->
                 <section class="mb-5" style="text-align: justify;">
@@ -60,18 +61,11 @@
                                 <li><a class="link-dark" href="<?= base_url('home');?>#instansikesehatan">Instansi Kesehatan</a></li>
                             </ul>
                         </div>
-                        <!-- <div class="col-sm-6">
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="#!"></a></li>
-                                <li><a href="#!">CSS</a></li>
-                                <li><a href="#!">Tutorials</a></li>
-                            </ul>
-                        </div> -->
                     </div>
                 </div>
             </div>
+        </div>
     </div>
-</div>
 
 <script>
   $(function() {

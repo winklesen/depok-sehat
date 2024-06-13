@@ -1,11 +1,4 @@
   <!-- ======= Footer ======= -->
-  <!-- <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Kelompok 1 - Depok Sehat</span></strong>. All Rights Reserved 2024
-    </div>
-  </footer> -->
-  <!-- End Footer -->
-
   <!-- Vendor JS Files -->
   <script src="<?= base_url("assets/vendor/apexcharts/apexcharts.min.js");?>"></script>
   <script src="<?= base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js");?>"></script>

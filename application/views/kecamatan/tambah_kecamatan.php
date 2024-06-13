@@ -17,7 +17,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body m-3">
-            <h5 class="card-title p-0"></h5>
+            <h5 class="card-title p-0">Tambah Data Kecamatan</h5>
             <!-- Form untuk mengedit data kecamatan -->
             <form id="editForm" action="<?= base_url('Kecamatan/createKecamatan') ?>" method="post">
 

@@ -70,10 +70,6 @@ class ModelInstansiKesehatan extends CI_Model
     {
         $this->db->insert('instansi_kesehatan', $data);
     }
-    // public function updateInstansiKesehatan($data = null, $where = null)
-    // {
-    //     $this->db->update('instansi_kesehatan', $data, $where);
-    // }
     public function updateInstansiKesehatan($id_instansi, $data)
     {
         $this->db->where('id_instansi', $id_instansi);
@@ -126,7 +122,6 @@ class ModelInstansiKesehatan extends CI_Model
     {
         return $this->db->get('kecamatan')->result_array();
     }
-
 
     public function getInstansiKesehatanJoinKecamatan()
     {

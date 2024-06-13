@@ -26,12 +26,7 @@
 						<img src="<?= base_url('assets/img/profile/') . 'default.jpg' ?>" alt="Profile" class="rounded-circle card-img">
 						<h3><?= $user['nama']; ?></h3>
 						<h4><?= $user['role_id'] == '2' ? 'Admin' : 'Petugas Instansi'; ?></h4>
-						<!-- <div class="social-links mt-2">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              </div> -->
+
 					</div>
 				</div>
 

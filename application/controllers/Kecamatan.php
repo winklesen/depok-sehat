@@ -17,16 +17,13 @@ class Kecamatan extends CI_Controller
 
 		// Get Data Kecamatan
 		$data['kecamatan'] = $this->ModelKecamatan->getKecamatan()->result_array();
-		// var_dump($data['kecamatan']);
-		// exit;
+
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
 		$this->load->view('kecamatan/index', $data);
 		$this->load->view('templates/admin/footer');
 	}
-
-
 
 	public function tambahKecamatan()
 	{
@@ -128,11 +125,4 @@ class Kecamatan extends CI_Controller
 			redirect('kecamatan/editKecamatan');
 		}
 	}
-
-	// public function hapusKecamatan()
-	// {
-	//     $where = ['id_kecamatan' => $this->uri->segment(3)];
-	//     $this->ModelKecamatan->hapusKecamatan($where);	
-	//     redirect('kecamatan');
-	// }
 }

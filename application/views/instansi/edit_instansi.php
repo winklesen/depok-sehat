@@ -16,7 +16,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body m-3">
-                        <h5 class="card-title p-0"></h5>
+                        <h5 class="card-title p-0">Edit Data Instansi Kesehatan</h5>
 
                         <form id="editForm" action="<?= base_url('InstansiKesehatan/updateInstansi') ?>" method="post" enctype="multipart/form-data">
 

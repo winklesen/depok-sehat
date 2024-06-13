@@ -17,7 +17,6 @@ class RekamMedis extends CI_Controller
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 
 		$data['rekam_medis'] = $this->ModelRekamMedis->getRekamMedis($data['user']['id_instansi']);
-		// var_dump($data['rekam_medis']); exit;
 
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);

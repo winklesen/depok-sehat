@@ -4,7 +4,7 @@
       &copy; Copyright <strong><span>Depok Sehat</span></strong>. All Rights Reserved
     </div>
     <div class="credits">      
-      Designed by <a href="">Kelompok ?</a>
+      Designed by <a href="">Kelompok 5</a>
     </div>
   </footer><!-- End Footer -->
 

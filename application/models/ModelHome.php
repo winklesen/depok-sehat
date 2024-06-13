@@ -3,20 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class ModelHome extends CI_Model
 {
-
-  // public function penyakitTrending() {
-  //     $this->db->select('kecamatan.id_kecamatan, pasien.id_pasien, penyakit.*,rekam_medis.id_penyakit, COUNT(rekam_medis.id_penyakit) as total');
-  //     $this->db->group_by('rekam_medis.id_penyakit');
-  //     $this->db->order_by('total', 'DESC');
-  //     $this->db->where('rekam_medis.tanggal_pemeriksaan >=', date('Y-m-d', strtotime('-1 month')));
-  //     $this->db->join('penyakit', 'rekam_medis.id_penyakit = penyakit.id_penyakit');
-  //     $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien');
-  //     $this->db->join('kecamatan', 'pasien.id_kecamatan = kecamatan.id_kecamatan');
-  //     $this->db->limit(3); // Ambil 3 jenis penyakit terbanyak
-  //     $query = $this->db->get('rekam_medis');
-  //     return $query->result();
-  // }
-
   public function getKecamatanList()
   {
     $query = $this->db->get('kecamatan');

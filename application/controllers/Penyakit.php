@@ -18,15 +18,6 @@ class Penyakit extends CI_Controller
 		// Get Data Penyakit
 		$data['penyakit'] = $this->ModelPenyakit->getPenyakit()->result_array();
 
-		// TODO (Med)
-		// - Add Penyakit (Rich Text Editor)
-		//   Referensi :
-		//     - https://www.petanikode.com/codeigniter-quilljs/
-		//     - tinymce 
-		//     - Textarea WYSIWYG editor
-		// - Edit Penyakit
-		// - Delete Penyakit
-
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
@@ -76,13 +67,6 @@ class Penyakit extends CI_Controller
 				'label' => 'Info Pengobatan',
 				'rules' => 'required'
 			],
-			// [
-			// 	'gambar_penyakit',
-			// 	'Gambar Penyakit',
-			// 	'required', [
-			// 		'required' => 'Gambar Penyakit harus diisi',
-			// 	]
-			// ],
 		];
 		$this->form_validation->set_rules($rules);
 
@@ -134,9 +118,6 @@ class Penyakit extends CI_Controller
 				redirect('Penyakit/addPenyakit');
 			}
 		}
-
-
-
 	}
 
 	public function editPenyakit($id)

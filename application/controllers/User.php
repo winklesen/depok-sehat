@@ -67,11 +67,6 @@ class User extends CI_Controller
                 'label' => 'Password',
                 'rules' => 'required'
             ],
-            // [
-            //     'field' => 'role_id',
-            //     'label' => 'Role Id',
-            //     'rules' => 'required'
-            // ],
             [
                 'field' => 'id_instansi',
                 'label' => 'Id Instansi',
