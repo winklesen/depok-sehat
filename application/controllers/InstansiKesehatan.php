@@ -19,11 +19,6 @@ class InstansiKesehatan extends CI_Controller
 		// Get Data Instansi
 		$data['instansi'] = $this->ModelInstansiKesehatan->getInstansiKesehatanJoinKecamatan()->result_array();
 
-		// TODO (Easy)
-		// - Add Instansi
-		// - Edit Instansi
-		// - Delete Instansi
-
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);

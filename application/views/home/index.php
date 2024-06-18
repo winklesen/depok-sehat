@@ -71,13 +71,17 @@
                         Filter Kecamatan
                     </button>
                     <div id="dropdownKecamatan" class="dropdown-content">
+                        <a href="<?= base_url('home/') ?>">
+                            -
+                        </a>
                         <?php foreach ($kecamatan_list as $kecamatan) { ?>
-                            <a href="
-                            <?= base_url('home/filterKecamatan/') . $kecamatan->id_kecamatan ?>">
-                                <?= $kecamatan->nama_kecamatan ?></a>
+                            <a href="<?= base_url('home/filterKecamatan/') . $kecamatan->id_kecamatan ?>">
+                                <?= $kecamatan->nama_kecamatan ?>
+                            </a>
                         <?php } ?>
                     </div>
                 </div>
+
             </div>
             <?php foreach ($most_common_diseases as $disease) { ?>
                 <div class="col-md-4 mt-4">
