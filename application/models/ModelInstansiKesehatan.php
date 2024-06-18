@@ -130,6 +130,4 @@ class ModelInstansiKesehatan extends CI_Model
         $this->db->join('kecamatan', 'instansi_kesehatan.id_kecamatan = kecamatan.id_kecamatan');
         return $this->db->get();
     }
-    
-
 }

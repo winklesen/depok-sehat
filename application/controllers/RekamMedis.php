@@ -21,7 +21,7 @@ class RekamMedis extends CI_Controller
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
-		$this->load->view('rekam-medis/rekam-medis', $data);
+		$this->load->view('rekam_medis/index', $data);
 		$this->load->view('templates/admin/footer');
 	}
 
@@ -36,7 +36,7 @@ class RekamMedis extends CI_Controller
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
-		$this->load->view('rekam-medis/tambah_rekam_medis', $data);
+		$this->load->view('rekam_medis/tambah_rekam_medis', $data);
 		$this->load->view('templates/admin/footer');
 	}
 

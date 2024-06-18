@@ -18,7 +18,7 @@ class InstansiKesehatan extends CI_Controller
 
 		// Get Data Instansi
 		$data['instansi'] = $this->ModelInstansiKesehatan->getInstansiKesehatanJoinKecamatan()->result_array();
-		
+
 		// TODO (Easy)
 		// - Add Instansi
 		// - Edit Instansi
@@ -189,7 +189,7 @@ class InstansiKesehatan extends CI_Controller
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() != true) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
-			redirect('InstansiKesehatan/editInstansi/'.$data['id_instansi']);
+			redirect('InstansiKesehatan/editInstansi/' . $data['id_instansi']);
 		}
 
 

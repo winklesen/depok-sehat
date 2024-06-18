@@ -58,6 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
+// Menambahkan library yang diperlukan
 $autoload['libraries'] = array('form_validation', 'session', 'database');
 
 /*
@@ -132,4 +133,5 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('ModelUser', 'ModelPasien', 'ModelPenyakit', 'ModelInstansiKesehatan','ModelKecamatan', 'ModelRekamMedis', 'ModelDashboard', 'ModelHome');
+// Menambahkan model model database
+$autoload['model'] = array('ModelUser', 'ModelPasien', 'ModelPenyakit', 'ModelInstansiKesehatan', 'ModelKecamatan', 'ModelRekamMedis', 'ModelDashboard', 'ModelHome');

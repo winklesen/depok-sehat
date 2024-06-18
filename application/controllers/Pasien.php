@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pasien extends CI_Controller
@@ -53,27 +53,27 @@ class Pasien extends CI_Controller
 			'created_at' => null,
 		);
 
-		$rules = [	
+		$rules = [
 			[
 				'field' => 'nama', //<- ini mengikuti nama input di form
 				'label' => 'Nama Pasien',
 				'rules' => 'required'
-			],	
+			],
 			[
 				'field' => 'tanggal_lahir', //<- ini mengikuti nama input di form
 				'label' => 'Tanggal Lahir Pasien',
 				'rules' => 'required'
-			],		
+			],
 			[
 				'field' => 'info_kontak', //<- ini mengikuti nama input di form
 				'label' => 'Info Kontak Pasien',
 				'rules' => 'required'
-			],	
+			],
 			[
 				'field' => 'alamat', //<- ini mengikuti nama input di form
 				'label' => 'Alamat Pasien',
 				'rules' => 'required'
-			],	
+			],
 		];
 		$this->form_validation->set_rules($rules);
 
@@ -125,27 +125,27 @@ class Pasien extends CI_Controller
 			'created_at' => null,
 		);
 
-		$rules = [	
+		$rules = [
 			[
 				'field' => 'nama', //<- ini mengikuti nama input di form
 				'label' => 'Nama Pasien',
 				'rules' => 'required'
-			],	
+			],
 			[
 				'field' => 'tanggal_lahir', //<- ini mengikuti nama input di form
 				'label' => 'Tanggal Lahir Pasien',
 				'rules' => 'required'
-			],		
+			],
 			[
 				'field' => 'info_kontak', //<- ini mengikuti nama input di form
 				'label' => 'Info Kontak Pasien',
 				'rules' => 'required'
-			],	
+			],
 			[
 				'field' => 'alamat', //<- ini mengikuti nama input di form
 				'label' => 'Alamat Pasien',
 				'rules' => 'required'
-			],	
+			],
 		];
 		$this->form_validation->set_rules($rules);
 

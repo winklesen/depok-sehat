@@ -17,8 +17,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="d-flex justify-content-start mt-2 mb-4">
-                    <a href="<?= base_url('pasien/tambahpasien') ?>" class="btn btn-success">Tambah Data
-                        Pasien</a>
+                    <a href="<?= base_url('pasien/tambahpasien') ?>" class="btn btn-success">Tambah Data</a>
                 </div>
                 <div class="card">
                     <div class="card-body">

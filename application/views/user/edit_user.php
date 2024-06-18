@@ -46,7 +46,7 @@
                                     <option value="<?= $user['id_instansi'] ?>" selected>Pilih Instansi Kesehatan</option>
                                     <?php foreach ($list_instansi as $instansi) { ?>
                                         <option value="<?= $instansi['id_instansi'] ?>">
-                                        <?= $instansi['nama_instansi'] ?>
+                                            <?= $instansi['nama_instansi'] ?>
                                         </option>
                                     <?php } ?>
                                 </select>

@@ -17,18 +17,17 @@
                     </thead>
                     <tbody>
                         <?php foreach ($instansi as $key => $p) { ?>
-                        <tr>
-                            <th scope="row"><?= $key + 1 ?></th>
-                            <td><?= $p['nama_instansi'] ?></td>
-                            <td><?= $p['tipe'] ?></td>
-                            <td><?= $p['alamat'] ?></td>
-                            <td><?= $p['kontak'] ?></td>
-                            <td><?= $p['nama_kecamatan'] ?></td>
-                        </tr>
+                            <tr>
+                                <th scope="row"><?= $key + 1 ?></th>
+                                <td><?= $p['nama_instansi'] ?></td>
+                                <td><?= $p['tipe'] ?></td>
+                                <td><?= $p['alamat'] ?></td>
+                                <td><?= $p['kontak'] ?></td>
+                                <td><?= $p['nama_kecamatan'] ?></td>
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>
-                <!-- End Table with hoverable rows -->
             </div>
         </div>
     </div>

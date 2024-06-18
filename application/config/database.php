@@ -4,11 +4,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+// Konfigurasi Database
 $db['default'] = array(
 	'dsn' => '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => '',
+	'password' => '123',
 	'database' => 'bsi_depok_sehat',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

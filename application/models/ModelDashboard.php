@@ -86,6 +86,4 @@ class ModelDashboard extends CI_Model
 
     return $topDiseases;
   }
-
 }
-

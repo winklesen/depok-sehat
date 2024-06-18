@@ -93,5 +93,4 @@ class ModelHome extends CI_Model
     // Logika untuk mendapatkan total revenue (jumlah instansi kesehatan)
     return $this->db->count_all('kecamatan');
   }
-
 }

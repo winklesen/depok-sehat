@@ -28,14 +28,11 @@
                                     <li class="dropdown-header text-start">
                                         <h6>Filter</h6>
                                     </li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url('admin?pasienFilter=Today'); ?>">Today</a>
+                                    <li><a class="dropdown-item" href="<?= base_url('admin?pasienFilter=Today'); ?>">Today</a>
                                     </li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url('admin?pasienFilter=This Month'); ?>">This
+                                    <li><a class="dropdown-item" href="<?= base_url('admin?pasienFilter=This Month'); ?>">This
                                             Month</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url('admin?pasienFilter=This Year'); ?>">This
+                                    <li><a class="dropdown-item" href="<?= base_url('admin?pasienFilter=This Year'); ?>">This
                                             Year</a></li>
                                 </ul>
                             </div>
@@ -44,8 +41,7 @@
                                 <h5 class="card-title">Pasien <span>| <?= $selected_pasien_filter; ?></span></h5>
 
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-person"></i>
                                     </div>
                                     <div class="ps-3">
@@ -64,8 +60,7 @@
                                 <h5 class="card-title">Instansi Kesehatan</h5>
 
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-currency-dollar"></i>
                                     </div>
                                     <div class="ps-3">
@@ -86,14 +81,11 @@
                                     <li class="dropdown-header text-start">
                                         <h6>Filter</h6>
                                     </li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url('admin?rekamMedisFilter=Today'); ?>">Today</a>
+                                    <li><a class="dropdown-item" href="<?= base_url('admin?rekamMedisFilter=Today'); ?>">Today</a>
                                     </li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url('admin?rekamMedisFilter=This Month'); ?>">This
+                                    <li><a class="dropdown-item" href="<?= base_url('admin?rekamMedisFilter=This Month'); ?>">This
                                             Month</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url('admin?rekamMedisFilter=This Year'); ?>">This
+                                    <li><a class="dropdown-item" href="<?= base_url('admin?rekamMedisFilter=This Year'); ?>">This
                                             Year</a></li>
                                 </ul>
                             </div>
@@ -103,8 +95,7 @@
                                 </h5>
 
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-file-medical"></i>
                                     </div>
                                     <div class="ps-3">
@@ -128,13 +119,10 @@
                                     <li class="dropdown-header text-start">
                                         <h6>Filter</h6>
                                     </li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url('admin?listRekamMedisFilter=Today'); ?>">Today</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url('admin?listRekamMedisFilter=This Month'); ?>">This
+                                    <li><a class="dropdown-item" href="<?= base_url('admin?listRekamMedisFilter=Today'); ?>">Today</a></li>
+                                    <li><a class="dropdown-item" href="<?= base_url('admin?listRekamMedisFilter=This Month'); ?>">This
                                             Month</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="<?= base_url('admin?listRekamMedisFilter=This Year'); ?>">This
+                                    <li><a class="dropdown-item" href="<?= base_url('admin?listRekamMedisFilter=This Year'); ?>">This
                                             Year</a></li>
                                 </ul>
                             </div>
@@ -156,7 +144,7 @@
                                     </thead>
                                     <tbody>
                                         <!-- Data rekam medis akan ditampilkan di sini -->
-                                        <?php foreach ($rekam_medis as $data): ?>
+                                        <?php foreach ($rekam_medis as $data) : ?>
                                             <tr>
                                                 <th scope="row"><?= $data['id_rekam_medis']; ?></th>
                                                 <td><?= $data['nama_pasien']; ?></td>

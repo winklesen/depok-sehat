@@ -7,7 +7,8 @@ class ModelPasien extends CI_Model
         return $this->db->get('pasien');
     }
 
-    public function getLastIdPasien(){
+    public function getLastIdPasien()
+    {
         // Mendapatkan ID pasien terakhir dari database
         $this->db->select('id_pasien');
         $this->db->order_by('id_pasien', 'DESC');
@@ -31,7 +32,7 @@ class ModelPasien extends CI_Model
         return $newIdPasien;
     }
 
-    
+
     public function simpanPasienIncrement($data = null)
     {
         // Mendapatkan ID pasien terakhir dari database
@@ -61,7 +62,7 @@ class ModelPasien extends CI_Model
         // Memasukkan data ke dalam database
         return $this->db->insert('pasien', $data);
     }
-    
+
     public function pasienWhere($where)
     {
         return $this->db->get_where('pasien', $where);
