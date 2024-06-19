@@ -38,9 +38,16 @@ class Home extends CI_Controller
     public function filterKecamatan($id_kecamatan) {
         // Ambil data penyakit berdasarkan kecamatan yang dipilih
         $data['most_common_diseases'] = $this->ModelHome->getDiseasesByKecamatan($id_kecamatan);
+        $data['total_kecamatan'] = $this->ModelHome->getTotalKecamatan();
+        $data['total_instansi'] = $this->ModelHome->getTotalInstansi();
+        $data['total_pasien'] = $this->ModelHome->getTotalPatients();
         
         // Ambil data kecamatan
         $data['kecamatan_list'] = $this->ModelHome->getKecamatanList();
+
+        $data['jumlah_rumah_sakit'] = count($this->ModelHome->getInstansiByTipe('Rumah Sakit'));
+        $data['jumlah_puskesmas'] = count($this->ModelHome->getInstansiByTipe('Puskesmas'));
+        $data['jumlah_klinik'] = count($this->ModelHome->getInstansiByTipe('Klinik'));
         
         $data['judul'] = 'Home';
         $data['kecamatan_name'] = $this->ModelHome->getKecamatanName($id_kecamatan);
