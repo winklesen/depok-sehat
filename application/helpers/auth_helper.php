@@ -41,7 +41,7 @@ function cek_petugas()
     $ci = get_instance();
     $role_id = $ci->session->userdata('role_id');
     if ($role_id != 1) {
-        $ci->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Anda tidak diizinkan untuk mengakses Halaman Admin</div>');
+        $ci->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Anda tidak diizinkan untuk mengakses Halaman Petugas Instansi</div>');
         redirect('admin');
     }
 }

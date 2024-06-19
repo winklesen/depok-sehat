@@ -8,6 +8,7 @@ class RekamMedis extends CI_Controller
 		parent::__construct();
 		cek_login();
 		cek_user();
+		cek_petugas();
 		error_reporting(0);
 	}
 
@@ -27,7 +28,7 @@ class RekamMedis extends CI_Controller
 
 	public function tambahRekamMedis()
 	{
-		cek_petugas();
+		
 		$data['judul'] = 'Tambah Rekam Medis';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['list_pasien'] = $this->ModelPasien->getAllPasien();

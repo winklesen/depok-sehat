@@ -21,7 +21,7 @@
         </a>
       </li>
     <?php } ?>
-    <?php if ($user['role_id'] == 2 || $user['role_id'] == 1) { ?>
+    <?php if ($user['role_id'] == 1) { ?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?= base_url('rekamMedis'); ?>">
           <i class="fa-solid fa-file-medical"></i>
