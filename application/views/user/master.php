@@ -10,6 +10,7 @@
             </ol>
         </nav>
     </div><!-- End Page Title -->
+
     <?= $this->session->flashdata('pesan'); ?>
 
     <section class="section">
@@ -21,8 +22,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Master <?= $judul; ?></h5>
-                        <!-- <a href="<?= base_url('user/tambahUser') ?>" class="btn btn-success mt-2 mb-3">Tambah User</a> -->
-
                         <!-- Table with hoverable rows -->
                         <table class="table datatable table-hover">
                             <thead>

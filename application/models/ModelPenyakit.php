@@ -11,7 +11,8 @@ class ModelPenyakit extends CI_Model
         return $this->db->get_where('penyakit', $where);
     }
 
-    public function getLastIdPenyakit(){
+    public function getLastIdPenyakit()
+    {
         // Mendapatkan ID penyakit terakhir dari database
         $this->db->select('id_penyakit');
         $this->db->order_by('id_penyakit', 'DESC');

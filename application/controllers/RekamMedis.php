@@ -8,6 +8,7 @@ class RekamMedis extends CI_Controller
 		parent::__construct();
 		cek_login();
 		cek_user();
+		cek_petugas();
 		error_reporting(0);
 	}
 
@@ -21,13 +22,13 @@ class RekamMedis extends CI_Controller
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
-		$this->load->view('rekam-medis/rekam-medis', $data);
+		$this->load->view('rekam_medis/index', $data);
 		$this->load->view('templates/admin/footer');
 	}
 
 	public function tambahRekamMedis()
 	{
-		cek_petugas();
+		
 		$data['judul'] = 'Tambah Rekam Medis';
 		$data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 		$data['list_pasien'] = $this->ModelPasien->getAllPasien();
@@ -36,7 +37,7 @@ class RekamMedis extends CI_Controller
 		$this->load->view('templates/admin/header', $data);
 		$this->load->view('templates/admin/sidebar', $data);
 		$this->load->view('templates/admin/topbar', $data);
-		$this->load->view('rekam-medis/tambah_rekam_medis', $data);
+		$this->load->view('rekam_medis/tambah_rekam_medis', $data);
 		$this->load->view('templates/admin/footer');
 	}
 

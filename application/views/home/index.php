@@ -11,9 +11,7 @@
                             <p>Pantau Data Real Time total penyakit trending di Kota Depok.</p>
                             <a href="#trendingpenyakit">Lihat</a>
                         </div>
-                        <div class="col-md-5 col-12 order-md-2 order-1"><img
-                                src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto"
-                                alt="slide"></div>
+                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto" alt="slide"></div>
                     </div>
                 </div>
             </div>
@@ -27,9 +25,7 @@
                             <p>Pahami informasi mengenai penyakit yang sedang trending di Kota Depok.</p>
                             <a href="#">Lihat</a>
                         </div>
-                        <div class="col-md-5 col-12 order-md-2 order-1"><img
-                                src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto"
-                                alt="slide"></div>
+                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto" alt="slide"></div>
                     </div>
                 </div>
             </div>
@@ -44,18 +40,13 @@
                             <p>Tersedia informasi Insantsi Kesehatan di Kota Depok</p>
                             <a href="#instansikesehatan">Lihat</a>
                         </div>
-                        <div class="col-md-5 col-12 order-md-2 order-1"><img
-                                src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto"
-                                alt="slide"></div>
+                        <div class="col-md-5 col-12 order-md-2 order-1"><img src="<?= base_url('assets/'); ?>img/undraw_medical_care_movn.svg" class="mx-auto" alt="slide"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span
-            class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a
-        class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span
-            class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
 </div>
 <!--slide end-->
 
@@ -80,43 +71,46 @@
                         Filter Kecamatan
                     </button>
                     <div id="dropdownKecamatan" class="dropdown-content">
+                        <a href="<?= base_url('home/') ?>">
+                            -
+                        </a>
                         <?php foreach ($kecamatan_list as $kecamatan) { ?>
-                            <a
-                                        href="
-                            <?= base_url('home/filterKecamatan/') . $kecamatan->id_kecamatan ?>">
-                                <?= $kecamatan->nama_kecamatan ?></a>
-                            <?php } ?>
+                            <a href="<?= base_url('home/filterKecamatan/') . $kecamatan->id_kecamatan ?>">
+                                <?= $kecamatan->nama_kecamatan ?>
+                            </a>
+                        <?php } ?>
+                    </div>
                 </div>
-            </div>
+
             </div>
             <?php foreach ($most_common_diseases as $disease) { ?>
                 <div class="col-md-4 mt-4">
-                        <a href=" <?= base_url('home/detailpenyakit/') . $disease->id_penyakit ?>" class="link-dark">
-                    <div class="card">
-                        <div class="card-body text-center">
-                                    <h3 class=" card-title">
-                            <?= $disease->nama_penyakit ?>
-                            </h3>
-                            <div class="row justify-content-center">
-                                <div class="col-1">
-                                    <div class="card-icon">
-                                        <i class="fas fa-hospital"></i>
+                    <a href=" <?= base_url('home/detailpenyakit/') . $disease->id_penyakit ?>" class="link-dark">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h3 class=" card-title">
+                                    <?= $disease->nama_penyakit ?>
+                                </h3>
+                                <div class="row justify-content-center">
+                                    <div class="col-1">
+                                        <div class="card-icon">
+                                            <i class="fas fa-hospital"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-5">
-                                    <h3 class="card-text-number">
-                                        <?= $disease->total ?>
-                                    </h3>
-                                    <h5 class="card-text">Pasien</h5>
+                                    <div class="col-5">
+                                        <h3 class="card-text-number">
+                                            <?= $disease->total ?>
+                                        </h3>
+                                        <h5 class="card-text">Pasien</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </a>
-                        </div>
-                <?php } ?>
-            </div>
+                </div>
+            <?php } ?>
         </div>
+    </div>
 </section>
 
 <!-- Waspada Section -->
@@ -288,8 +282,8 @@
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('filterButton').addEventListener('click', function () {
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('filterButton').addEventListener('click', function() {
             document.getElementById('dropdownKecamatan').classList.toggle('show');
         });
     });

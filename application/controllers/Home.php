@@ -9,6 +9,13 @@ class Home extends CI_Controller
         error_reporting(0);
     }
 
+    public function notFound()
+    {
+        $this->load->view('autentifikasi/blok');
+
+    }
+
+
     public function index()
     {
         $data['judul'] = 'Home';
@@ -35,7 +42,8 @@ class Home extends CI_Controller
         $this->load->view('templates/user/footer');
     }
 
-    public function filterKecamatan($id_kecamatan) {
+    public function filterKecamatan($id_kecamatan)
+    {
         // Ambil data penyakit berdasarkan kecamatan yang dipilih
         $data['most_common_diseases'] = $this->ModelHome->getDiseasesByKecamatan($id_kecamatan);
         $data['total_kecamatan'] = $this->ModelHome->getTotalKecamatan();
@@ -51,7 +59,7 @@ class Home extends CI_Controller
         
         $data['judul'] = 'Home';
         $data['kecamatan_name'] = $this->ModelHome->getKecamatanName($id_kecamatan);
-        
+
         // Load views dengan data yang telah difilter
         $this->load->view('templates/user/header', $data);
         $this->load->view('templates/user/navbar');
@@ -59,14 +67,15 @@ class Home extends CI_Controller
         $this->load->view('templates/user/footer');
     }
 
-    public function listInstansi() {
+    public function listInstansi()
+    {
         $data['judul'] = 'List Instansi';
         $data['instansi'] = $this->ModelHome->getInstansiKesehatanJoinKecamatan()->result_array();
 
         $this->load->view('templates/user/header', $data);
         $this->load->view('templates/user/navbar');
-        $this->load->view('home/list_instansi', $data);          
-        $this->load->view('templates/user/footer');    
+        $this->load->view('home/list_instansi', $data);
+        $this->load->view('templates/user/footer');
     }
 
 
@@ -80,8 +89,6 @@ class Home extends CI_Controller
         $this->load->view('templates/user/navbar');
         $this->load->view('home/about');
         $this->load->view('templates/user/footer');
-
-
     }
 
     public function get_nama_penyakit()

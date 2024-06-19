@@ -51,7 +51,7 @@ class Kecamatan extends CI_Controller
 				'field' => 'nama_kecamatan', //<- ini mengikuti nama input di form
 				'label' => 'Nama Kecamatan',
 				'rules' => 'required'
-			],			
+			],
 		];
 		$this->form_validation->set_rules($rules);
 
@@ -101,7 +101,7 @@ class Kecamatan extends CI_Controller
 
 		$rules = [
 			[
-				'field' => 'nama_kecamatan', 
+				'field' => 'nama_kecamatan',
 				'label' => 'Nama Kecamatan',
 				'rules' => 'required'
 			]
@@ -109,7 +109,7 @@ class Kecamatan extends CI_Controller
 		$this->form_validation->set_rules($rules);
 		if ($this->form_validation->run() != true) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">' . validation_errors() . '</div>');
-			redirect('kecamatan/editkecamatan/'.$data['id_kecamatan']);
+			redirect('kecamatan/editkecamatan/' . $data['id_kecamatan']);
 		}
 
 		// Panggil model untuk melakukan update data

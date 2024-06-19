@@ -21,14 +21,16 @@
         </a><!-- End Profile Iamge Icon -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          
+          <!-- Tampilan sesuai role id -->
           <li class="dropdown-header">
             <h6><?= $user['nama']; ?></h6>
             <span>
-                <?php if ($user['role_id'] == 1): ?>
-                    Petugas Instansi
-                <?php elseif ($user['role_id'] == 2) :?>
-                    Admin
-                <?php endif; ?>
+              <?php if ($user['role_id'] == 1) : ?>
+                Petugas Instansi
+              <?php elseif ($user['role_id'] == 2) : ?>
+                Admin
+              <?php endif; ?>
             </span>
           </li>
           <li>

@@ -2,7 +2,7 @@
 <div class="main-container container ">
     <div class="row">
         <div class="col-6">
-                
+
             <h2 class="mt-5">Daftar Penyakit</h2>
             <p>Kami menyediakan data real time, dan transparan mengenai penyakit di kota depok</p>
             <hr>
@@ -14,7 +14,7 @@
                     <div id="nama_penyakit_error" class="text-danger"></div> <!-- Menampilkan pesan error -->
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="submit">Cari</button> <!-- Tombol pencarian -->
-                    </div>  
+                    </div>
                 </div>
             </form>
             <div class="mt-3">
@@ -36,38 +36,37 @@
 
 
 <script>
-  $(function() {
-    // Autocompletion untuk input penyakit
-    $("#nama_penyakit").autocomplete({
-        source: function(request, response) {
-            console.log('Requesting penyakit data with term:', request.term); // Debugging line
-            $.ajax({
-                url: "<?= base_url('Home/get_nama_penyakit') ?>",
-                dataType: "json",
-                data: {
-                    term: request.term
-                },
-                success: function(data) {
-                    console.log('Received penyakit data:', data); // Debugging line
-                    response($.map(data, function(item) {
-                        return {
-                            label: item.nama_penyakit, // Menampilkan nama penyakit sebagai label dropdown
-                            value: item.nama_penyakit, // Menetapkan nilai input ke nama penyakit yang dipilih
-                            id_penyakit: item.id_penyakit // Menyimpan ID penyakit yang dipilih
-                        };
-                    }));
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Error fetching penyakit data: ", textStatus, errorThrown); // Debugging line
-                }
-            });
-        },
-        minLength: 2,
-        autoFocus: true, // Membuat dropdown muncul secara otomatis saat input mendapatkan fokus
-        select: function(event, ui) {
-            $("#id_penyakit").val(ui.item.id_penyakit); // Set nilai ID penyakit
-        }
+    $(function() {
+        // Autocompletion untuk input penyakit
+        $("#nama_penyakit").autocomplete({
+            source: function(request, response) {
+                console.log('Requesting penyakit data with term:', request.term); // Debugging line
+                $.ajax({
+                    url: "<?= base_url('Home/get_nama_penyakit') ?>",
+                    dataType: "json",
+                    data: {
+                        term: request.term
+                    },
+                    success: function(data) {
+                        console.log('Received penyakit data:', data); // Debugging line
+                        response($.map(data, function(item) {
+                            return {
+                                label: item.nama_penyakit, // Menampilkan nama penyakit sebagai label dropdown
+                                value: item.nama_penyakit, // Menetapkan nilai input ke nama penyakit yang dipilih
+                                id_penyakit: item.id_penyakit // Menyimpan ID penyakit yang dipilih
+                            };
+                        }));
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error("Error fetching penyakit data: ", textStatus, errorThrown); // Debugging line
+                    }
+                });
+            },
+            minLength: 2,
+            autoFocus: true, // Membuat dropdown muncul secara otomatis saat input mendapatkan fokus
+            select: function(event, ui) {
+                $("#id_penyakit").val(ui.item.id_penyakit); // Set nilai ID penyakit
+            }
+        });
     });
-});
-
 </script>
