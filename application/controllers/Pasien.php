@@ -44,7 +44,7 @@ class Pasien extends CI_Controller
 	public function createPasien()
 	{
 		$data = array(
-			// 'id_pasien' => $this->input->post('id_pasien'),
+			'id_pasien' => $this->input->post('id_pasien'),
 			'nama' => $this->input->post('nama'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'info_kontak' => $this->input->post('info_kontak'),
@@ -54,6 +54,11 @@ class Pasien extends CI_Controller
 		);
 
 		$rules = [
+			[
+				'field' => 'id_pasien', //<- ini mengikuti nama input di form
+				'label' => 'NIK Pasien',
+				'rules' => 'required'
+			],
 			[
 				'field' => 'nama', //<- ini mengikuti nama input di form
 				'label' => 'Nama Pasien',
