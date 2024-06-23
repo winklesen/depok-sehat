@@ -20,7 +20,7 @@
                         <form id="editForm" action="<?= base_url('pasien/updatePasien') ?>" method="post">
 
                             <div class="form-group mb-2">
-                                <label for="id_pasien" class="mr-2">ID Pasien:</label>
+                                <label for="id_pasien" class="mr-2">NIK Pasien:</label>
                                 <input type="text" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien'] ?>" disabled>
                                 <input type="hidden" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien'] ?>">
                             </div>
