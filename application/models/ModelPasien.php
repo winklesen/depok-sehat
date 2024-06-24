@@ -41,24 +41,24 @@ class ModelPasien extends CI_Model
         $this->db->limit(1);
         $query = $this->db->get('pasien');
 
-        // Jika tidak ada data pasien, kita mulai dengan nomor 1
-        if ($query->num_rows() == 0) {
-            $newIdPasien = 'PS00000001';
-        } else {
-            $lastId = $query->row()->id_pasien;
-            // Mendapatkan bagian numerik dari ID pasien terakhir
-            $numericPart = intval(substr($lastId, 2));
+        // // Jika tidak ada data pasien, kita mulai dengan nomor 1
+        // if ($query->num_rows() == 0) {
+        //     $newIdPasien = 'PS00000001';
+        // } else {
+        //     $lastId = $query->row()->id_pasien;
+        //     // Mendapatkan bagian numerik dari ID pasien terakhir
+        //     $numericPart = intval(substr($lastId, 2));
 
-            // Menambahkan 1 ke bagian numerik
-            $newNumericPart = $numericPart + 1;
+        //     // Menambahkan 1 ke bagian numerik
+        //     $newNumericPart = $numericPart + 1;
 
-            // Membuat ID pasien baru
-            $newIdPasien = 'PS' . str_pad($newNumericPart, 8, '0', STR_PAD_LEFT);
-        }
+        //     // Membuat ID pasien baru
+        //     $newIdPasien = 'PS' . str_pad($newNumericPart, 8, '0', STR_PAD_LEFT);
+        // }
 
-        // Menambahkan ID pasien baru ke dalam data
-        $data['id_pasien'] = $newIdPasien;
-
+        // // Menambahkan ID pasien baru ke dalam data
+        // $data['id_pasien'] = $newIdPasien;
+        
         // Memasukkan data ke dalam database
         return $this->db->insert('pasien', $data);
     }
