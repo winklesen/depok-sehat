@@ -174,6 +174,14 @@ class Pasien extends CI_Controller
 		}
 	}
 
+	public function hapusPasien($id)
+	{
+		$where = ['id_pasien' => $this->uri->segment(3)];
+		$this->ModelPasien->hapusPasien($where);
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil dihapus</div>');
+		redirect('pasien');
+	}
+
 	public function searchPasien()
 	{
 

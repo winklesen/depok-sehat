@@ -125,4 +125,12 @@ class Kecamatan extends CI_Controller
 			redirect('kecamatan/editKecamatan');
 		}
 	}
+
+	public function hapusKecamatan($id)
+	{
+		$where = ['id_kecamatan' => $this->uri->segment(3)];
+		$this->ModelKecamatan->hapusKecamatan($where);
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil dihapus</div>');
+		redirect('kecamatan');
+	}
 }

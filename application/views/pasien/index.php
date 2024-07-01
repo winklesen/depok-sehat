@@ -48,6 +48,7 @@
                                         <td><?= $p['nama_kecamatan'] ?></td>
                                         <td>
                                             <a href="<?= base_url('pasien/editpasien/' . $p['id_pasien']) ?>" class="btn btn-primary">Edit</a>
+                                            <a href="<?= base_url('pasien/hapuspasien/' . $p['id_pasien']) ?>" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 <?php } ?>

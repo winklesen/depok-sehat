@@ -13,7 +13,7 @@
         </a>
       </li>
     <?php } ?>
-    <?php if ($user['role_id'] == 2 || $user['role_id'] == 1) { ?>
+    <?php if ( $user['role_id'] == 1) { ?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?= base_url('pasien'); ?>">
           <i class="fa-solid fa-hospital-user"></i>
@@ -29,7 +29,7 @@
         </a>
       </li>
     <?php } ?>
-    <?php if ($user['role_id'] == 2 || $user['role_id'] == 1) { ?>
+    <?php if ($user['role_id'] == 1) { ?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?= base_url('penyakit'); ?>">
           <i class="fa-solid fa-virus"></i>

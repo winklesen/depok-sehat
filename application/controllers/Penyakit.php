@@ -217,4 +217,11 @@ class Penyakit extends CI_Controller
 			}
 		}
 	}
+	public function hapusPenyakit($id)
+	{
+		$where = ['id_penyakit' => $this->uri->segment(3)];
+		$this->ModelPenyakit->hapusPenyakit($where);
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Data berhasil dihapus</div>');
+		redirect('penyakit');
+	}
 }

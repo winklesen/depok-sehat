@@ -39,7 +39,7 @@
                                         <td><?= $k['nama_kecamatan'] ?></td>
                                         <td>
                                             <a href="<?= base_url('kecamatan/editkecamatan/' . $k['id_kecamatan']) ?>" class="btn btn-primary">Edit</a>
-                                            <!-- <a href="<?= base_url('kecamatan/hapuskecamatan/') . $k['id_kecamatan']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $s['nama_kecamatan']; ?> ?');" class="btn btn-danger"> Hapus</a> -->
+                                            <a href="<?= base_url('kecamatan/hapuskecamatan/') . $k['id_kecamatan']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $k['nama_kecamatan']; ?> ?');" class="btn btn-danger"> Hapus</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
